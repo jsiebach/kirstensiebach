@@ -10,7 +10,11 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
-        "laravel/tinker": "^2.5"
+        "laravel/nova": "~3.0",
+        "laravel/tinker": "^2.5",
+        "mdixon18/fontawesome": "^0.2.1",
+        "optimistdigital/nova-sortable": "^2.2",
+        "tightenco/nova-google-analytics": "^0.1.7"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -42,6 +46,9 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan nova:publish"
         ]
     },
     "extra": {
@@ -61,5 +68,5 @@
             "type": "composer",
             "url": "https://nova.laravel.com"
         }
-    ],
+    ]
 }
