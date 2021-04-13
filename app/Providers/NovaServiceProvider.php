@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Page;
 use Giuga\LaravelNovaSidebar\NovaSidebar;
 use Giuga\LaravelNovaSidebar\SidebarGroup;
 use Giuga\LaravelNovaSidebar\SidebarLink;
@@ -92,16 +93,19 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function tools()
     {
+        $pages = Page::all();
+
+        $sidebarGroup = (new SidebarGroup())
+            ->setName('Pages');
+
+        $pages->each(fn($page) => $sidebarGroup->addLink((new SidebarLink())
+            ->setName($page->title)
+            ->setType('_self')
+            ->setUrl("/admin/resources/{$page->slug}/{$page->id}")));
+
         return [
             (new NovaSidebar())
-                ->addGroup((new SidebarGroup())
-                    ->setName('Pages')
-                    ->addLink((new SidebarLink())
-                        ->setName('Home')
-                        ->setType('_self')
-                        ->setUrl('/admin/resources/home/1')
-                    )
-                ),
+                ->addGroup($sidebarGroup),
             new NovaSettings
         ];
     }

@@ -1,14 +1,17 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Pages;
 
+use App\Traits\HasSlug;
+use App\Models\Page;
+use App\Models\SocialLink;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class HomePage extends Page
 {
-    use HasFactory;
+    use HasFactory, HasSlug;
 
     public $with = ['socialLinks'];
 

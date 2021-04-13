@@ -14,8 +14,6 @@ class Page extends Model
 
     public $table = 'pages';
 
-    public static $slug = 'home';
-
     public $casts = [
         'content' => SchemalessAttributes::class,
     ];
@@ -33,13 +31,6 @@ class Page extends Model
     public function scopeWithContent(): Builder
     {
         return $this->content->modelCast();
-    }
-
-    protected static function booted()
-    {
-        static::addGlobalScope('pageScope', function (Builder $builder) {
-            $builder->where('slug', '=', self::$slug);
-        });
     }
 
     public function getAttribute($key)

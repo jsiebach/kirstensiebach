@@ -1,0 +1,51 @@
+.resume{
+
+
+  ul > .partioned > .right {
+
+    @extend .pull-right;
+
+  }
+
+  li:hover {
+
+    background-color: #ecf0f1;
+
+  }
+
+  ul {
+
+    list-style: none;
+
+    li {
+
+      padding: 2px 4px;
+
+      margin: 1px 0;
+
+    }
+
+  }
+
+  ol {
+
+    list-style-type:none;
+
+    > li {
+
+      padding: 2px 4px;
+
+      margin: 1px 0;
+
+      counter-increment:start-from -1;
+
+      &:before
+      {
+        content:counter(start-from) ". ";
+      }
+
+    }
+
+  }
+
+}

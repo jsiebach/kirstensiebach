@@ -1,0 +1,13 @@
+// You can keep all your transitions in here to have a quick lookup.
+// <foo transition="fade"></foo>
+
+.fade {
+  &-transition {
+    opacity: 1;
+    transition: opacity 0.15s;
+  }
+  &-enter,
+  &-leave {
+    opacity: 0;
+  }
+}

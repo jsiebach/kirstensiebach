@@ -1,0 +1,34 @@
+.navbar-nav li {
+
+  text-align:center;
+
+  & a {
+    min-width:100px;
+  }
+
+}
+
+.video-callout {
+  //background-color: #18BC9C;
+  //color: #0a4b3e;
+  //min-height: 50px;
+  margin-top: 10px;
+  padding: 10px;
+  font-weight: 700;
+  text-align: center;
+  .button {
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    padding: 10px 14px;
+    margin-top: 8px;
+    &:hover {
+      color: #18BC9C;
+      background-color: #fff;
+      text-decoration: none;
+    }
+  }
+  .alert {
+    margin-bottom: 0;
+  }
+}

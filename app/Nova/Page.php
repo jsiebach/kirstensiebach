@@ -27,14 +27,7 @@ class Page extends Resource
      */
     public static $title = 'title';
 
-    /**
-     * The columns that should be searched.
-     *
-     * @var array
-     */
-    public static $search = [
-        'title',
-    ];
+    public static $searchable = false;
 
     public static $displayInNavigation = false;
 

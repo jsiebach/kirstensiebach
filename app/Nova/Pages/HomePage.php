@@ -1,17 +1,14 @@
 <?php
 
-namespace App\Nova;
+namespace App\Nova\Pages;
 
-use DigitalCreative\ConditionalContainer\ConditionalContainer;
+use App\Nova\Page;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\HasMany;
-use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Panel;
 
 class HomePage extends Page
 {
@@ -20,7 +17,7 @@ class HomePage extends Page
      *
      * @var string
      */
-    public static $model = \App\Models\HomePage::class;
+    public static $model = \App\Models\Pages\HomePage::class;
 
     public static function uriKey()
     {

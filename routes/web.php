@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', ['uses' => 'PageController@home']);
+
+Route::get('{slug}', ['uses' => 'PageController@index'])
+    ->where(['slug' => '^((?!(admin|nova-api|nova-vendor)).)*$']);
