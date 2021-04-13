@@ -2,10 +2,16 @@
 
 namespace App\Providers;
 
+use Giuga\LaravelNovaSidebar\NovaSidebar;
+use Giuga\LaravelNovaSidebar\SidebarGroup;
+use Giuga\LaravelNovaSidebar\SidebarLink;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Cards\Help;
+use Laravel\Nova\Fields\Code;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
+use OptimistDigital\NovaSettings\NovaSettings;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -17,6 +23,12 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function boot()
     {
         parent::boot();
+
+        NovaSettings::addSettingsFields([
+            Image::make('Favicon'),
+            Code::make('Tracking Code'),
+            Code::make('Schema Markup')
+        ]);
     }
 
     /**
@@ -80,7 +92,18 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function tools()
     {
-        return [];
+        return [
+            (new NovaSidebar())
+                ->addGroup((new SidebarGroup())
+                    ->setName('Pages')
+                    ->addLink((new SidebarLink())
+                        ->setName('Home')
+                        ->setType('_self')
+                        ->setUrl('/admin/resources/home/1')
+                    )
+                ),
+            new NovaSettings
+        ];
     }
 
     /**

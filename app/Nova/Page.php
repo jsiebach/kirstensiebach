@@ -2,10 +2,12 @@
 
 namespace App\Nova;
 
+use DigitalCreative\ConditionalContainer\ConditionalContainer;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
 
@@ -34,7 +36,7 @@ class Page extends Resource
         'title',
     ];
 
-    public static $trafficCop = false;
+    public static $displayInNavigation = false;
 
     /**
      * Get the fields displayed by the resource.
@@ -44,12 +46,12 @@ class Page extends Resource
      */
     public function fields(Request $request)
     {
-        return array_merge([
+        return [
             Text::make('Title')->sortable(),
             Text::make('URL Slug', 'slug')->sortable(),
             new Panel('SEO Settings', $this->seoSettingsFields()),
-            HasMany::make('Social Links', 'socialLinks')
-        ]);
+            new Panel('Content', $this->contentFields($request))
+        ];
     }
 
     public function fieldsForIndex()
@@ -107,7 +109,12 @@ class Page extends Resource
     {
         return [
             Text::make('Meta Title'),
-            Text::make('Meta Description'),
+            Textarea::make('Meta Description'),
         ];
+    }
+
+    public function contentFields(Request $request)
+    {
+        return [];
     }
 }

@@ -2,15 +2,61 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+use Spatie\SchemalessAttributes\Casts\SchemalessAttributes;
 
 class Page extends Model
 {
     use HasFactory;
 
-    public function socialLinks()
+    public $table = 'pages';
+
+    public static $slug = 'home';
+
+    public $casts = [
+        'content' => SchemalessAttributes::class,
+    ];
+
+    public $fillable = [
+        'title',
+        'slug',
+        'meta_title',
+        'meta_description',
+        'content'
+    ];
+
+    public $contentAttributes = [];
+
+    public function scopeWithContent(): Builder
     {
-        return $this->hasMany(SocialLink::class);
+        return $this->content->modelCast();
+    }
+
+    protected static function booted()
+    {
+        static::addGlobalScope('pageScope', function (Builder $builder) {
+            $builder->where('slug', '=', self::$slug);
+        });
+    }
+
+    public function getAttribute($key)
+    {
+        if(in_array($key, $this->contentAttributes)) {
+            return $this->content[$key];
+        }
+
+        return parent::getAttribute($key);
+    }
+
+    public function setAttribute($key, $val)
+    {
+        if(in_array($key, $this->contentAttributes)) {
+            return $this->content->$key = $val;
+        }
+
+        parent::setAttribute($key, $val);
     }
 }

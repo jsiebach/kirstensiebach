@@ -17,9 +17,9 @@ class CreatePagesTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
-            $table->text('content')->nullable();
             $table->string('meta_title');
-            $table->string('meta_description');
+            $table->text('meta_description');
+            $table->schemalessAttributes('content');
             $table->timestamps();
         });
     }
