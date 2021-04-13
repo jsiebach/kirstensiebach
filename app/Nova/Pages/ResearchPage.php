@@ -17,7 +17,7 @@ class ResearchPage extends Page
 
     public static function uriKey()
     {
-        return "research";
+        return 'research';
     }
 
     public function contentFields(Request $request)

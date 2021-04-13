@@ -2,34 +2,42 @@
 
 namespace App\Nova;
 
-use DigitalCreative\ConditionalContainer\ConditionalContainer;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Panel;
+use Mdixon18\Fontawesome\Fontawesome;
+use OptimistDigital\NovaSortable\Traits\HasSortableRows;
 
-class Page extends Resource
+class TeamMember extends Resource
 {
+    use HasSortableRows;
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Page::class;
+    public static $model = \App\Models\TeamMember::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'title';
+    public static $title = 'name';
 
-    public static $searchable = false;
+    /**
+     * The columns that should be searched.
+     *
+     * @var array
+     */
+    public static $search = [];
 
     public static $displayInNavigation = false;
+
+    public static $trafficCop = false;
 
     /**
      * Get the fields displayed by the resource.
@@ -40,16 +48,10 @@ class Page extends Resource
     public function fields(Request $request)
     {
         return [
-            Text::make('Title')->sortable()->required(),
-            new Panel('SEO Settings', $this->seoSettingsFields()),
-            new Panel('Content', $this->contentFields($request)),
-        ];
-    }
-
-    public function fieldsForIndex()
-    {
-        return [
-            Text::make('Title')->sortable(),
+            Text::make('Name'),
+            Text::make('Email'),
+            Markdown::make('Bio'),
+            Image::make('Profile Picture'),
         ];
     }
 
@@ -93,19 +95,6 @@ class Page extends Resource
      * @return array
      */
     public function actions(Request $request)
-    {
-        return [];
-    }
-
-    private function seoSettingsFields()
-    {
-        return [
-            Text::make('Meta Title')->required(),
-            Textarea::make('Meta Description')->nullable(),
-        ];
-    }
-
-    public function contentFields(Request $request)
     {
         return [];
     }

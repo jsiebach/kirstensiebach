@@ -17,7 +17,7 @@ class PhotographyPage extends Page
 
     public static function uriKey()
     {
-        return "photography";
+        return 'photography';
     }
 
     public function contentFields(Request $request)

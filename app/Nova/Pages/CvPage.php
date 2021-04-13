@@ -17,7 +17,7 @@ class CvPage extends Page
 
     public static function uriKey()
     {
-        return "cv";
+        return 'cv';
     }
 
     public function contentFields(Request $request)

@@ -17,7 +17,7 @@ class OutreachPage extends Page
 
     public static function uriKey()
     {
-        return "outreach";
+        return 'outreach';
     }
 
     public function contentFields(Request $request)

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
 
-class SocialLink extends Model implements Sortable
+class TeamMember extends Model implements Sortable
 {
     use HasFactory, SortableTrait;
 

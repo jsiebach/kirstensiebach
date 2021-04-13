@@ -17,7 +17,7 @@ class PublicationsPage extends Page
 
     public static function uriKey()
     {
-        return "publications";
+        return 'publications';
     }
 
     public function contentFields(Request $request)

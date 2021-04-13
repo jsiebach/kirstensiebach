@@ -28,7 +28,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         NovaSettings::addSettingsFields([
             Image::make('Favicon'),
             Code::make('Tracking Code'),
-            Code::make('Schema Markup')
+            Code::make('Schema Markup'),
         ]);
     }
 
@@ -98,7 +98,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         $sidebarGroup = (new SidebarGroup())
             ->setName('Pages');
 
-        $pages->each(fn($page) => $sidebarGroup->addLink((new SidebarLink())
+        $pages->each(fn ($page) => $sidebarGroup->addLink((new SidebarLink())
             ->setName($page->title)
             ->setType('_self')
             ->setUrl("/admin/resources/{$page->slug}/{$page->id}")));
@@ -106,7 +106,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         return [
             (new NovaSidebar())
                 ->addGroup($sidebarGroup),
-            new NovaSettings
+            new NovaSettings,
         ];
     }
 

@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             DefaultUserSeeder::class,
-            PageSeeder::class
+            PageSeeder::class,
         ]);
     }
 }

@@ -21,7 +21,7 @@ class HomePage extends Page
 
     public static function uriKey()
     {
-        return "home";
+        return 'home';
     }
 
     public function contentFields(Request $request)
@@ -32,7 +32,7 @@ class HomePage extends Page
             Image::make('Profile Picture')->disk('public'),
             Textarea::make('Profile Summary'),
             Markdown::make('Bio'),
-            HasMany::make('Social Links', 'socialLinks')
+            HasMany::make('Social Links', 'socialLinks')->sortable(),
         ];
     }
 }

@@ -23,7 +23,7 @@ class Page extends Model
         'slug',
         'meta_title',
         'meta_description',
-        'content'
+        'content',
     ];
 
     public $contentAttributes = [];
@@ -35,7 +35,7 @@ class Page extends Model
 
     public function getAttribute($key)
     {
-        if(in_array($key, $this->contentAttributes)) {
+        if (in_array($key, $this->contentAttributes)) {
             return $this->content[$key];
         }
 
@@ -44,7 +44,7 @@ class Page extends Model
 
     public function setAttribute($key, $val)
     {
-        if(in_array($key, $this->contentAttributes)) {
+        if (in_array($key, $this->contentAttributes)) {
             return $this->content->$key = $val;
         }
 
