@@ -21,7 +21,7 @@
             <img class="banner" src="/storage/{{ $page->banner }}" alt="">
             <div>
                 <h3>Bio</h3>
-                <p>{!! \Illuminate\Mail\Markdown::parse($page->bio) !!}</p>
+                @markdown($page->bio)
             </div>
             <div>
                 <h3>Press</h3>

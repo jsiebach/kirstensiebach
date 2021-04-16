@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use Illuminate\Mail\Markdown;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        \Blade::directive('markdown', function ($expression) {
+            return $expression
+                ? Markdown::parse($expression)
+                : '';
+        });
     }
 }
