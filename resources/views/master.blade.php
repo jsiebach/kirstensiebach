@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height: 100%">
 <head>
     <meta charset="utf-8">
     <title>@yield('page_title')</title>
@@ -12,8 +12,8 @@
     <script src="{{ mix('/js/app.js') }}" defer></script>
     @yield('header-styles')
 </head>
-<body>
-<main id="app" class="main container">
+<body style="height: 100%">
+<main id="app" class="main container" style="height: 100%">
     @include('partials.header')
     @yield('body')
     @include('partials.footer')
