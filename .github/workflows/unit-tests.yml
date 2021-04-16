@@ -26,4 +26,13 @@ jobs:
           npm install
           npm run production
       - name: Execute tests (Unit and Feature tests) via PHPUnit
-        run: vendor/bin/phpunit
+        run: vendor/bin/phpunit --debug --coverage-clover ./coverage.xml
+      - name: Check test coverage
+        id: test-coverage
+        uses: johanvanhelden/gha-clover-test-coverage-check@v1
+        with:
+          percentage: "80"
+          filename: "coverage.xml"
+          exit: false
+      - name: Print test coverage
+        run: echo "${{ steps.test-coverage.outputs.coverage }}"
