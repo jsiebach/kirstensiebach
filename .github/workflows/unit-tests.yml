@@ -26,7 +26,7 @@ jobs:
           npm install
           npm run production
       - name: Execute tests (Unit and Feature tests) via PHPUnit
-        run: vendor/bin/phpunit --debug --coverage-clover ./coverage.xml
+        run: XDEBUG_MODE=coverage vendor/bin/phpunit --debug --coverage-clover ./coverage.xml
       - name: Check test coverage
         id: test-coverage
         uses: johanvanhelden/gha-clover-test-coverage-check@v1
