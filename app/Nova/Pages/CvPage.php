@@ -4,6 +4,7 @@ namespace App\Nova\Pages;
 
 use App\Nova\Page;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\Image;
 
 class CvPage extends Page
@@ -22,6 +23,8 @@ class CvPage extends Page
 
     public function contentFields(Request $request)
     {
-        return [];
+        return [
+            File::make('CV File'),
+        ];
     }
 }
