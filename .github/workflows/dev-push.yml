@@ -38,4 +38,4 @@ jobs:
           type: now
           from_branch: dev
           target_branch: master
-          github_token: ${{ github.token }}
+          github_token: ${{ secrets.GIT_TOKEN }}
