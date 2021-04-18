@@ -10,7 +10,7 @@
     <img style="width: 80%; height: auto; margin-left: 10%;" src="/storage/{{ $page->banner }}" alt="">
     <br>
     <br>
-    {!! \Illuminate\Mail\Markdown::parse($page->intro) !!}
+    @markdown($page->intro)
     <h2>Lab Team</h2>
     @foreach($page->teamMembers as $teamMember)
         <hr>
@@ -18,7 +18,7 @@
             <div class="col-md-6">
                 <h3>{{ $teamMember->name }}</h3>
                 <h5>{{ $teamMember->email }}</h5>
-                {!! \Illuminate\Mail\Markdown::parse($teamMember->bio) !!}
+                @markdown($teamMember->bio)
             </div>
             <div class="col-md-6">
                 <img style="max-width: 100%; height: auto;" src="/storage/{{ $teamMember->profile_picture }}" alt="">
@@ -27,6 +27,5 @@
     @endforeach
     <h2>{{ $page->facilities_title }}</h2>
     <hr>
-
-    {!! \Illuminate\Mail\Markdown::parse($page->facilities_content) !!}
+    @markdown($page->facilities_content)
 @endsection

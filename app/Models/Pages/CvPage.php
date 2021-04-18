@@ -17,5 +17,7 @@ class CvPage extends Page
 
     public static $slug = 'cv';
 
-    public $contentAttributes = [];
+    public $contentAttributes = [
+        'cv_file',
+    ];
 }
