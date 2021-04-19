@@ -6,11 +6,7 @@ storage/framework/sessions/*
 storage/framework/views/*
 storage/logs/*
 
-vendor/**/test*
-vendor/**/tests*
-vendor/**/Tests*
-
-**/*node_modules
+node_modules
 
 **.git
 .idea
@@ -29,4 +25,4 @@ readme.md
 phpspec.yml
 
 Dockerfile
-docker-compose.yml
+docker-compose.local.yml
