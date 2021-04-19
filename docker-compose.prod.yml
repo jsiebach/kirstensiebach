@@ -45,7 +45,6 @@ services:
     environment:
       MYSQL_USER: kirstensiebach
       MYSQL_DATABASE: kirstensiebach
-      MYSQL_ROOT_PASSWORD: docker
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
