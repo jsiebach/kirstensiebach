@@ -28,7 +28,6 @@ services:
     tty: true
     ports:
       - "8080:80"
-      - "443:443"
     volumes:
       - ./:/var/www
       - ./nginx/prod/conf.d/:/etc/nginx/conf.d/
@@ -61,7 +60,7 @@ services:
     image: eeacms/varnish
     container_name: varnish
     ports:
-      - "6081:6081"
+      - "80:6081"
       - "6085:6085"
     depends_on:
       - webserver
@@ -82,18 +81,6 @@ services:
     networks:
       - app-network
 
-  # SSL Certs
-  certbot:
-    image: certbot/certbot
-    container_name: certbot
-    volumes:
-      - certbot-etc:/etc/letsencrypt
-      - certbot-var:/var/lib/letsencrypt
-      - ./:/var/www
-    depends_on:
-      - webserver
-    command: certonly --webroot --webroot-path=/var/www --email jsiebach@gmail.com --agree-tos --no-eff-email --force-renewal -d dev.kirstensiebach.com
-
 #Docker Networks
 networks:
   app-network:
@@ -104,7 +91,4 @@ volumes:
   dbdata:
     driver: local
   storage:
-    driver: local
-  certbot-etc:
-  certbot-var:
     driver: local
