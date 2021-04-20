@@ -1,7 +1,7 @@
 version: '3'
 services:
 
-  #PHP Service
+  # PHP Service
   app:
     build:
       context: .
@@ -17,27 +17,26 @@ services:
     working_dir: /var/www
     volumes:
       - ./:/var/www
-      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+      - ./php/local/php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
       - storage:/var/www/storage
     networks:
       - app-network
 
-  #Nginx Service
+  # Nginx Service
   webserver:
     image: nginx:alpine
     container_name: webserver
     restart: unless-stopped
     tty: true
     ports:
-      - "80:80"
-      - "443:443"
+      - "8080:80"
     volumes:
       - ./:/var/www
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./nginx/local/conf.d/:/etc/nginx/conf.d/
     networks:
       - app-network
 
-  #MySQL Service
+  # MySQL Service
   db:
     image: mysql:8.0.23
     container_name: db
