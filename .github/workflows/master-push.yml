@@ -7,13 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Copy .env
+      -
+        name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-      - name: Setup Nova Credentials
+      -
+        name: Setup Nova Credentials
         run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_USERNAME }} ${{ secrets.NOVA_PASSWORD }}
-      - name: Install Dependencies
+      -
+        name: Install Dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress
-      - name: Compile assets
+      -
+        name: Compile assets
         run: |
           npm install
           npm run production
@@ -39,7 +43,8 @@ jobs:
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
-      - name: Run deploy script via SSH
+      -
+        name: Run deploy script via SSH
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: ${{ secrets.SSH_DEPLOY_COMMAND }}
