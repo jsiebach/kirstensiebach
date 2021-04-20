@@ -26,3 +26,6 @@ phpspec.yml
 
 Dockerfile
 docker-compose.local.yml
+
+!.env
+!vendor/*

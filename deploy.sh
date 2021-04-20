@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# Fetch new docker images
+docker-compose -f docker-compose.prod.yml pull
+
 # Relaunch with new docker images
 docker-compose -f docker-compose.prod.yml up -d
 
