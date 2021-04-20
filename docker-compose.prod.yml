@@ -13,7 +13,8 @@ services:
     user: "1000:1000"
     working_dir: /var/www
     volumes:
-      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+      - ./php/prod/php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
+      - ./php/prod/opcache.ini:/usr/local/etc/php/conf.d/opcache.ini
       - ./.env:/var/www/.env
       - storage:/var/www/storage
     networks:
@@ -26,11 +27,11 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "80:80"
+      - "8080:80"
       - "443:443"
     volumes:
       - ./:/var/www
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./nginx/prod/conf.d/:/etc/nginx/conf.d/
     networks:
       - app-network
 
@@ -52,6 +53,31 @@ services:
     volumes:
       - dbdata:/var/lib/mysql
       - ./mysql/my.cnf:/etc/mysql/my.cnf
+    networks:
+      - app-network
+
+  # Varnish cache
+  varnish:
+    image: eeacms/varnish
+    ports:
+      - "80:6081"
+      - "6085:6085"
+    depends_on:
+      - webserver
+    environment:
+      BACKENDS: "default"
+      BACKENDS_PORT: "8080"
+      DNS_ENABLED: "true"
+      BACKENDS_PROBE_INTERVAL: "3s"
+      BACKENDS_PROBE_TIMEOUT: "1s"
+      BACKENDS_PROBE_WINDOW: "3"
+      BACKENDS_PROBE_THRESHOLD: "2"
+      DASHBOARD_USER: "admin"
+      DASHBOARD_PASSWORD: "admin"
+      DASHBOARD_SERVERS: "varnish"
+      DASHBOARD_DNS_ENABLED: "true"
+    volumes:
+      - ./varnish/conf.d/:/etc/varnish/conf.d/
     networks:
       - app-network
 
