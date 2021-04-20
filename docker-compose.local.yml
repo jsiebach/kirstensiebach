@@ -3,9 +3,9 @@ services:
 
   #PHP Service
   app:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: jsiebach/kirstensiebach
     container_name: app
     restart: unless-stopped
