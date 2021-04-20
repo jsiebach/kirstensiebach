@@ -1,4 +1,5 @@
 #! /bin/bash
+export COMPOSE_INTERACTIVE_NO_CLI=1
 
 # Fetch new docker images
 docker-compose -f docker-compose.prod.yml pull
