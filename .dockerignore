@@ -5,10 +5,14 @@ storage/framework/cache/*
 storage/framework/sessions/*
 storage/framework/views/*
 storage/logs/*
+resources/*
+!resources/views
 
 node_modules
 
 **.git
+.github
+.php_cs.dist
 .idea
 **.gitignore
 **.gitattributes
@@ -21,11 +25,14 @@ composer.json
 ?untfile.js
 package.json
 phpunit.xml
-readme.md
-phpspec.yml
+README.md
+docker-compose.*
+webpack.mix.js
+
+nginx
+mysql
+php
 
 Dockerfile
-docker-compose.local.yml
-
 !.env
 !vendor/*
