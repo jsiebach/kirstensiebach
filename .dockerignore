@@ -16,13 +16,9 @@ node_modules
 .idea
 **.gitignore
 **.gitattributes
-**.sass-cache
 *.env*
 composer.json
 
-*.config.js
-?ulpfile.js
-?untfile.js
 package.json
 phpunit.xml
 README.md
