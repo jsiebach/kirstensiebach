@@ -11,7 +11,7 @@ class Publication extends Model
     use HasFactory;
 
     public $casts = [
-        'date' => 'date',
+        'date_published' => 'date',
     ];
 
     public function page()
@@ -21,8 +21,8 @@ class Publication extends Model
 
     protected static function booted()
     {
-        static::addGlobalScope('byDate', function (Builder $builder) {
-            $builder->orderBy('date', 'desc');
+        static::addGlobalScope('byDatePublished', function (Builder $builder) {
+            $builder->orderBy('date_published', 'desc');
         });
     }
 }

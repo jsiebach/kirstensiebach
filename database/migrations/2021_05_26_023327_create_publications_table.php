@@ -15,6 +15,7 @@ class CreatePublicationsTable extends Migration
     {
         Schema::create('publications', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('page_id');
             $table->string('title', 1024);
             $table->string('publication_name', 1024);
             $table->text('authors');

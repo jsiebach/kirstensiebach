@@ -26,7 +26,8 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('pages.publications', function ($view) {
-            dd($view);
+//            dd('hi');
+
             $submitted = collect(['Submitted and In Review' => Publication::wherePublished('false')->get()]);
             $published = Publication::wherePublished(true)->orderBy('date', 'desc')->get()->groupBy(function ($pub) {
                 return $pub->date_published->format('Y');
@@ -36,7 +37,9 @@ class ComposerServiceProvider extends ServiceProvider
             }
 
             $abstracts = []; //ScienceAbstract::orderBy('created_at', 'DESC')->get();
-            $view->with(['publications' => $submitted, 'abstracts' => $abstracts]);
+            $view->with([
+                'publications' => $submitted, 'abstracts' => $abstracts,
+            ]);
         });
     }
 }
