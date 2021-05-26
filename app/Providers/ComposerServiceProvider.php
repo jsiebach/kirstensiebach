@@ -28,10 +28,10 @@ class ComposerServiceProvider extends ServiceProvider
         View::composer('pages.publications', function ($view) {
             dd($view);
             $submitted = collect(['Submitted and In Review' => Publication::wherePublished('false')->get()]);
-            $published = Publication::wherePublished(true)->orderBy('date', 'desc')->get()->groupBy(function($pub){
+            $published = Publication::wherePublished(true)->orderBy('date', 'desc')->get()->groupBy(function ($pub) {
                 return $pub->date_published->format('Y');
             });
-            foreach($published as $key => $values){
+            foreach ($published as $key => $values) {
                 $submitted->put($key, $values);
             }
 

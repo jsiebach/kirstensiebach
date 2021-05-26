@@ -4,7 +4,6 @@ namespace App\Nova\Pages;
 
 use App\Nova\Page;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Image;
 
 class PhotographyPage extends Page
 {

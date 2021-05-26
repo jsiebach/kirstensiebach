@@ -20,71 +20,71 @@ class PageSeeder extends Seeder
 
         $pages = [
             [
-                'title' => 'Home',
-                'slug' => 'home',
-                'meta_title' => 'Kirsten Siebach | Martian Geologist',
+                'title'            => 'Home',
+                'slug'             => 'home',
+                'meta_title'       => 'Kirsten Siebach | Martian Geologist',
                 'meta_description' => 'Kirsten Siebach is an Assistant Professor in the Rice University Department of Earth, Environmental, and Planetary Sciences. Her work focuses on understanding the history of water interacting with sediments on Mars and early Earth through analysis of sedimentary rock textures and chemistry. She is currently a member of the Science and Operations Teams for the Mars Exploration Rovers and the Mars Science Laboratory.',
-                'content' => [
-                    'use_callout' => true,
-                    'callout' => $faker->paragraph,
-                    'callout_action' => $faker->url,
+                'content'          => [
+                    'use_callout'         => true,
+                    'callout'             => $faker->paragraph,
+                    'callout_action'      => $faker->url,
                     'callout_action_text' => $faker->sentence(2),
-                    'tagline' => 'Martian Geologist',
-                    'banner' => $faker->imageUrl,
-                    'profile_picture' => $faker->imageUrl,
-                    'profile_summary' => $faker->paragraph,
-                    'bio' => $faker->paragraph,
-                ]
+                    'tagline'             => 'Martian Geologist',
+                    'banner'              => $faker->imageUrl,
+                    'profile_picture'     => $faker->imageUrl,
+                    'profile_summary'     => $faker->paragraph,
+                    'bio'                 => $faker->paragraph,
+                ],
             ],
             [
-                'title' => 'Lab',
-                'slug' => 'lab',
-                'meta_title' => 'Siebach Lab | Kirsten Siebach',
+                'title'            => 'Lab',
+                'slug'             => 'lab',
+                'meta_title'       => 'Siebach Lab | Kirsten Siebach',
                 'meta_description' => '',
-                'content' => [
-                    'use_callout' => false,
-                    'callout' => $faker->paragraph,
-                    'callout_action' => $faker->url,
+                'content'          => [
+                    'use_callout'         => false,
+                    'callout'             => $faker->paragraph,
+                    'callout_action'      => $faker->url,
                     'callout_action_text' => $faker->sentence(2),
-                    'banner' => $faker->imageUrl,
-                    'intro' => $faker->paragraph,
-                    'lower_content' => $faker->paragraph,
-                ]
+                    'banner'              => $faker->imageUrl,
+                    'intro'               => $faker->paragraph,
+                    'lower_content'       => $faker->paragraph,
+                ],
             ],
             [
-                'title' => 'Research',
-                'slug' => 'research',
-                'meta_title' => 'Research | Kirsten Siebach',
+                'title'            => 'Research',
+                'slug'             => 'research',
+                'meta_title'       => 'Research | Kirsten Siebach',
                 'meta_description' => '',
-                'content' => []
+                'content'          => [],
             ],
             [
-                'title' => 'Publications',
-                'slug' => 'publications',
-                'meta_title' => 'Publications | Kirsten Siebach',
+                'title'            => 'Publications',
+                'slug'             => 'publications',
+                'meta_title'       => 'Publications | Kirsten Siebach',
                 'meta_description' => '',
-                'content' => []
+                'content'          => [],
             ],
             [
-                'title' => 'CV',
-                'slug' => 'cv',
-                'meta_title' => 'Curriculum Vitae | Kirsten Siebach',
+                'title'            => 'CV',
+                'slug'             => 'cv',
+                'meta_title'       => 'Curriculum Vitae | Kirsten Siebach',
                 'meta_description' => '',
-                'content' => []
+                'content'          => [],
             ],
             [
-                'title' => 'Speaking & Outreach',
-                'slug' => 'outreach',
-                'meta_title' => 'Speaking & Outreach | Kirsten Siebach',
+                'title'            => 'Speaking & Outreach',
+                'slug'             => 'outreach',
+                'meta_title'       => 'Speaking & Outreach | Kirsten Siebach',
                 'meta_description' => '',
-                'content' => []
+                'content'          => [],
             ],
             [
-                'title' => 'Photography',
-                'slug' => 'photography',
-                'meta_title' => 'Photography | Kirsten Siebach',
+                'title'            => 'Photography',
+                'slug'             => 'photography',
+                'meta_title'       => 'Photography | Kirsten Siebach',
                 'meta_description' => '',
-                'content' => []
+                'content'          => [],
             ],
         ];
 

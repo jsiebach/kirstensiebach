@@ -2,14 +2,10 @@
 
 namespace App\Nova;
 
-use DigitalCreative\ConditionalContainer\ConditionalContainer;
+use Laravel\Nova\Panel;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\HasMany;
-use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Panel;
 
 class Page extends Resource
 {
@@ -34,7 +30,7 @@ class Page extends Resource
     /**
      * Get the fields displayed by the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return array
      */
     public function fields(Request $request)
@@ -56,7 +52,7 @@ class Page extends Resource
     /**
      * Get the cards available for the request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return array
      */
     public function cards(Request $request)
@@ -67,7 +63,7 @@ class Page extends Resource
     /**
      * Get the filters available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return array
      */
     public function filters(Request $request)
@@ -78,7 +74,7 @@ class Page extends Resource
     /**
      * Get the lenses available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return array
      */
     public function lenses(Request $request)
@@ -89,10 +85,15 @@ class Page extends Resource
     /**
      * Get the actions available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return array
      */
     public function actions(Request $request)
+    {
+        return [];
+    }
+
+    public function contentFields(Request $request)
     {
         return [];
     }
@@ -103,10 +104,5 @@ class Page extends Resource
             Text::make('Meta Title')->required(),
             Textarea::make('Meta Description')->nullable(),
         ];
-    }
-
-    public function contentFields(Request $request)
-    {
-        return [];
     }
 }

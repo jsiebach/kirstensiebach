@@ -4,11 +4,9 @@ namespace App\Models\Pages;
 
 use App\Models\Page;
 use App\Models\Press;
-use App\Models\SocialLink;
 use App\Traits\HasSlug;
-use Illuminate\Database\Eloquent\Builder;
+use App\Models\SocialLink;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class HomePage extends Page
 {
