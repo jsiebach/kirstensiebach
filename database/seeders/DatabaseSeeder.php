@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             DefaultUserSeeder::class,
             PageSeeder::class,
+            ModelSeeder::class,
         ]);
     }
 }

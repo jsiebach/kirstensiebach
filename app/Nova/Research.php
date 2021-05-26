@@ -3,13 +3,16 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Mdixon18\Fontawesome\Fontawesome;
 use OptimistDigital\NovaSortable\Traits\HasSortableRows;
 
-class SocialLink extends Resource
+class Research extends Resource
 {
     use HasSortableRows;
     /**
@@ -17,14 +20,19 @@ class SocialLink extends Resource
      *
      * @var string
      */
-    public static $model = \App\Models\SocialLink::class;
+    public static $model = \App\Models\Research::class;
+
+    public static function label()
+    {
+        return 'Research Projects';
+    }
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'project_name';
 
     /**
      * The columns that should be searched.
@@ -37,6 +45,11 @@ class SocialLink extends Resource
 
     public static $trafficCop = false;
 
+    public static function uriKey()
+    {
+        return 'research-project';
+    }
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -46,9 +59,9 @@ class SocialLink extends Resource
     public function fields(Request $request)
     {
         return [
-            Fontawesome::make('Icon'),
-            Text::make('Title'),
-            Text::make('Link'),
+            Text::make('Project Name'),
+            Markdown::make('Description'),
+            Image::make('Image'),
         ];
     }
 

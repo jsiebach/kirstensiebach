@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSocialLinksTable extends Migration
+class CreateResearchTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateSocialLinksTable extends Migration
      */
     public function up()
     {
-        Schema::create('social_links', function (Blueprint $table) {
+        Schema::create('research', function (Blueprint $table) {
             $table->id();
             $table->foreignId('page_id');
             $table->unsignedInteger('sort_order');
-            $table->string('title');
-            $table->string('link');
-            $table->string('icon');
+            $table->string('project_name');
+            $table->text('description');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateSocialLinksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('social_links');
+        Schema::dropIfExists('research');
     }
 }

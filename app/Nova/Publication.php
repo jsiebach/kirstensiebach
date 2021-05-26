@@ -3,13 +3,19 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Mdixon18\Fontawesome\Fontawesome;
 use OptimistDigital\NovaSortable\Traits\HasSortableRows;
 
-class SocialLink extends Resource
+class Publication extends Resource
 {
     use HasSortableRows;
     /**
@@ -17,14 +23,19 @@ class SocialLink extends Resource
      *
      * @var string
      */
-    public static $model = \App\Models\SocialLink::class;
+    public static $model = \App\Models\Publication::class;
+
+    public static function label()
+    {
+        return 'Publications';
+    }
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'title';
 
     /**
      * The columns that should be searched.
@@ -37,6 +48,11 @@ class SocialLink extends Resource
 
     public static $trafficCop = false;
 
+    public static function uriKey()
+    {
+        return 'journal-publications';
+    }
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -46,9 +62,14 @@ class SocialLink extends Resource
     public function fields(Request $request)
     {
         return [
-            Fontawesome::make('Icon'),
             Text::make('Title'),
-            Text::make('Link'),
+            Markdown::make('Authors'),
+            Text::make('Publication Name'),
+            Boolean::make('Published')->help('Has this been published, or is it still in review?'),
+            Date::make('Date Published')->help('Date submitted if not yet published'),
+            Textarea::make('Abstract')->nullable(),
+            Text::make('DOI')->nullable(),
+            Text::make('Link')->nullable(),
         ];
     }
 

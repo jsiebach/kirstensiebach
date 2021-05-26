@@ -3,6 +3,7 @@
 namespace App\Models\Pages;
 
 use App\Models\Page;
+use App\Models\Research;
 use App\Models\SocialLink;
 use App\Traits\HasSlug;
 use Illuminate\Database\Eloquent\Builder;
@@ -19,5 +20,11 @@ class ResearchPage extends Page
 
     public $contentAttributes = [
         'banner',
+        'intro'
     ];
+
+    public function research()
+    {
+        return $this->hasMany(Research::class, 'page_id');
+    }
 }

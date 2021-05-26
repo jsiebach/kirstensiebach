@@ -32,6 +32,7 @@ class HomePage extends Page
             Image::make('Profile Picture')->disk('public'),
             Textarea::make('Profile Summary'),
             Markdown::make('Bio'),
+            HasMany::make('Press', 'press')->sortable(),
             HasMany::make('Social Links', 'socialLinks')->sortable(),
         ];
     }

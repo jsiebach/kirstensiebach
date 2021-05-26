@@ -21,8 +21,7 @@ class LabPage extends Page
     public $contentAttributes = [
         'banner',
         'intro',
-        'facilities_title',
-        'facilities_content',
+        'lower_content'
     ];
 
     public function teamMembers()

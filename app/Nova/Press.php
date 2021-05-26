@@ -3,13 +3,14 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Mdixon18\Fontawesome\Fontawesome;
 use OptimistDigital\NovaSortable\Traits\HasSortableRows;
 
-class SocialLink extends Resource
+class Press extends Resource
 {
     use HasSortableRows;
     /**
@@ -17,7 +18,7 @@ class SocialLink extends Resource
      *
      * @var string
      */
-    public static $model = \App\Models\SocialLink::class;
+    public static $model = \App\Models\Press::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -46,9 +47,9 @@ class SocialLink extends Resource
     public function fields(Request $request)
     {
         return [
-            Fontawesome::make('Icon'),
             Text::make('Title'),
             Text::make('Link'),
+            Date::make('Date'),
         ];
     }
 

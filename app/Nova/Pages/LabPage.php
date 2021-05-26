@@ -29,8 +29,7 @@ class LabPage extends Page
             Image::make('Banner')->disk('public'),
             Markdown::make('Intro'),
             HasMany::make('Team Members', 'teamMembers')->sortable(),
-            Text::make('Facilities Title'),
-            Markdown::make('Facilities Content'),
+            Markdown::make('Lower Content'),
         ];
     }
 }

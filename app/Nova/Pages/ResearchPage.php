@@ -4,7 +4,9 @@ namespace App\Nova\Pages;
 
 use App\Nova\Page;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Markdown;
 
 class ResearchPage extends Page
 {
@@ -24,6 +26,8 @@ class ResearchPage extends Page
     {
         return [
             Image::make('Banner')->disk('public'),
+            Markdown::make('Intro'),
+            HasMany::make('Research', 'research')->sortable(),
         ];
     }
 }

@@ -18,12 +18,8 @@ class Page extends Model
         'content' => SchemalessAttributes::class,
     ];
 
-    public $fillable = [
-        'title',
-        'slug',
-        'meta_title',
-        'meta_description',
-        'content',
+    public $guarded = [
+        'id'
     ];
 
     public $contentAttributes = [];
