@@ -7,6 +7,7 @@ use App\Models\Research;
 use App\Models\SocialLink;
 use App\Models\TeamMember;
 use App\Models\Publication;
+use App\Models\ScienceAbstract;
 use Illuminate\Database\Seeder;
 
 class ModelSeeder extends Seeder
@@ -23,5 +24,6 @@ class ModelSeeder extends Seeder
         TeamMember::factory()->count(6)->create();
         Research::factory()->count(6)->create();
         Publication::factory()->count(20)->create();
+        ScienceAbstract::factory()->count(8)->create();
     }
 }

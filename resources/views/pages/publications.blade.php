@@ -11,7 +11,7 @@
         @foreach($publications as $title => $group)
         <tr><td colspan="2" style="text-align: center"><h2>{{$title}}</h2></td></tr>
         @foreach($group as $pub)
-        <tr v-for="pub in section.pubs">
+        <tr>
             <td>
                 <p style="font-size: 18px">{{ $pub->title }}</p>
                 <p>@markdown($pub->authors) {{$pub->date_published->format('Y')}}</p>
@@ -46,38 +46,34 @@
         <a style="padding-top: 40px; margin-top: -40px;" name="abstracts">
             &nbsp;
         </a>
-{{--            <h2>First-Author Conference Abstracts</h2>--}}
-{{--    <table class="table table-hover table-striped publications">--}}
-{{--        --}}{{--<tbody v-for="section in firstAuthor">--}}
-{{--        --}}{{--<tr><td style="text-align: center"><h2>{{section.section}}</h2></td></tr>--}}
-{{--        @foreach($abstracts as $abstract)--}}
-{{--        <tr v-for="ab in section.abs">--}}
-{{--            <td>--}}
-{{--                @if($abstract->link)--}}
-{{--                <p v-if="ab.link" style="font-size: 18px">--}}
-{{--                    <a class="" target="_blank" href="{{$abstract->link}}">{!! $abstract->title !!}</a>--}}
-{{--                </p>--}}
-{{--                @else--}}
-{{--                <p v-else style="font-size: 18px">--}}
-{{--                    {!! $abstract->title !!}--}}
-{{--                </p>--}}
-{{--                @endif--}}
-{{--                <p>{!! $abstract->authors !!}</p>--}}
-{{--                <p>{!! $abstract->location_date !!}</p>--}}
-{{--                <p>{!! $abstract->details !!}</p>--}}
-{{--            </td>--}}
-{{--        </tr>--}}
-{{--        @endforeach--}}
-{{--        --}}{{--</tbody>--}}
-{{--    </table>--}}
-{{--@endsection--}}
-
-{{--@section('footer-scripts')--}}
-{{--    <script>--}}
-{{--        $('.expand').click(function(){--}}
-{{--            $("#abstract-"+$(this).data('id')).toggle();--}}
-{{--        })--}}
-{{--    </script>--}}
-{{--@endsection--}}
-
+            <h2>First-Author Conference Abstracts</h2>
+    <table class="table table-hover table-striped publications">
+        @foreach($abstracts as $abstract)
+        <tr>
+            <td>
+                @if($abstract->link)
+                <p style="font-size: 18px">
+                    <a class="" target="_blank" href="{{$abstract->link}}">{{ $abstract->title }}</a>
+                </p>
+                @else
+                <p style="font-size: 18px">
+                    {{ $abstract->title }}
+                </p>
+                @endif
+                <p>{{ $abstract->authors }}</p>
+                <p><i>{{ $abstract->location }}</i> | {{ $abstract->city_state }} | {{ $abstract->date->format('M Y') }}</p>
+                <p>@markdown($abstract->details)</p>
+            </td>
+        </tr>
+        @endforeach
+    </table>
 @endsection
+
+@section('footer-scripts')
+    <script>
+        $('.expand').click(function(){
+            $("#abstract-"+$(this).data('id')).toggle();
+        })
+    </script>
+@endsection
+

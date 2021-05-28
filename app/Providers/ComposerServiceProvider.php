@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Publication;
+use App\Models\ScienceAbstract;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -26,17 +27,15 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('pages.publications', function ($view) {
-//            dd('hi');
-
             $submitted = collect(['Submitted and In Review' => Publication::wherePublished('false')->get()]);
-            $published = Publication::wherePublished(true)->orderBy('date', 'desc')->get()->groupBy(function ($pub) {
+            $published = Publication::wherePublished(true)->orderBy('date_published', 'desc')->get()->groupBy(function ($pub) {
                 return $pub->date_published->format('Y');
             });
             foreach ($published as $key => $values) {
                 $submitted->put($key, $values);
             }
 
-            $abstracts = []; //ScienceAbstract::orderBy('created_at', 'DESC')->get();
+            $abstracts = ScienceAbstract::orderBy('created_at', 'DESC')->get();
             $view->with([
                 'publications' => $submitted, 'abstracts' => $abstracts,
             ]);
