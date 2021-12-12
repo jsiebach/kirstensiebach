@@ -4,14 +4,7 @@
 @section('meta_description'){{$page->meta_description}}@endsection
 
 @section('body')
-    <div class="row video-callout" style="">
-        <div class="col-xs-12">
-            <div class="alert alert-success">
-                We are looking for motivated students and postdoctoral scholars to join our lab and work on interesting problems relating to the sedimentary system on Mars and its record of ancient habitable environments! Please contact Kirsten directly to inquire about opportunities.
-                <br><br><a href="/lab" class="button">Check out the Siebach Lab home</a><br><br>
-            </div>
-        </div>
-    </div>
+    @include('partials.callout')
     <div class="row">
         <div class="col-md-8 col-sm-7">
             <h1>Kirsten Siebach
@@ -25,13 +18,13 @@
             </div>
             <div>
                 <h3>Press</h3>
-{{--                <ul class="list-group">--}}
-{{--                    @foreach(json_decode($page->press_links) as $press)--}}
-{{--                        <li class="list-group-item">--}}
-{{--                            <a href="{!! $press->link !!}" target="_blank">{!! $press->title !!}</a>--}}
-{{--                        </li>--}}
-{{--                    @endforeach--}}
-{{--                </ul>--}}
+                <ul class="list-group">
+                    @foreach(json_decode($page->press) as $press)
+                        <li class="list-group-item">
+                            <a href="{!! $press->link !!}" target="_blank">{!! $press->title !!}</a>
+                        </li>
+                    @endforeach
+                </ul>
             </div>
         </div>
         <div class="col-md-4 col-sm-5">

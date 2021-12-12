@@ -3,11 +3,9 @@
 namespace App\Models\Pages;
 
 use App\Models\Page;
-use App\Models\SocialLink;
 use App\Traits\HasSlug;
-use Illuminate\Database\Eloquent\Builder;
+use App\Models\Publication;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class PublicationsPage extends Page
 {
@@ -18,4 +16,14 @@ class PublicationsPage extends Page
     public static $slug = 'publications';
 
     public $contentAttributes = [];
+
+    public function publications()
+    {
+        return $this->hasMany(Publication::class, 'page_id');
+    }
+
+    public function scienceAbstracts()
+    {
+        return $this->hasMany(Publication::class, 'page_id');
+    }
 }

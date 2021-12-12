@@ -3,16 +3,15 @@
 namespace App\Providers;
 
 use App\Models\Page;
-use Giuga\LaravelNovaSidebar\NovaSidebar;
-use Giuga\LaravelNovaSidebar\SidebarGroup;
-use Giuga\LaravelNovaSidebar\SidebarLink;
-use Illuminate\Support\Facades\Gate;
-use Laravel\Nova\Cards\Help;
+use Laravel\Nova\Nova;
 use Laravel\Nova\Fields\Code;
 use Laravel\Nova\Fields\Image;
-use Laravel\Nova\Nova;
-use Laravel\Nova\NovaApplicationServiceProvider;
+use Illuminate\Support\Facades\Gate;
+use Giuga\LaravelNovaSidebar\NovaSidebar;
+use Giuga\LaravelNovaSidebar\SidebarLink;
+use Giuga\LaravelNovaSidebar\SidebarGroup;
 use OptimistDigital\NovaSettings\NovaSettings;
+use Laravel\Nova\NovaApplicationServiceProvider;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -30,6 +29,40 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             Code::make('Tracking Code'),
             Code::make('Schema Markup'),
         ]);
+    }
+
+    /**
+     * Get the tools that should be listed in the Nova sidebar.
+     *
+     * @return array
+     */
+    public function tools()
+    {
+        $pages = Page::all();
+
+        $sidebarGroup = (new SidebarGroup())
+            ->setName('Pages');
+
+        $pages->each(fn ($page) => $sidebarGroup->addLink((new SidebarLink())
+            ->setName($page->title)
+            ->setType('_self')
+            ->setUrl("/admin/resources/{$page->slug}/{$page->id}")));
+
+        return [
+            (new NovaSidebar())
+                ->addGroup($sidebarGroup),
+            new NovaSettings,
+        ];
+    }
+
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
     }
 
     /**
@@ -85,39 +118,5 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function dashboards()
     {
         return [];
-    }
-
-    /**
-     * Get the tools that should be listed in the Nova sidebar.
-     *
-     * @return array
-     */
-    public function tools()
-    {
-        $pages = Page::all();
-
-        $sidebarGroup = (new SidebarGroup())
-            ->setName('Pages');
-
-        $pages->each(fn ($page) => $sidebarGroup->addLink((new SidebarLink())
-            ->setName($page->title)
-            ->setType('_self')
-            ->setUrl("/admin/resources/{$page->slug}/{$page->id}")));
-
-        return [
-            (new NovaSidebar())
-                ->addGroup($sidebarGroup),
-            new NovaSettings,
-        ];
-    }
-
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
     }
 }

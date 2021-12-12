@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 use Spatie\SchemalessAttributes\Casts\SchemalessAttributes;
 
 class Page extends Model
@@ -18,12 +17,8 @@ class Page extends Model
         'content' => SchemalessAttributes::class,
     ];
 
-    public $fillable = [
-        'title',
-        'slug',
-        'meta_title',
-        'meta_description',
-        'content',
+    public $guarded = [
+        'id',
     ];
 
     public $contentAttributes = [];
