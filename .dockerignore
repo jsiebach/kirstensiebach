@@ -17,7 +17,6 @@ node_modules
 **.gitignore
 **.gitattributes
 *.env*
-composer.json
 
 package.json
 phpunit.xml
