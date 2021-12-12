@@ -21,4 +21,9 @@ class PublicationsPage extends Page
     {
         return $this->hasMany(Publication::class, 'page_id');
     }
+
+    public function scienceAbstracts()
+    {
+        return $this->hasMany(Publication::class, 'page_id');
+    }
 }

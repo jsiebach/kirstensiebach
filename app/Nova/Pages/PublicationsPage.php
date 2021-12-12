@@ -24,6 +24,7 @@ class PublicationsPage extends Page
     {
         return [
             HasMany::make('Publications', 'publications'),
+            HasMany::make('Science Abstracts', 'scienceAbstracts'),
         ];
     }
 }
