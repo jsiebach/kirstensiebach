@@ -79,6 +79,7 @@ services:
       DASHBOARD_DNS_ENABLED: "true"
     volumes:
       - ./varnish/conf.d/:/etc/varnish/conf.d/
+      - storage:/var/www/storage
     networks:
       - app-network
 
