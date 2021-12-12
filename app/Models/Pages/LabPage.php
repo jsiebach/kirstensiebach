@@ -3,12 +3,9 @@
 namespace App\Models\Pages;
 
 use App\Models\Page;
-use App\Models\SocialLink;
-use App\Models\TeamMember;
 use App\Traits\HasSlug;
-use Illuminate\Database\Eloquent\Builder;
+use App\Models\TeamMember;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class LabPage extends Page
 {
@@ -21,8 +18,7 @@ class LabPage extends Page
     public $contentAttributes = [
         'banner',
         'intro',
-        'facilities_title',
-        'facilities_content',
+        'lower_content',
     ];
 
     public function teamMembers()

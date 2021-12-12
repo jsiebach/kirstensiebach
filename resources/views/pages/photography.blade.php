@@ -1,8 +1,7 @@
 @extends('master')
 
-@section('page_title')
-    {{$page->meta_title}}
-@endsection
+@section('page_title'){{$page->meta_title}}@endsection
+@section('meta_description'){{$page->meta_description}}@endsection
 
 @section('body')
     @include('partials.page-title')

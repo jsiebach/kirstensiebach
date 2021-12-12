@@ -4,10 +4,9 @@ namespace App\Nova\Pages;
 
 use App\Nova\Page;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Markdown;
-use Laravel\Nova\Fields\Text;
 
 class LabPage extends Page
 {
@@ -29,8 +28,7 @@ class LabPage extends Page
             Image::make('Banner')->disk('public'),
             Markdown::make('Intro'),
             HasMany::make('Team Members', 'teamMembers')->sortable(),
-            Text::make('Facilities Title'),
-            Markdown::make('Facilities Content'),
+            Markdown::make('Lower Content'),
         ];
     }
 }

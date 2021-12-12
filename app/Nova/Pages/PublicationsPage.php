@@ -4,7 +4,7 @@ namespace App\Nova\Pages;
 
 use App\Nova\Page;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\HasMany;
 
 class PublicationsPage extends Page
 {
@@ -22,6 +22,9 @@ class PublicationsPage extends Page
 
     public function contentFields(Request $request)
     {
-        return [];
+        return [
+            HasMany::make('Publications', 'publications'),
+            HasMany::make('Science Abstracts', 'scienceAbstracts'),
+        ];
     }
 }
