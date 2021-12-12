@@ -11,4 +11,6 @@
         <div class="niceGallery" id="gallery">
         </div>
     </div>
+    <script src="{{ mix('/js/photography.js') }}" defer></script>
+    <link rel="stylesheet" href="{{ mix('/css/plugins.css') }}">
 @endsection

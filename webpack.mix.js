@@ -12,7 +12,14 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .js('resources/js/photography.js', 'public/js')
+    .js('resources/js/outreach.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
+
+mix.combine([
+    'resources/js/flickr/gallery.css',
+    'resources/js/jquery.bxslider/jquery.bxslider.css'
+], 'public/css/plugins.css');
 
 if (mix.inProduction()) {
     mix.version();
