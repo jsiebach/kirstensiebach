@@ -7052,7 +7052,7 @@ button.close {
 }
 .fa {
   display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
+  font: normal normal normal 14px / 1 FontAwesome;
   font-size: inherit;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
@@ -10177,7 +10177,7 @@ textarea {
   box-sizing: border-box;
   color: #000000;
   cursor: default;
-  font: 100%/1.5 sans-serif;
+  font: 100% / 1.5 sans-serif;
   text-rendering: optimizeLegibility;
 }
 

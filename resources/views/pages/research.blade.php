@@ -15,10 +15,12 @@
     <hr>
     @foreach($page->research as $i => $research)
     <h3>{{ $research->project_name }}</h3>
+    @if($research->image)
     @if($i % 2 === 0)
-    <img class="img-left thumbnail pull-left" src="/storage/{{ $research->image }}">
+    <img class="img-left thumbnail pull-left" style="max-height: 500px" src="/storage/{{ $research->image }}">
     @else
-    <img class="img-right thumbnail pull-right" src="/storage/{{ $research->image }}">
+    <img class="img-right thumbnail pull-right" style="max-height: 500px" src="/storage/{{ $research->image }}">
+    @endif
     @endif
     @markdown($research->description)
     <div class="clear clearfix"></div>
