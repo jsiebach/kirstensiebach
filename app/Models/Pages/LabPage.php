@@ -3,8 +3,8 @@
 namespace App\Models\Pages;
 
 use App\Models\Page;
-use App\Traits\HasSlug;
 use App\Models\TeamMember;
+use App\Traits\HasSlug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class LabPage extends Page

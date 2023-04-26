@@ -23,11 +23,11 @@ class ResearchFactory extends Factory
     public function definition()
     {
         return [
-            'page_id'      => Page::whereSlug('research')->first()->id,
-            'sort_order'   => $this->faker->numberBetween(1, 8),
+            'page_id' => Page::whereSlug('research')->first()->id,
+            'sort_order' => $this->faker->numberBetween(1, 8),
             'project_name' => $this->faker->name,
-            'description'  => $this->faker->paragraph,
-            'image'        => $this->faker->randomElement([$this->faker->imageUrl, null]),
+            'description' => $this->faker->paragraph,
+            'image' => $this->faker->randomElement([$this->faker->imageUrl, null]),
         ];
     }
 }

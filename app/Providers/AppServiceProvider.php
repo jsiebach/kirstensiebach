@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
     {
         \Blade::directive('markdown', function ($expression) {
             return $expression
-                ? '<?php echo \Illuminate\Mail\Markdown::parse("' . $expression . '"); ?>'
+                ? '<?php echo \Illuminate\Mail\Markdown::parse("'.$expression.'"); ?>'
                 : '';
         });
     }

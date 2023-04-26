@@ -3,8 +3,8 @@
 namespace App\Nova\Pages;
 
 use App\Nova\Page;
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class PublicationsPage extends Page
 {
@@ -20,7 +20,7 @@ class PublicationsPage extends Page
         return 'publications';
     }
 
-    public function contentFields(Request $request)
+    public function contentFields(NovaRequest $request)
     {
         return [
             HasMany::make('Publications', 'publications'),

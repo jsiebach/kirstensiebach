@@ -3,8 +3,8 @@
 namespace App\Nova\Pages;
 
 use App\Nova\Page;
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\File;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class CvPage extends Page
 {
@@ -20,7 +20,7 @@ class CvPage extends Page
         return 'cv';
     }
 
-    public function contentFields(Request $request)
+    public function contentFields(NovaRequest $request)
     {
         return [
             File::make('CV File'),
