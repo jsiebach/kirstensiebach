@@ -15,8 +15,8 @@ class DefaultUserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name'     => 'Jeff Siebach',
-            'email'    => 'jsiebach@gmail.com',
+            'name' => 'Jeff Siebach',
+            'email' => 'jsiebach@gmail.com',
             'password' => \Hash::make(config('auth.default_user_password')),
         ]);
     }

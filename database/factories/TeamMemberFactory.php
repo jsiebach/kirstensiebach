@@ -23,11 +23,11 @@ class TeamMemberFactory extends Factory
     public function definition()
     {
         return [
-            'page_id'         => Page::whereSlug('lab')->first()->id,
-            'sort_order'      => $this->faker->numberBetween(1, 8),
-            'name'            => $this->faker->name,
-            'email'           => $this->faker->email,
-            'bio'             => $this->faker->paragraph,
+            'page_id' => Page::whereSlug('lab')->first()->id,
+            'sort_order' => $this->faker->numberBetween(1, 8),
+            'name' => $this->faker->name,
+            'email' => $this->faker->email,
+            'bio' => $this->faker->paragraph,
             'profile_picture' => $this->faker->imageUrl,
         ];
     }

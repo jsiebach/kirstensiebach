@@ -24,9 +24,9 @@ class PressFactory extends Factory
     {
         return [
             'page_id' => Page::whereSlug('home')->first()->id,
-            'title'   => $this->faker->sentence,
-            'link'    => $this->faker->url,
-            'date'    => $this->faker->date,
+            'title' => $this->faker->sentence,
+            'link' => $this->faker->url,
+            'date' => $this->faker->date,
         ];
     }
 }

@@ -23,15 +23,15 @@ class PublicationFactory extends Factory
     public function definition()
     {
         return [
-            'page_id'          => Page::whereSlug('publications')->first()->id,
-            'title'            => $this->faker->sentence,
-            'authors'          => $this->faker->paragraph,
+            'page_id' => Page::whereSlug('publications')->first()->id,
+            'title' => $this->faker->sentence,
+            'authors' => $this->faker->paragraph,
             'publication_name' => $this->faker->word,
-            'published'        => $this->faker->boolean(80),
-            'date_published'   => $this->faker->date,
-            'abstract'         => $this->faker->paragraph,
-            'doi'              => $this->faker->numberBetween(10000, 1000000),
-            'link'             => $this->faker->url,
+            'published' => $this->faker->boolean(80),
+            'date_published' => $this->faker->date,
+            'abstract' => $this->faker->paragraph,
+            'doi' => $this->faker->numberBetween(10000, 1000000),
+            'link' => $this->faker->url,
         ];
     }
 }
