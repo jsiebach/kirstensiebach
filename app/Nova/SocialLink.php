@@ -44,7 +44,7 @@ class SocialLink extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            Fontawesome::make('Icon'),
+            Text::make('Icon')->help('<a href="https://fontawesome.com/v5/cheatsheet" target="_blank">See options</a>'),
             Text::make('Title'),
             Text::make('Link'),
         ];

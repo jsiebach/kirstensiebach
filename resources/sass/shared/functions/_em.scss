@@ -1,4 +1,6 @@
+@use "sass:math";
+
 @function em ($target, $context: 16px) {
   @if $target == 0 { @return 0; }
-  @return ($target / $context) * 1em;
+  @return math.div($target, $context) * 1em;
 }

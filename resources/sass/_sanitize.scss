@@ -1,5 +1,7 @@
 /*! sanitize.css v3.0.0 | CC0 1.0 Public Domain | github.com/10up/sanitize.css */
 
+@use "sass:list";
+
 $root-background-color: #FFFFFF !default;
 $root-box-sizing: border-box !default;
 $root-color: #000000 !default;
@@ -157,7 +159,7 @@ textarea {
   box-sizing: $root-box-sizing;
   color: $root-color;
   cursor: $root-cursor;
-  font: #{$root-font-size}/#{$root-line-height} $root-font-family;
+  font: list.slash($root-font-size, $root-line-height) $root-font-family;
   text-rendering: $root-text-rendering;
 }
 
