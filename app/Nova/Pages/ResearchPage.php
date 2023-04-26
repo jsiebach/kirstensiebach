@@ -3,10 +3,10 @@
 namespace App\Nova\Pages;
 
 use App\Nova\Page;
-use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Markdown;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class ResearchPage extends Page
 {
@@ -22,7 +22,7 @@ class ResearchPage extends Page
         return 'research';
     }
 
-    public function contentFields(Request $request)
+    public function contentFields(NovaRequest $request)
     {
         return [
             Image::make('Banner')->disk('public'),

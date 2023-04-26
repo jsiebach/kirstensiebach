@@ -3,7 +3,7 @@
 namespace App\Nova\Pages;
 
 use App\Nova\Page;
-use Illuminate\Http\Request;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class OutreachPage extends Page
 {
@@ -19,7 +19,7 @@ class OutreachPage extends Page
         return 'outreach';
     }
 
-    public function contentFields(Request $request)
+    public function contentFields(NovaRequest $request)
     {
         return [];
     }

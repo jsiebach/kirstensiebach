@@ -3,11 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\Press;
+use App\Models\Publication;
 use App\Models\Research;
+use App\Models\ScienceAbstract;
 use App\Models\SocialLink;
 use App\Models\TeamMember;
-use App\Models\Publication;
-use App\Models\ScienceAbstract;
 use Illuminate\Database\Seeder;
 
 class ModelSeeder extends Seeder

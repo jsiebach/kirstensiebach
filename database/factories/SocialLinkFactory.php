@@ -23,11 +23,11 @@ class SocialLinkFactory extends Factory
     public function definition()
     {
         return [
-            'page_id'    => Page::whereSlug('home')->first()->id,
+            'page_id' => Page::whereSlug('home')->first()->id,
             'sort_order' => $this->faker->numberBetween(1, 8),
-            'title'      => $this->faker->name,
-            'link'       => $this->faker->url,
-            'icon'       => $this->faker->randomElement(['fas fa-address-book', 'fab fa-angular']),
+            'title' => $this->faker->name,
+            'link' => $this->faker->url,
+            'icon' => $this->faker->randomElement(['fas fa-address-book', 'fab fa-angular']),
         ];
     }
 }

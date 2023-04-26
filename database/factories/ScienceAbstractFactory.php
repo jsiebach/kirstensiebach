@@ -23,14 +23,14 @@ class ScienceAbstractFactory extends Factory
     public function definition()
     {
         return [
-            'page_id'             => Page::whereSlug('publications')->first()->id,
-            'title'               => $this->faker->sentence,
-            'link'                => $this->faker->randomElement([$this->faker->url, null]),
-            'authors'             => $this->faker->sentence,
-            'location'            => $this->faker->name,
-            'city_state'          => $this->faker->city . ', ' . $this->faker->state,
-            'date'                => $this->faker->date,
-            'details'             => $this->faker->paragraph,
+            'page_id' => Page::whereSlug('publications')->first()->id,
+            'title' => $this->faker->sentence,
+            'link' => $this->faker->randomElement([$this->faker->url, null]),
+            'authors' => $this->faker->sentence,
+            'location' => $this->faker->name,
+            'city_state' => $this->faker->city.', '.$this->faker->state,
+            'date' => $this->faker->date,
+            'details' => $this->faker->paragraph,
         ];
     }
 }

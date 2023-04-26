@@ -2,13 +2,13 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Date;
-use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Markdown;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
-use OptimistDigital\NovaSortable\Traits\HasSortableRows;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Outl1ne\NovaSortable\Traits\HasSortableRows;
 
 class Publication extends Resource
 {
@@ -52,10 +52,9 @@ class Publication extends Resource
     /**
      * Get the fields displayed by the resource.
      *
-     * @param  \Illuminate\Http\Request $request
      * @return array
      */
-    public function fields(Request $request)
+    public function fields(NovaRequest $request)
     {
         return [
             Text::make('Title'),
@@ -67,49 +66,5 @@ class Publication extends Resource
             Text::make('DOI')->nullable(),
             Text::make('Link')->nullable(),
         ];
-    }
-
-    /**
-     * Get the cards available for the request.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return array
-     */
-    public function cards(Request $request)
-    {
-        return [];
-    }
-
-    /**
-     * Get the filters available for the resource.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return array
-     */
-    public function filters(Request $request)
-    {
-        return [];
-    }
-
-    /**
-     * Get the lenses available for the resource.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return array
-     */
-    public function lenses(Request $request)
-    {
-        return [];
-    }
-
-    /**
-     * Get the actions available for the resource.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return array
-     */
-    public function actions(Request $request)
-    {
-        return [];
     }
 }

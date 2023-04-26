@@ -3,15 +3,14 @@
 namespace App\Providers;
 
 use App\Models\Page;
-use Laravel\Nova\Nova;
+use App\Nova\Dashboards\Main;
+use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Fields\Code;
 use Laravel\Nova\Fields\Image;
-use Illuminate\Support\Facades\Gate;
-use Giuga\LaravelNovaSidebar\NovaSidebar;
-use Giuga\LaravelNovaSidebar\SidebarLink;
-use Giuga\LaravelNovaSidebar\SidebarGroup;
-use OptimistDigital\NovaSettings\NovaSettings;
+use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
+use Outl1ne\NovaSettings\NovaSettings;
+use vmitchell85\NovaLinks\Links;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -40,17 +39,12 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         $pages = Page::all();
 
-        $sidebarGroup = (new SidebarGroup())
-            ->setName('Pages');
+        $sidebarGroup = (new Links('Pages'));
 
-        $pages->each(fn ($page) => $sidebarGroup->addLink((new SidebarLink())
-            ->setName($page->title)
-            ->setType('_self')
-            ->setUrl("/admin/resources/{$page->slug}/{$page->id}")));
+        $pages->each(fn ($page) => $sidebarGroup->addLink($page->title, "/resources/{$page->slug}/{$page->id}"));
 
         return [
-            (new NovaSidebar())
-                ->addGroup($sidebarGroup),
+            $sidebarGroup,
             new NovaSettings,
         ];
     }
@@ -73,9 +67,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function routes()
     {
         Nova::routes()
-                ->withAuthenticationRoutes()
-                ->withPasswordResetRoutes()
-                ->register();
+            ->withAuthenticationRoutes()
+            ->withPasswordResetRoutes()
+            ->register();
     }
 
     /**
@@ -96,27 +90,14 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     }
 
     /**
-     * Get the cards that should be displayed on the default Nova dashboard.
-     *
-     * @return array
-     */
-    protected function cards()
-    {
-        return [
-            new \Tightenco\NovaGoogleAnalytics\VisitorsMetric,
-            new \Tightenco\NovaGoogleAnalytics\PageViewsMetric,
-            new \Tightenco\NovaGoogleAnalytics\MostVisitedPagesCard,
-            new \Tightenco\NovaGoogleAnalytics\ReferrersList,
-        ];
-    }
-
-    /**
      * Get the extra dashboards that should be displayed on the Nova dashboard.
      *
      * @return array
      */
     protected function dashboards()
     {
-        return [];
+        return [
+            new Main,
+        ];
     }
 }
