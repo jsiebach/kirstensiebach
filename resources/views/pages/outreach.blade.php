@@ -194,11 +194,11 @@
             </div>
         </div>
         <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-offset-0 col-lg-4 text-center">
-            <h4>Google Science Fair Hangout</h4>
-            <div class="videoWrapper">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/PqX27E_T8C4" frameborder="0"
-                        allowfullscreen></iframe>
-            </div>
+{{--            <h4>Google Science Fair Hangout</h4>--}}
+{{--            <div class="videoWrapper">--}}
+{{--                <iframe width="560" height="315" src="https://www.youtube.com/embed/PqX27E_T8C4" frameborder="0"--}}
+{{--                        allowfullscreen></iframe>--}}
+{{--            </div>--}}
         </div>
         <div class="col-xs-12 col-lg-4 text-center  col-md-8 col-md-offset-2 col-lg-offset-0 ">
             <h4>Houston Geological Society</h4>
@@ -573,6 +573,6 @@
             </td>
         </tr>
     </table>
-    <script src="{{ mix('/js/photography.js') }}" defer></script>
+    <script src="{{ mix('/js/outreach.js') }}" defer></script>
     <link rel="stylesheet" href="{{ mix('/css/plugins.css') }}">
 @endsection
