@@ -14,7 +14,7 @@
         <tr>
             <td>
                 <p style="font-size: 18px">{{ $pub->title }}</p>
-                <p>@markdown($pub->authors) {{$pub->date_published->format('Y')}}</p>
+                <p>@markdown($pub->authors)</p>
                 <div><i>{{$pub->publication_name ? $pub->publication_name . " | ":""}}</i>{{$pub->published ? $pub->date_published->format("Y-m-d"):"Submitted ".$pub->date_published->format("Y-m-d")}}  </div>
                 @if($pub->link && $pub->doi)
                 <div>
