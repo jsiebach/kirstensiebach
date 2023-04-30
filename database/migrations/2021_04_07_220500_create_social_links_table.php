@@ -17,7 +17,6 @@ class CreateSocialLinksTable extends Migration
             $table->id();
             $table->foreignId('page_id');
             $table->unsignedInteger('sort_order');
-            $table->string('title');
             $table->string('link');
             $table->string('icon');
             $table->timestamps();
