@@ -6,11 +6,9 @@
 @section('body')
     @include('partials.callout')
     @include('partials.page-title')
-    <img class="banner" src="/storage/{{ $page->banner }}" alt="">
-    <br>
-    <br>
+    <img class="img-right thumbnail pull-right" src="/storage/{{ $page->banner }}" alt="">
     @markdown($page->intro)
-
+    <div class="clearfix"></div>
     <h2>Current Projects</h2>
     <hr>
     @foreach($page->research as $i => $research)
