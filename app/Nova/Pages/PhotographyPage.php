@@ -3,6 +3,7 @@
 namespace App\Nova\Pages;
 
 use App\Nova\Page;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class PhotographyPage extends Page
@@ -21,6 +22,8 @@ class PhotographyPage extends Page
 
     public function contentFields(NovaRequest $request)
     {
-        return [];
+        return [
+            Text::make('Flickr Album'),
+        ];
     }
 }

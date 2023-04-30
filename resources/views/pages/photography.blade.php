@@ -8,7 +8,7 @@
     <p>Photography from my travels in the US and abroad. Please contact me at <a href="mailto:photography@kirstensiebach.com">photography@kirstensiebach.com</a> to purchase an image!</p>
     <p>More photos available for viewing on <a target="_blank" href="https://www.flickr.com/photos/77604748@N07/albums">my Flickr page!</a></p>
     <div class="content">
-        <div class="niceGallery" id="gallery">
+        <div class="niceGallery" id="gallery" data-album="72157645780469251">
         </div>
     </div>
     <script src="{{ mix('/js/photography.js') }}" defer></script>
