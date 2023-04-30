@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('social_links', function (Blueprint $table) {
-            $table->string('title')->after('sort_order');
+
+        Schema::table('team_members', function (Blueprint $table) {
+            $table->string('title')->after('name');
+            $table->boolean('alumni')->after('email');
         });
     }
 
@@ -21,8 +23,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('social_links', function (Blueprint $table) {
+        Schema::table('team_members', function (Blueprint $table) {
             $table->dropColumn('title');
+            $table->dropColumn('alumni');
         });
     }
 };

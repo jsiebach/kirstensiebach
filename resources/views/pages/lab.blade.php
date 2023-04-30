@@ -10,26 +10,13 @@
     <br>
     <br>
     @markdown($page->intro)
-    <h2>Lab Team</h2>
-    @foreach($page->teamMembers as $i => $teamMember)
-        <hr>
-        <div class="row">
-            @if($i % 2 === 0)
-                <div class="col-md-6 text-center">
-                    <img style="max-width: 100%; height: auto; max-height: 500px;" src="/storage/{{ $teamMember->profile_picture }}" alt="">
-                </div>
-            @endif
-            <div class="col-md-6">
-                <h3>{{ $teamMember->name }}</h3>
-                <h5>{{ $teamMember->email }}</h5>
-                @markdown($teamMember->bio)
-            </div>
-            @if($i % 2 === 1)
-                <div class="col-md-6 text-center">
-                    <img style="max-width: 100%; height: auto; max-height: 500px;" src="/storage/{{ $teamMember->profile_picture }}" alt="">
-                </div>
-            @endif
-        </div>
+    <h2>Current Team</h2>
+    @foreach($page->teamMembers()->where('alumni', false)->get() as $i => $teamMember)
+        @include('partials.lab-team', compact('i', 'teamMember'))
+    @endforeach
+    <h2>Lab Alumni</h2>
+    @foreach($page->teamMembers()->where('alumni', true)->get() as $i => $teamMember)
+        @include('partials.lab-team', compact('i', 'teamMember'))
     @endforeach
     <hr>
     @markdown($page->lower_content)
