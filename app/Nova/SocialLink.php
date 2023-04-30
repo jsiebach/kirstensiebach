@@ -43,9 +43,13 @@ class SocialLink extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            Text::make('Icon')->help('<a href="https://fontawesome.com/v5/cheatsheet" target="_blank">See options</a>'),
-            Text::make('Title'),
-            Text::make('Link'),
+            Text::make('Icon')
+                ->help('<a href="https://fontawesome.com/v5/cheatsheet" target="_blank">See options</a>')
+                ->rules('required'),
+            Text::make('Title')
+                ->rules('required'),
+            Text::make('Link')
+                ->rules('required'),
         ];
     }
 }

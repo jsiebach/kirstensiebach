@@ -57,14 +57,23 @@ class Publication extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            Text::make('Title'),
-            Markdown::make('Authors'),
-            Text::make('Publication Name'),
-            Boolean::make('Published')->help('Has this been published, or is it still in review?'),
-            Date::make('Date Published')->help('Date submitted if not yet published'),
-            Textarea::make('Abstract')->nullable(),
-            Text::make('DOI')->nullable(),
-            Text::make('Link')->nullable(),
+            Text::make('Title')
+                ->rules('required'),
+            Markdown::make('Authors')
+                ->rules('required'),
+            Text::make('Publication Name')
+                ->rules('required'),
+            Boolean::make('Published')
+                ->help('Has this been published, or is it still in review?'),
+            Date::make('Date Published')
+                ->help('Date submitted if not yet published')
+                ->rules('required'),
+            Textarea::make('Abstract')
+                ->nullable(),
+            Text::make('DOI')
+                ->nullable(),
+            Text::make('Link')
+                ->nullable(),
         ];
     }
 }
