@@ -1,5 +1,5 @@
 window.$ = window.jQuery = require('jquery');
-require('./flickr/js/jquery-ui.min.js')
+require('./jquery.bxslider/jquery.bxslider.js')
 
 $('.bxslider').bxSlider({
     captions:true,
