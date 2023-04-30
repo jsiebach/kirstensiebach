@@ -14,5 +14,7 @@ class PhotographyPage extends Page
 
     public static $slug = 'photography';
 
-    public $contentAttributes = [];
+    public $contentAttributes = [
+        'flickr_album',
+    ];
 }
