@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Text;
@@ -46,7 +47,9 @@ class TeamMember extends Resource
     {
         return [
             Text::make('Name'),
+            Text::make('Title'),
             Text::make('Email'),
+            Boolean::make('Alumni'),
             Markdown::make('Bio'),
             Image::make('Profile Picture'),
         ];
