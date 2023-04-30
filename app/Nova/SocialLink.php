@@ -4,7 +4,6 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Mdixon18\Fontawesome\Fontawesome;
 use Outl1ne\NovaSortable\Traits\HasSortableRows;
 
 class SocialLink extends Resource
