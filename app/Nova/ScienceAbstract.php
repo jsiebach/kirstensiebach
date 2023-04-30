@@ -55,12 +55,18 @@ class ScienceAbstract extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            Text::make('Title'),
-            Text::make('Link')->nullable(),
-            Text::make('Authors'),
-            Text::make('Location'),
-            Text::make('City State'),
-            Date::make('Date'),
+            Text::make('Title')
+                ->rules('required'),
+            Text::make('Link')
+                ->nullable(),
+            Text::make('Authors')
+                ->rules('required'),
+            Text::make('Location')
+                ->rules('required'),
+            Text::make('City State')
+                ->rules('required'),
+            Date::make('Date')
+                ->rules('required'),
             Markdown::make('Details'),
         ];
     }

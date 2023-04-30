@@ -44,9 +44,12 @@ class Press extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            Text::make('Title'),
-            Text::make('Link'),
-            Date::make('Date'),
+            Text::make('Title')
+                ->rules('required'),
+            Text::make('Link')
+                ->rules('required'),
+            Date::make('Date')
+                ->rules('required'),
         ];
     }
 }

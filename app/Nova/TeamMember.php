@@ -46,12 +46,18 @@ class TeamMember extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            Text::make('Name'),
-            Text::make('Title'),
-            Text::make('Email'),
-            Boolean::make('Alumni'),
-            Markdown::make('Bio'),
-            Image::make('Profile Picture'),
+            Text::make('Name')
+                ->rules('required'),
+            Text::make('Title')
+                ->rules('required'),
+            Text::make('Email')
+                ->rules('required'),
+            Boolean::make('Alumni')
+                ->default(fn () => false),
+            Markdown::make('Bio')
+                ->rules('required'),
+            Image::make('Profile Picture')
+                ->rules('required'),
         ];
     }
 }

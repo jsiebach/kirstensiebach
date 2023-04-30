@@ -55,8 +55,10 @@ class Research extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            Text::make('Project Name'),
-            Markdown::make('Description'),
+            Text::make('Project Name')
+                ->rules('required'),
+            Markdown::make('Description')
+                ->rules('required'),
             Image::make('Image'),
         ];
     }

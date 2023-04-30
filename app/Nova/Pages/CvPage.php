@@ -23,7 +23,10 @@ class CvPage extends Page
     public function contentFields(NovaRequest $request)
     {
         return [
-            File::make('CV File'),
+            File::make('CV File')
+                ->storeAs(function (NovaRequest $request) {
+                    return $request->file('cv_file')->getClientOriginalName();
+                }),
         ];
     }
 }
