@@ -17,10 +17,10 @@ class HomePage extends Page
     public static $slug = 'home';
 
     public $contentAttributes = [
-        'use_callout',
-        'callout',
-        'callout_action',
-        'callout_action_text',
+        'add_call_to_action_banner',
+        'call_to_action',
+        'action_link',
+        'action_text',
         'banner',
         'tagline',
         'profile_picture',
