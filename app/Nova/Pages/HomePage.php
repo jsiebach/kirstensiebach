@@ -19,6 +19,8 @@ class HomePage extends Page
      */
     public static $model = \App\Models\Pages\HomePage::class;
 
+    public $showCalloutSection = true;
+
     public static function uriKey()
     {
         return 'home';

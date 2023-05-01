@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -27,6 +28,8 @@ class Page extends Resource
 
     public static $displayInNavigation = false;
 
+    public $showCalloutSection = false;
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -34,11 +37,19 @@ class Page extends Resource
      */
     public function fields(NovaRequest $request)
     {
-        return [
-            Text::make('Title')->sortable()->required(),
-            new Panel('SEO Settings', $this->seoSettingsFields()),
-            new Panel('Content', $this->contentFields($request)),
-        ];
+        $fields = [];
+
+        $fields[] = Text::make('Title')->sortable()->required();
+
+        $fields[] = new Panel('SEO Settings', $this->seoSettingsFields($request));
+
+        if ($this->showCalloutSection) {
+            $fields[] = new Panel('Call to Action', $this->calloutFields($request));
+        }
+
+        $fields[] = new Panel('Content', $this->contentFields($request));
+
+        return $fields;
     }
 
     public function fieldsForIndex()
@@ -48,11 +59,26 @@ class Page extends Resource
         ];
     }
 
-    private function seoSettingsFields()
+    private function seoSettingsFields(NovaRequest $request)
     {
         return [
             Text::make('Meta Title')->required(),
             Textarea::make('Meta Description')->nullable(),
+        ];
+    }
+
+    public function contentFields(NovaRequest $request)
+    {
+        return [];
+    }
+
+    public function calloutFields(NovaRequest $request)
+    {
+        return [
+            Boolean::make('Add Call to Action Banner'),
+            Textarea::make('Call to Action'),
+            Text::make('Action Link'),
+            Text::make('Action Text'),
         ];
     }
 }

@@ -13,8 +13,12 @@ return new class extends Migration
     {
 
         Schema::table('team_members', function (Blueprint $table) {
-            $table->string('title')->after('name');
-            $table->boolean('alumni')->after('email');
+            $table->string('title')
+                ->after('name')
+                ->nullable();
+            $table->boolean('alumni')
+                ->after('email')
+                ->nullable();
         });
     }
 
