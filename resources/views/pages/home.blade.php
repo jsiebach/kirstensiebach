@@ -55,25 +55,5 @@
 @endsection
 
 @section('header-styles')
-    <script type='application/ld+json'>
-    {
-      "@context": "http://www.schema.org",
-      "@type": "person",
-      "name": "Kirsten Siebach",
-      "url": "https://kirstensiebach.com",
-      "email": "ksiebach@rice.edu",
-      "image": "https://kirstensiebach.com/uploads/ks-profile-pic.jpg",
-      "sameAs": [
-          "http://orcid.org/0000-0002-6628-6297",
-          "http://mars.nasa.gov/people/info.cfm?id=22897",
-          "https://www.linkedin.com/in/kirsten-siebach-33433985",
-          "https://www.flickr.com/photos/77604748@N07/albums",
-          "https://www.researchgate.net/profile/Kirsten_Siebach",
-          "https://scholar.google.com/citations?hl=en&btnA=1&authorid=15489039706247508211&user=TU6sGpYAAAAJ",
-          "https://plus.google.com/+KirstenSiebach"
-      ],
-      "description": "Kirsten Siebach is an Assistant Professor in the Rice University Department of Earth, Environmental, and Planetary Sciences. Her work focuses on understanding the history of water interacting with sediments on Mars and early Earth through analysis of sedimentary rock textures and chemistry. She is currently a member of the Science and Operations Teams for the Mars Exploration Rovers and the Mars Science Laboratory.",
-      "jobTitle":"Assistant Professor"
-    }
-     </script>
+    {!! nova_get_setting('schema_markup') !!}
 @append
