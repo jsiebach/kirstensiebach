@@ -1,4 +1,3 @@
-window.$ = window.jQuery = require('jquery');
 require('./flickr/js/jquery-ui.min.js')
 require('./flickr/js/FlickrAPI.js')
 require('./flickr/js/Flickr.Gallery.js')
