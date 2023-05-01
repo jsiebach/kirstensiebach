@@ -67,13 +67,6 @@
         </tr>
         @endforeach
     </table>
-@endsection
-
-@section('footer-scripts')
-    <script>
-        $('.expand').click(function(){
-            $("#abstract-"+$(this).data('id')).toggle();
-        })
-    </script>
+    <script src="{{ mix('/js/publications.js') }}" defer></script>
 @endsection
 

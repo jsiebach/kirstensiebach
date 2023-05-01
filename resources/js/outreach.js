@@ -1,4 +1,3 @@
-window.$ = window.jQuery = require('jquery');
 require('./jquery.bxslider/jquery.bxslider.js')
 
 $('.bxslider').bxSlider({
