@@ -56,8 +56,7 @@ class TeamMember extends Resource
                 ->default(fn () => false),
             Markdown::make('Bio')
                 ->rules('required'),
-            Image::make('Profile Picture')
-                ->rules('required'),
+            Image::make('Profile Picture'),
         ];
     }
 }
