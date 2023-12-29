@@ -48,8 +48,6 @@ class TeamMember extends Resource
         return [
             Text::make('Name')
                 ->rules('required'),
-            Text::make('Title')
-                ->rules('required'),
             Text::make('Email')
                 ->rules('required'),
             Boolean::make('Alumni')
