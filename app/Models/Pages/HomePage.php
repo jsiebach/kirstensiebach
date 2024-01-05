@@ -8,6 +8,35 @@ use App\Models\SocialLink;
 use App\Traits\HasSlug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+/**
+ * App\Models\Pages\HomePage
+ *
+ * @property int $id
+ * @property string $title
+ * @property string $slug
+ * @property string $meta_title
+ * @property string|null $meta_description
+ * @property \Spatie\SchemalessAttributes\SchemalessAttributes|null $content
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, Press> $press
+ * @property-read int|null $press_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, SocialLink> $socialLinks
+ * @property-read int|null $social_links_count
+ * @method static \Illuminate\Database\Eloquent\Builder|HomePage newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|HomePage newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|HomePage query()
+ * @method static \Illuminate\Database\Eloquent\Builder|HomePage whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|HomePage whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|HomePage whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|HomePage whereMetaDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|HomePage whereMetaTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|HomePage whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|HomePage whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|HomePage whereUpdatedAt($value)
+ * @method static Builder|Page withContent()
+ * @mixin \Eloquent
+ */
 class HomePage extends Page
 {
     use HasFactory, HasSlug;
