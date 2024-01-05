@@ -26,7 +26,6 @@ class TeamMemberFactory extends Factory
             'page_id' => Page::whereSlug('lab')->first()->id,
             'sort_order' => $this->faker->numberBetween(1, 8),
             'name' => $this->faker->name,
-            'title' => $this->faker->title,
             'email' => $this->faker->email,
             'alumni' => $this->faker->boolean,
             'bio' => $this->faker->paragraph,
