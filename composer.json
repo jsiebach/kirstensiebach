@@ -14,9 +14,11 @@
         "outl1ne/nova-settings": "^5.1",
         "outl1ne/nova-sortable": "^3.4",
         "spatie/laravel-schemaless-attributes": "^2.0",
+        "spatie/laravel-sitemap": "^7.0",
         "vmitchell85/nova-links": "^2.1"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.13",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.10",
         "laravel/sail": "^1.0.1",

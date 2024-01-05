@@ -5,7 +5,7 @@
 
 @section('body')
     @include('partials.page-title')
-    <h2>Peer Reviewed <small><a href="#abstracts" class="pull-right">Scroll to First-Author Conference Abstracts</a></small></h2>
+    <h2>Peer Reviewed <small><a href="#abstracts" class="pull-right">Scroll to Siebach Lab Conference Abstracts</a></small></h2>
     <table class="table table-hover table-striped publications">
         <tbody v-for="section in publications">
         @foreach($publications as $title => $group)
@@ -43,10 +43,8 @@
         @endforeach
         </tbody>
     </table>
-        <a style="padding-top: 40px; margin-top: -40px;" name="abstracts">
-            &nbsp;
-        </a>
-            <h2>First-Author Conference Abstracts</h2>
+        <a style="padding-top: 40px; margin-top: -40px;" name="abstracts"></a>
+            <h2>Siebach Lab Conference Abstracts</h2>
     <table class="table table-hover table-striped publications">
         @foreach($abstracts as $abstract)
         <tr>
