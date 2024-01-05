@@ -28,14 +28,14 @@ class ComposerServiceProvider extends ServiceProvider
     {
         View::composer('pages.publications', function ($view) {
             $submitted = collect(['Submitted and In Review' => Publication::wherePublished('false')->get()]);
-            $published = Publication::wherePublished(true)->orderBy('date_published', 'desc')->get()->groupBy(function ($pub) {
+            $published = Publication::wherePublished(true)->get()->groupBy(function ($pub) {
                 return $pub->date_published->format('Y');
             });
             foreach ($published as $key => $values) {
                 $submitted->put($key, $values);
             }
 
-            $abstracts = ScienceAbstract::orderBy('created_at', 'DESC')->get();
+            $abstracts = ScienceAbstract::all();
             $view->with([
                 'publications' => $submitted, 'abstracts' => $abstracts,
             ]);
