@@ -11,11 +11,11 @@
     <br>
     @markdown($page->intro)
     <h2>Current Team</h2>
-    @foreach($page->teamMembers()->where('alumni', false)->get() as $i => $teamMember)
+    @foreach($page->teamMembers()->where('alumni', false)->ordered()->get() as $i => $teamMember)
         @include('partials.lab-team', compact('i', 'teamMember'))
     @endforeach
     <h2>Lab Alumni</h2>
-    @foreach($page->teamMembers()->where('alumni', true)->get() as $i => $teamMember)
+    @foreach($page->teamMembers()->where('alumni', true)->ordered()->get() as $i => $teamMember)
         @include('partials.lab-team', compact('i', 'teamMember'))
     @endforeach
     <hr>
