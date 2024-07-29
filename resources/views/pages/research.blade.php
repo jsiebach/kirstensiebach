@@ -11,7 +11,7 @@
     <div class="clearfix"></div>
     <h2>Current Projects</h2>
     <hr>
-    @foreach($page->research as $i => $research)
+    @foreach($page->research()->ordered()->get() as $i => $research)
     <h3>{{ $research->project_name }}</h3>
     @if($research->image)
     @if($i % 2 === 0)
