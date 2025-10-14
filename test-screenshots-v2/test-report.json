@@ -1,0 +1,285 @@
+{
+  "timestamp": "2025-10-14T14:46:40.542Z",
+  "summary": {
+    "total": 30,
+    "passed": 14,
+    "failed": 16,
+    "skipped": 0
+  },
+  "results": [
+    {
+      "resource": "Home Page",
+      "operation": "READ (List View)",
+      "status": "PASS",
+      "notes": [
+        "Found 1 record(s) in table",
+        "Search functionality available",
+        "Create button available"
+      ]
+    },
+    {
+      "resource": "Home Page",
+      "operation": "READ (Edit View)",
+      "status": "PASS",
+      "notes": [
+        "Form has 4 text inputs and 4 textareas"
+      ]
+    },
+    {
+      "resource": "Home Page",
+      "operation": "UPDATE",
+      "status": "FAIL",
+      "notes": [
+        "Original value length: 418 chars",
+        "Error: locator.count: Unexpected token \"=\" while parsing css selector \"[role=\"status\"], .fi-no-notification, text=/saved/i, text=/updated/i\". Did you mean to CSS.escape it?"
+      ]
+    },
+    {
+      "resource": "Home Page",
+      "operation": "Form Validation",
+      "status": "FAIL",
+      "notes": [
+        "Error: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button:has-text(\"Create\"), button[type=\"submit\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" class=\"fi-dropdown-list-item\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    56 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+      ]
+    },
+    {
+      "resource": "Lab Page",
+      "operation": "READ (List View)",
+      "status": "PASS",
+      "notes": [
+        "Found 1 record(s) in table",
+        "Search functionality available",
+        "Create button available"
+      ]
+    },
+    {
+      "resource": "Lab Page",
+      "operation": "READ (Edit View)",
+      "status": "PASS",
+      "notes": [
+        "Form has 3 text inputs and 4 textareas"
+      ]
+    },
+    {
+      "resource": "Lab Page",
+      "operation": "UPDATE",
+      "status": "FAIL",
+      "notes": [
+        "Original value length: 0 chars",
+        "Error: locator.count: Unexpected token \"=\" while parsing css selector \"[role=\"status\"], .fi-no-notification, text=/saved/i, text=/updated/i\". Did you mean to CSS.escape it?"
+      ]
+    },
+    {
+      "resource": "Lab Page",
+      "operation": "Form Validation",
+      "status": "FAIL",
+      "notes": [
+        "Error: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button:has-text(\"Create\"), button[type=\"submit\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" class=\"fi-dropdown-list-item\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    56 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+      ]
+    },
+    {
+      "resource": "Research Page",
+      "operation": "READ (List View)",
+      "status": "PASS",
+      "notes": [
+        "Found 1 record(s) in table",
+        "Search functionality available",
+        "Create button available"
+      ]
+    },
+    {
+      "resource": "Research Page",
+      "operation": "READ (Edit View)",
+      "status": "PASS",
+      "notes": [
+        "Form has 3 text inputs and 2 textareas"
+      ]
+    },
+    {
+      "resource": "Research Page",
+      "operation": "UPDATE",
+      "status": "FAIL",
+      "notes": [
+        "Original value length: 0 chars",
+        "Error: locator.count: Unexpected token \"=\" while parsing css selector \"[role=\"status\"], .fi-no-notification, text=/saved/i, text=/updated/i\". Did you mean to CSS.escape it?"
+      ]
+    },
+    {
+      "resource": "Research Page",
+      "operation": "Form Validation",
+      "status": "FAIL",
+      "notes": [
+        "Error: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button:has-text(\"Create\"), button[type=\"submit\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" class=\"fi-dropdown-list-item\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    56 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+      ]
+    },
+    {
+      "resource": "Publications Page",
+      "operation": "READ (List View)",
+      "status": "PASS",
+      "notes": [
+        "Found 1 record(s) in table",
+        "Search functionality available",
+        "Create button available"
+      ]
+    },
+    {
+      "resource": "Publications Page",
+      "operation": "READ (Edit View)",
+      "status": "PASS",
+      "notes": [
+        "Form has 3 text inputs and 1 textareas"
+      ]
+    },
+    {
+      "resource": "Publications Page",
+      "operation": "UPDATE",
+      "status": "FAIL",
+      "notes": [
+        "Original value length: 0 chars",
+        "Error: locator.count: Unexpected token \"=\" while parsing css selector \"[role=\"status\"], .fi-no-notification, text=/saved/i, text=/updated/i\". Did you mean to CSS.escape it?"
+      ]
+    },
+    {
+      "resource": "Publications Page",
+      "operation": "Form Validation",
+      "status": "FAIL",
+      "notes": [
+        "Error: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button:has-text(\"Create\"), button[type=\"submit\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" class=\"fi-dropdown-list-item\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+      ]
+    },
+    {
+      "resource": "CV Page",
+      "operation": "READ (List View)",
+      "status": "PASS",
+      "notes": [
+        "Found 1 record(s) in table",
+        "Search functionality available",
+        "Create button available"
+      ]
+    },
+    {
+      "resource": "CV Page",
+      "operation": "READ (Edit View)",
+      "status": "PASS",
+      "notes": [
+        "Form has 3 text inputs and 1 textareas"
+      ]
+    },
+    {
+      "resource": "CV Page",
+      "operation": "UPDATE",
+      "status": "FAIL",
+      "notes": [
+        "Original value length: 0 chars",
+        "Error: locator.count: Unexpected token \"=\" while parsing css selector \"[role=\"status\"], .fi-no-notification, text=/saved/i, text=/updated/i\". Did you mean to CSS.escape it?"
+      ]
+    },
+    {
+      "resource": "CV Page",
+      "operation": "Form Validation",
+      "status": "FAIL",
+      "notes": [
+        "Error: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button:has-text(\"Create\"), button[type=\"submit\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" class=\"fi-dropdown-list-item\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    56 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+      ]
+    },
+    {
+      "resource": "CV Page",
+      "operation": "CREATE",
+      "status": "FAIL",
+      "notes": [
+        "Title: Test Page 1760453026930",
+        "Slug: test-page-1760453026930 (auto-generated)",
+        "Meta Title: Test Meta Title",
+        "Meta Description: Test meta description for automated testing",
+        "Error: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button:has-text(\"Create\"), button[type=\"submit\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" class=\"fi-dropdown-list-item\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    56 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+      ],
+      "createdRecordTitle": null
+    },
+    {
+      "resource": "Outreach Page",
+      "operation": "READ (List View)",
+      "status": "PASS",
+      "notes": [
+        "Found 1 record(s) in table",
+        "Search functionality available",
+        "Create button available"
+      ]
+    },
+    {
+      "resource": "Outreach Page",
+      "operation": "READ (Edit View)",
+      "status": "PASS",
+      "notes": [
+        "Form has 3 text inputs and 1 textareas"
+      ]
+    },
+    {
+      "resource": "Outreach Page",
+      "operation": "UPDATE",
+      "status": "FAIL",
+      "notes": [
+        "Original value length: 0 chars",
+        "Error: locator.count: Unexpected token \"=\" while parsing css selector \"[role=\"status\"], .fi-no-notification, text=/saved/i, text=/updated/i\". Did you mean to CSS.escape it?"
+      ]
+    },
+    {
+      "resource": "Outreach Page",
+      "operation": "Form Validation",
+      "status": "FAIL",
+      "notes": [
+        "Error: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button:has-text(\"Create\"), button[type=\"submit\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" class=\"fi-dropdown-list-item\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+      ]
+    },
+    {
+      "resource": "Photography Page",
+      "operation": "READ (List View)",
+      "status": "PASS",
+      "notes": [
+        "Found 1 record(s) in table",
+        "Search functionality available",
+        "Create button available"
+      ]
+    },
+    {
+      "resource": "Photography Page",
+      "operation": "READ (Edit View)",
+      "status": "PASS",
+      "notes": [
+        "Form has 4 text inputs and 1 textareas"
+      ]
+    },
+    {
+      "resource": "Photography Page",
+      "operation": "UPDATE",
+      "status": "FAIL",
+      "notes": [
+        "Original value length: 0 chars",
+        "Error: locator.count: Unexpected token \"=\" while parsing css selector \"[role=\"status\"], .fi-no-notification, text=/saved/i, text=/updated/i\". Did you mean to CSS.escape it?"
+      ]
+    },
+    {
+      "resource": "Photography Page",
+      "operation": "Form Validation",
+      "status": "FAIL",
+      "notes": [
+        "Error: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button:has-text(\"Create\"), button[type=\"submit\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" class=\"fi-dropdown-list-item\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+      ]
+    },
+    {
+      "resource": "Photography Page",
+      "operation": "CREATE",
+      "status": "FAIL",
+      "notes": [
+        "Title: Test Page 1760453165705",
+        "Slug: test-page-1760453165705 (auto-generated)",
+        "Meta Title: Test Meta Title",
+        "Meta Description: Test meta description for automated testing",
+        "Error: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button:has-text(\"Create\"), button[type=\"submit\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" class=\"fi-dropdown-list-item\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+      ],
+      "createdRecordTitle": null
+    }
+  ],
+  "consoleErrors": [],
+  "validationErrors": [],
+  "uiIssues": []
+}

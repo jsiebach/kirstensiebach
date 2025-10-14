@@ -1,4 +1,4 @@
-FROM php:8.3-fpm
+FROM php:8.4-fpm
 
 # Copy composer.lock
 COPY composer.lock /var/www/
@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
     libfreetype6-dev \
     locales \
     libzip-dev \
+    libicu-dev \
     jpegoptim optipng pngquant gifsicle \
     vim \
     unzip \
@@ -24,7 +25,7 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install extensions
-RUN docker-php-ext-install pdo_mysql zip exif pcntl
+RUN docker-php-ext-install pdo_mysql zip exif pcntl intl
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install gd
 

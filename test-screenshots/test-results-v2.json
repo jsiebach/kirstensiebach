@@ -1,0 +1,74 @@
+{
+  "loginTest": {
+    "success": true,
+    "errors": []
+  },
+  "dashboardTest": {
+    "success": true,
+    "errors": []
+  },
+  "resourceTests": {
+    "Home Pages": {
+      "success": true,
+      "url": "http://localhost:8080/filament/resources/home-pages",
+      "errors": [
+        "[2025-10-14T14:03:52.473Z] Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ]
+    },
+    "Lab Pages": {
+      "success": true,
+      "url": "http://localhost:8080/filament/resources/lab-pages",
+      "errors": [
+        "[2025-10-14T14:03:55.138Z] Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ]
+    },
+    "Team Members": {
+      "success": true,
+      "url": "http://localhost:8080/filament/resources/team-members",
+      "errors": [
+        "[2025-10-14T14:03:57.795Z] Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ]
+    },
+    "Research": {
+      "success": true,
+      "url": "http://localhost:8080/filament/resources/research",
+      "errors": [
+        "[2025-10-14T14:04:00.451Z] Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ]
+    },
+    "Publications": {
+      "success": true,
+      "url": "http://localhost:8080/filament/resources/publications",
+      "errors": [
+        "[2025-10-14T14:04:03.120Z] Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ]
+    }
+  },
+  "createFormTest": {
+    "success": false,
+    "errors": [
+      "Create button not found with any selector"
+    ]
+  },
+  "screenshots": [
+    "/Users/jsiebach/code/kirstensiebach/test-screenshots/v2-01-login-page.png",
+    "/Users/jsiebach/code/kirstensiebach/test-screenshots/v2-01b-before-submit.png",
+    "/Users/jsiebach/code/kirstensiebach/test-screenshots/v2-02-dashboard.png",
+    "/Users/jsiebach/code/kirstensiebach/test-screenshots/v2-03-1-home-pages.png",
+    "/Users/jsiebach/code/kirstensiebach/test-screenshots/v2-03-2-lab-pages.png",
+    "/Users/jsiebach/code/kirstensiebach/test-screenshots/v2-03-3-team-members.png",
+    "/Users/jsiebach/code/kirstensiebach/test-screenshots/v2-03-4-research.png",
+    "/Users/jsiebach/code/kirstensiebach/test-screenshots/v2-03-5-publications.png",
+    "/Users/jsiebach/code/kirstensiebach/test-screenshots/v2-04-no-create-button.png"
+  ],
+  "consoleErrors": [
+    "[2025-10-14T14:03:52.473Z] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "[2025-10-14T14:03:55.138Z] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "[2025-10-14T14:03:57.795Z] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "[2025-10-14T14:04:00.451Z] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "[2025-10-14T14:04:03.120Z] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "[2025-10-14T14:04:05.782Z] Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "[2025-10-14T14:04:08.434Z] Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "pageErrors": []
+}

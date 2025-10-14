@@ -10,6 +10,8 @@ task_assignments:
 
   - task_group: "Task Group 4.1: Framework Upgrade to Laravel 12"
     assigned_subagent: "backend-engineer"
+    status: "SKIPPED"
+    note: "Laravel Nova 4.33.3 incompatible with Laravel 12. Deferred to Phase 13 (post-Nova removal)."
 
   - task_group: "Task Group 5.1: Filament Installation & Initial Setup"
     assigned_subagent: "filament-specialist"
