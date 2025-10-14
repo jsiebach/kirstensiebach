@@ -10,9 +10,8 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.2
-      - name: Setup Nova Credentials
-        run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_USERNAME }} ${{ secrets.NOVA_PASSWORD }}
+          php-version: 8.4
+          extensions: intl, pdo_mysql, zip, exif, pcntl, gd
       - name: Install Dependencies
         run: composer install --no-interaction
       - name: Compile assets
