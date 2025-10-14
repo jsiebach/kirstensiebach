@@ -16,8 +16,8 @@ class PermissionSystemTest extends TestCase
      */
     public function test_admin_user_has_correct_role(): void
     {
-        // Create admin role
-        $adminRole = Role::create(['name' => 'admin']);
+        // Create admin role (use firstOrCreate to avoid duplicate error)
+        $adminRole = Role::firstOrCreate(['name' => 'admin']);
 
         // Create user with admin role
         $user = User::factory()->create();
@@ -44,7 +44,7 @@ class PermissionSystemTest extends TestCase
         $user = User::factory()->create();
 
         // Act as the user and try to visit Filament dashboard
-        $response = $this->actingAs($user)->get('/filament');
+        $response = $this->actingAs($user)->get('/admin');
 
         // Should get 403 forbidden
         $response->assertStatus(403);
@@ -55,8 +55,8 @@ class PermissionSystemTest extends TestCase
      */
     public function test_role_assignment_works(): void
     {
-        // Create admin role
-        $adminRole = Role::create(['name' => 'admin']);
+        // Create admin role (use firstOrCreate to avoid duplicate error)
+        $adminRole = Role::firstOrCreate(['name' => 'admin']);
 
         // Create user
         $user = User::factory()->create();
@@ -80,9 +80,9 @@ class PermissionSystemTest extends TestCase
     public function test_guest_redirected_to_login(): void
     {
         // Try to visit Filament dashboard without authentication
-        $response = $this->get('/filament');
+        $response = $this->get('/admin');
 
         // Should redirect to login
-        $response->assertRedirect('/filament/login');
+        $response->assertRedirect('/admin/login');
     }
 }

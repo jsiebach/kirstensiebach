@@ -17,8 +17,8 @@ class UserResourceTest extends TestCase
      */
     public function test_user_can_be_created_with_valid_data(): void
     {
-        // Create admin role for auth
-        Role::create(['name' => 'admin']);
+        // Create admin role for auth (use firstOrCreate to avoid duplicate error)
+        Role::firstOrCreate(['name' => 'admin']);
         $admin = User::factory()->create();
         $admin->assignRole('admin');
 
@@ -93,8 +93,8 @@ class UserResourceTest extends TestCase
      */
     public function test_user_can_be_assigned_role(): void
     {
-        // Create admin role
-        $adminRole = Role::create(['name' => 'admin']);
+        // Create admin role (use firstOrCreate to avoid duplicate error)
+        $adminRole = Role::firstOrCreate(['name' => 'admin']);
 
         // Create user
         $user = User::factory()->create();
