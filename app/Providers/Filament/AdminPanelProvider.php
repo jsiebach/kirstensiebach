@@ -27,7 +27,7 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('admin')
-            ->path('filament')
+            ->path('admin')
             ->brandName('Site Admin')
             ->login()
             ->colors([
