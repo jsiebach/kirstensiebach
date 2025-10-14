@@ -1,0 +1,8 @@
+verifiers:
+  - id: backend-verifier
+    name: Backend Verifier
+    description: Verifies backend implementations, database operations, API functionality, server-side logic
+
+  - id: frontend-verifier
+    name: Frontend Verifier
+    description: Verifies UI components, admin panel functionality, user experience, form interactions

@@ -1,0 +1,25 @@
+implementers:
+  - id: backend-engineer
+    name: Backend Engineer
+    description: Handles backend infrastructure, framework upgrades, package management, service providers, migrations
+    verified_by: backend-verifier
+
+  - id: database-engineer
+    name: Database Engineer
+    description: Handles data integrity verification, permission system setup, migrations, database operations
+    verified_by: backend-verifier
+
+  - id: filament-specialist
+    name: Filament Specialist
+    description: Handles Filament resources, relation managers, panels, form schemas, admin UI components
+    verified_by: frontend-verifier
+
+  - id: testing-engineer
+    name: Testing Engineer
+    description: Handles test verification, data integrity checks, regression testing, manual testing checklists
+    verified_by: backend-verifier
+
+  - id: devops-engineer
+    name: DevOps Engineer
+    description: Handles deployment, environment configuration, backup/restore procedures, production operations
+    verified_by: backend-verifier
