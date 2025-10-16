@@ -17,21 +17,58 @@ class PublicationFactory extends Factory
 
     /**
      * Define the model's default state.
-     *
-     * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
-            'page_id' => Page::whereSlug('publications')->first()->id,
-            'title' => $this->faker->sentence,
-            'authors' => $this->faker->paragraph,
-            'publication_name' => $this->faker->word,
+            'page_id' => Page::whereSlug('publications')->first()?->id ?? Page::factory()->create(['slug' => 'publications'])->id,
+            'title' => $this->faker->sentence(8),
+            'authors' => implode(', ', $this->faker->words(4, false)),
+            'publication_name' => $this->faker->words(3, true),
             'published' => $this->faker->boolean(80),
-            'date_published' => $this->faker->date,
-            'abstract' => $this->faker->paragraph,
-            'doi' => $this->faker->numberBetween(10000, 1000000),
+            'date_published' => $this->faker->dateTimeBetween('-5 years', 'now')->format('Y-m-d'),
+            'abstract' => $this->faker->paragraphs(3, true),
+            'doi' => '10.'.$this->faker->numberBetween(1000, 9999).'/'.$this->faker->lexify('??????'),
             'link' => $this->faker->url,
         ];
+    }
+
+    /**
+     * Indicate that the publication is published.
+     */
+    public function published(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'published' => true,
+                'date_published' => $this->faker->dateTimeBetween('-5 years', 'now')->format('Y-m-d'),
+            ];
+        });
+    }
+
+    /**
+     * Indicate that the publication is a draft (unpublished).
+     */
+    public function draft(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'published' => false,
+                'date_published' => $this->faker->dateTimeBetween('-5 years', 'now')->format('Y-m-d'),
+            ];
+        });
+    }
+
+    /**
+     * Indicate that the publication is recent (within the last year).
+     */
+    public function recent(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'published' => true,
+                'date_published' => $this->faker->dateTimeBetween('-1 year', 'now')->format('Y-m-d'),
+            ];
+        });
     }
 }

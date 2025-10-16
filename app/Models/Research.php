@@ -38,6 +38,8 @@ class Research extends Model implements Sortable
 {
     use HasFactory, SortableTrait;
 
+    protected $guarded = [];
+
     public $sortable = [
         'order_column_name' => 'sort_order',
         'sort_when_creating' => true,

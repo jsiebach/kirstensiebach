@@ -44,6 +44,8 @@ class Publication extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public $casts = [
         'date_published' => 'date',
     ];

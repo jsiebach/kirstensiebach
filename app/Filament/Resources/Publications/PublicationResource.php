@@ -11,8 +11,8 @@ use App\Models\Publication;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class PublicationResource extends Resource
 {
@@ -21,6 +21,8 @@ class PublicationResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
 
     protected static ?string $navigationLabel = 'Publications';
+
+    protected static UnitEnum|string|null $navigationGroup = 'Content';
 
     protected static ?int $navigationSort = 12;
 

@@ -11,8 +11,8 @@ use App\Models\Pages\OutreachPage;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class OutreachPageResource extends Resource
 {
@@ -21,6 +21,8 @@ class OutreachPageResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-megaphone';
 
     protected static ?string $navigationLabel = 'Outreach Page';
+
+    protected static UnitEnum|string|null $navigationGroup = 'Pages';
 
     protected static ?int $navigationSort = 6;
 

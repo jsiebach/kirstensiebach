@@ -11,8 +11,8 @@ use App\Models\Pages\ResearchPage;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class ResearchPageResource extends Resource
 {
@@ -21,6 +21,8 @@ class ResearchPageResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-academic-cap';
 
     protected static ?string $navigationLabel = 'Research Page';
+
+    protected static UnitEnum|string|null $navigationGroup = 'Pages';
 
     protected static ?int $navigationSort = 3;
 

@@ -11,8 +11,8 @@ use App\Models\ScienceAbstract;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class ScienceAbstractResource extends Resource
 {
@@ -21,6 +21,8 @@ class ScienceAbstractResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-presentation-chart-line';
 
     protected static ?string $navigationLabel = 'Science Abstracts';
+
+    protected static UnitEnum|string|null $navigationGroup = 'Content';
 
     protected static ?int $navigationSort = 13;
 

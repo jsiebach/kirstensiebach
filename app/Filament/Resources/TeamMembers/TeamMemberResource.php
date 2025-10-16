@@ -11,8 +11,8 @@ use App\Models\TeamMember;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class TeamMemberResource extends Resource
 {
@@ -21,6 +21,8 @@ class TeamMemberResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-user-group';
 
     protected static ?string $navigationLabel = 'Team Members';
+
+    protected static UnitEnum|string|null $navigationGroup = 'Content';
 
     protected static ?int $navigationSort = 10;
 

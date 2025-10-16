@@ -1,8 +1,13 @@
 {
-    "/js/app.js": "/js/app.js?id=2a2461c86ed629efcd916c7502418fc8",
-    "/js/photography.js": "/js/photography.js?id=1ad0fb928108c9cc4e988e7d43880243",
-    "/js/outreach.js": "/js/outreach.js?id=8c76ecb0eca35c626b309d6463cee8de",
-    "/js/publications.js": "/js/publications.js?id=6ecaba57e18a4bad190ebd92037c017e",
-    "/css/app.css": "/css/app.css?id=835a3e5b6a15f3cfbb77de42434f6615",
-    "/css/plugins.css": "/css/plugins.css?id=4cf65cb5c472c6986f54e96c2e941ab2"
+    "/js/app.js": "/js/app.js",
+    "/js/photography.js": "/js/photography.js",
+    "/js/outreach.js": "/js/outreach.js",
+    "/js/publications.js": "/js/publications.js",
+    "/css/app.css": "/css/app.css",
+    "/fonts/vendor/font-awesome/fontawesome-webfont.eot?8b43027f47b20503057dfbbaa9401fef": "/fonts/vendor/font-awesome/fontawesome-webfont.eot?8b43027f47b20503057dfbbaa9401fef",
+    "/fonts/vendor/font-awesome/fontawesome-webfont.woff2?20fd1704ea223900efa9fd4e869efb08": "/fonts/vendor/font-awesome/fontawesome-webfont.woff2?20fd1704ea223900efa9fd4e869efb08",
+    "/fonts/vendor/font-awesome/fontawesome-webfont.woff?f691f37e57f04c152e2315ab7dbad881": "/fonts/vendor/font-awesome/fontawesome-webfont.woff?f691f37e57f04c152e2315ab7dbad881",
+    "/fonts/vendor/font-awesome/fontawesome-webfont.ttf?1e59d2330b4c6deb84b340635ed36249": "/fonts/vendor/font-awesome/fontawesome-webfont.ttf?1e59d2330b4c6deb84b340635ed36249",
+    "/fonts/vendor/font-awesome/fontawesome-webfont.svg?c1e38fd9e0e74ba58f7a2b77ef29fdd3": "/fonts/vendor/font-awesome/fontawesome-webfont.svg?c1e38fd9e0e74ba58f7a2b77ef29fdd3",
+    "/css/plugins.css": "/css/plugins.css"
 }

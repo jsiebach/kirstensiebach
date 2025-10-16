@@ -26,8 +26,20 @@ jobs:
         run: |
           npm install
           npm run production
-      - name: Execute tests (Unit and Feature tests) via PHPUnit
-        run: vendor/bin/phpunit --debug
+      - name: Setup Node.js for Playwright
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - name: Install Playwright dependencies
+        run: |
+          npm ci
+          npx playwright install --with-deps
+      - name: Execute tests (Unit, Feature, and Browser tests) via Pest
+        env:
+          APP_URL: http://127.0.0.1:8000
+        run: |
+          php artisan serve > /dev/null 2>&1 &
+          php artisan test
 
   merge-dev-to-master:
     runs-on: ubuntu-latest

@@ -26,8 +26,27 @@ jobs:
         run: |
           npm install
           npm run production
-      - name: Execute tests (Unit and Feature tests) via PHPUnit
-        run: XDEBUG_MODE=coverage vendor/bin/phpunit --debug --coverage-clover ./coverage.xml
+      - name: Setup Node.js for Playwright
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - name: Install Playwright dependencies
+        run: |
+          npm ci
+          npx playwright install --with-deps
+      - name: Execute tests (Unit, Feature, and Browser tests) via Pest
+        env:
+          APP_URL: http://127.0.0.1:8000
+        run: |
+          php artisan serve > /dev/null 2>&1 &
+          XDEBUG_MODE=coverage php artisan test --coverage-clover ./coverage.xml
+      - name: Upload Browser Screenshots on Failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-screenshots
+          path: tests/Browser/Screenshots
+          if-no-files-found: ignore
       - name: Check test coverage
         id: test-coverage
         uses: johanvanhelden/gha-clover-test-coverage-check@v1
