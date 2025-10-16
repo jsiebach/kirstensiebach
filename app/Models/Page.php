@@ -21,6 +21,7 @@ use Spatie\Sitemap\Tags\Url;
  * @property \Spatie\SchemalessAttributes\SchemalessAttributes|null $content
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ *
  * @method static Builder|Page newModelQuery()
  * @method static Builder|Page newQuery()
  * @method static Builder|Page query()
@@ -33,6 +34,7 @@ use Spatie\Sitemap\Tags\Url;
  * @method static Builder|Page whereTitle($value)
  * @method static Builder|Page whereUpdatedAt($value)
  * @method static Builder|Page withContent()
+ *
  * @mixin \Eloquent
  */
 class Page extends Model implements Sitemapable

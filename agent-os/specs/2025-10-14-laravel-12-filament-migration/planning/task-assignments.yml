@@ -1,0 +1,50 @@
+task_assignments:
+  - task_group: "Task Group 1.1: Backup & Documentation"
+    assigned_subagent: "devops-engineer"
+
+  - task_group: "Task Group 2.1: PHP 8.4 Installation & Testing"
+    assigned_subagent: "backend-engineer"
+
+  - task_group: "Task Group 3.1: Framework Upgrade to Laravel 11"
+    assigned_subagent: "backend-engineer"
+
+  - task_group: "Task Group 4.1: Framework Upgrade to Laravel 12"
+    assigned_subagent: "backend-engineer"
+    status: "SKIPPED"
+    note: "Laravel Nova 4.33.3 incompatible with Laravel 12. Deferred to Phase 13 (post-Nova removal)."
+
+  - task_group: "Task Group 5.1: Filament Installation & Initial Setup"
+    assigned_subagent: "filament-specialist"
+
+  - task_group: "Task Group 6.1: Role-Based Access Control"
+    assigned_subagent: "database-engineer"
+
+  - task_group: "Task Group 7.1: User Resource Implementation"
+    assigned_subagent: "filament-specialist"
+
+  - task_group: "Task Group 8.1: Base Page Resource Structure"
+    assigned_subagent: "filament-specialist"
+
+  - task_group: "Task Group 9.1: Page-Specific Content Resources"
+    assigned_subagent: "filament-specialist"
+
+  - task_group: "Task Group 10.1: Settings Implementation"
+    assigned_subagent: "filament-specialist"
+
+  - task_group: "Task Group 10.2: Dynamic Navigation"
+    assigned_subagent: "filament-specialist"
+
+  - task_group: "Task Group 11.1: Test Review & Gap Analysis"
+    assigned_subagent: "testing-engineer"
+
+  - task_group: "Task Group 11.2: Data Integrity Verification"
+    assigned_subagent: "database-engineer"
+
+  - task_group: "Task Group 11.3: Manual Testing Checklist"
+    assigned_subagent: "testing-engineer"
+
+  - task_group: "Task Group 12.1: Nova Removal"
+    assigned_subagent: "backend-engineer"
+
+  - task_group: "Task Group 12.2: Final Testing & Deployment"
+    assigned_subagent: "devops-engineer"

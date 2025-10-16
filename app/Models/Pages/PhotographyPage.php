@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property \Spatie\SchemalessAttributes\SchemalessAttributes|null $content
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|PhotographyPage newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PhotographyPage newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PhotographyPage query()
@@ -29,6 +30,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @method static \Illuminate\Database\Eloquent\Builder|PhotographyPage whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PhotographyPage whereUpdatedAt($value)
  * @method static Builder|Page withContent()
+ *
  * @mixin \Eloquent
  */
 class PhotographyPage extends Page

@@ -1,1 +1,1 @@
-<link rel="icon" type="image/png" href="/storage/{{ nova_get_setting('favicon') }}">
+<link rel="icon" type="image/png" href="/storage/IJb4OP44zMLfmEPerrfEeeUQiN8ckt1GjdHmeEj9.png">

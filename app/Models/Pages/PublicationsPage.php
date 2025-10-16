@@ -23,6 +23,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property-read int|null $publications_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, ScienceAbstract> $scienceAbstracts
  * @property-read int|null $science_abstracts_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|PublicationsPage newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PublicationsPage newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PublicationsPage query()
@@ -35,6 +36,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @method static \Illuminate\Database\Eloquent\Builder|PublicationsPage whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PublicationsPage whereUpdatedAt($value)
  * @method static Builder|Page withContent()
+ *
  * @mixin \Eloquent
  */
 class PublicationsPage extends Page

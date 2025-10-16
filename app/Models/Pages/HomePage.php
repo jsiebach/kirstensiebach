@@ -23,6 +23,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property-read int|null $press_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, SocialLink> $socialLinks
  * @property-read int|null $social_links_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|HomePage newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|HomePage newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|HomePage query()
@@ -35,6 +36,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @method static \Illuminate\Database\Eloquent\Builder|HomePage whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|HomePage whereUpdatedAt($value)
  * @method static Builder|Page withContent()
+ *
  * @mixin \Eloquent
  */
 class HomePage extends Page

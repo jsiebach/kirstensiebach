@@ -17,16 +17,38 @@ class PressFactory extends Factory
 
     /**
      * Define the model's default state.
-     *
-     * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
-            'page_id' => Page::whereSlug('home')->first()->id,
-            'title' => $this->faker->sentence,
+            'page_id' => Page::whereSlug('home')->first()?->id ?? Page::factory()->create(['slug' => 'home'])->id,
+            'title' => $this->faker->sentence(6),
             'link' => $this->faker->url,
-            'date' => $this->faker->date,
+            'date' => $this->faker->dateTimeBetween('-2 years', 'now')->format('Y-m-d'),
         ];
+    }
+
+    /**
+     * Indicate that the press item is recent (within the last month).
+     */
+    public function recent(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'date' => $this->faker->dateTimeBetween('-1 month', 'now')->format('Y-m-d'),
+            ];
+        });
+    }
+
+    /**
+     * Indicate that the press item is featured.
+     */
+    public function featured(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'date' => $this->faker->dateTimeBetween('-3 months', 'now')->format('Y-m-d'),
+            ];
+        });
     }
 }

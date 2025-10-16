@@ -1,0 +1,36 @@
+task_assignments:
+  - task_group: "Task Group 1: Remove Playwright and Install Dependencies"
+    assigned_subagent: "general-purpose"
+    note: "Backend infrastructure setup - installing Pest v4 and Dusk"
+
+  - task_group: "Task Group 2: Convert Unit Tests to Pest"
+    assigned_subagent: "testing-engineer"
+    note: "PHPUnit to Pest v4 conversion"
+
+  - task_group: "Task Group 3: Convert Feature Tests to Pest and Organize by Domain"
+    assigned_subagent: "testing-engineer"
+    note: "PHPUnit to Pest v4 conversion with domain organization"
+
+  - task_group: "Task Group 4: Admin Panel Authorization and Authentication Tests"
+    assigned_subagent: "ui-designer"
+    note: "Filament admin panel browser tests using Dusk + Pest v4"
+
+  - task_group: "Task Group 5: Admin Panel CRUD and File Upload Tests (Critically Important)"
+    assigned_subagent: "ui-designer"
+    note: "Filament CRUD and file upload browser tests using Dusk + Pest v4"
+
+  - task_group: "Task Group 6: Frontend Display Verification Tests"
+    assigned_subagent: "testing-engineer"
+    note: "Frontend verification browser tests using Dusk + Pest v4"
+
+  - task_group: "Task Group 7: Enhance Model Factories"
+    assigned_subagent: "database-engineer"
+    note: "Factory enhancement for test data generation"
+
+  - task_group: "Task Group 8: Update GitHub Actions Workflows"
+    assigned_subagent: "general-purpose"
+    note: "CI/CD workflow updates for Pest v4 and Dusk"
+
+  - task_group: "Task Group 9: Final Test Suite Verification and Gap Analysis"
+    assigned_subagent: "testing-engineer"
+    note: "Final verification and coverage analysis"
