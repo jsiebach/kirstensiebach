@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\Sortable;
@@ -23,6 +22,7 @@ use Spatie\EloquentSortable\SortableTrait;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Page|null $page
+ *
  * @method static \Database\Factories\TeamMemberFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|TeamMember newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|TeamMember newQuery()
@@ -39,6 +39,7 @@ use Spatie\EloquentSortable\SortableTrait;
  * @method static \Illuminate\Database\Eloquent\Builder|TeamMember whereSortOrder($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TeamMember whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TeamMember whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class TeamMember extends Model implements Sortable

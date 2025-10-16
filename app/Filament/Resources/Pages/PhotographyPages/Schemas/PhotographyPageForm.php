@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources\Pages\PhotographyPages\Schemas;
 
-use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class PhotographyPageForm

@@ -3,9 +3,9 @@
 namespace App\Filament\Resources\Pages\CvPages\Schemas;
 
 use Filament\Forms\Components\FileUpload;
-use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class CvPageForm

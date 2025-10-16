@@ -2,7 +2,6 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Page;
 use Illuminate\Console\Command;
 use Spatie\Sitemap\Sitemap;
 

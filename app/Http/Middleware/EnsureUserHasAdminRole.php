@@ -15,7 +15,7 @@ class EnsureUserHasAdminRole
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->check() || !auth()->user()->hasRole('admin')) {
+        if (! auth()->check() || ! auth()->user()->hasRole('admin')) {
             abort(403, 'You do not have permission to access this page.');
         }
 

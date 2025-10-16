@@ -19,6 +19,7 @@ use Spatie\EloquentSortable\SortableTrait;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Page|null $page
+ *
  * @method static \Database\Factories\SocialLinkFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|SocialLink newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|SocialLink newQuery()
@@ -32,6 +33,7 @@ use Spatie\EloquentSortable\SortableTrait;
  * @method static \Illuminate\Database\Eloquent\Builder|SocialLink whereSortOrder($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SocialLink whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SocialLink whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class SocialLink extends Model implements Sortable

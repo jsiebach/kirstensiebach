@@ -1,10 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
-use Spatie\Permission\Models\Role;
 use App\Models\User;
+use Illuminate\Database\Migrations\Migration;
+use Spatie\Permission\Models\Role;
 
 return new class extends Migration
 {
@@ -18,7 +16,7 @@ return new class extends Migration
 
         // Assign admin role to all existing users
         User::all()->each(function ($user) use ($adminRole) {
-            if (!$user->hasRole('admin')) {
+            if (! $user->hasRole('admin')) {
                 $user->assignRole($adminRole);
             }
         });

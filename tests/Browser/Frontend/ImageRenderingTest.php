@@ -167,7 +167,6 @@ test('research without image does not break frontend display', function () {
 
     // Act & Assert: Visit frontend and verify research displays without error
     $this->visit('/research')
-        ->waitForText('Research Without Image')
         ->assertSee('Research Without Image')
         ->assertSee('This research has no image.');
 });

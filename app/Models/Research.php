@@ -19,6 +19,7 @@ use Spatie\EloquentSortable\SortableTrait;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Page|null $page
+ *
  * @method static \Database\Factories\ResearchFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Research newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Research newQuery()
@@ -32,6 +33,7 @@ use Spatie\EloquentSortable\SortableTrait;
  * @method static \Illuminate\Database\Eloquent\Builder|Research whereProjectName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Research whereSortOrder($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Research whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class Research extends Model implements Sortable

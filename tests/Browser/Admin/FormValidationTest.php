@@ -5,9 +5,6 @@ declare(strict_types=1);
 use App\Models\Pages\OutreachPage;
 use App\Models\Pages\PublicationsPage;
 use App\Models\Pages\ResearchPage;
-use App\Models\Press;
-use App\Models\Publication;
-use App\Models\Research;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 

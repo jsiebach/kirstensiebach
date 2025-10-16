@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Page|null $page
+ *
  * @method static \Database\Factories\PressFactory factory($count = null, $state = [])
  * @method static Builder|Press newModelQuery()
  * @method static Builder|Press newQuery()
@@ -28,6 +29,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static Builder|Press wherePageId($value)
  * @method static Builder|Press whereTitle($value)
  * @method static Builder|Press whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class Press extends Model
