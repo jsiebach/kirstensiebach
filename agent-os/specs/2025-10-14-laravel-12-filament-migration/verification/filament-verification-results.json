@@ -1,0 +1,33 @@
+{
+  "loginTest": {
+    "status": "PASS",
+    "errors": []
+  },
+  "navigationTest": {
+    "status": "PASS",
+    "errors": [],
+    "pagesChecked": [
+      {
+        "name": "Home Pages",
+        "status": "PASS"
+      },
+      {
+        "name": "Team Members",
+        "status": "PASS"
+      },
+      {
+        "name": "Publications",
+        "status": "PASS"
+      },
+      {
+        "name": "Research",
+        "status": "PASS"
+      }
+    ]
+  },
+  "editTest": {
+    "status": "PASS",
+    "errors": []
+  },
+  "consoleErrors": []
+}

@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        GenerateSitemap::class
+        GenerateSitemap::class,
     ];
 
     /**

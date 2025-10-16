@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property \Spatie\SchemalessAttributes\SchemalessAttributes|null $content
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|CvPage newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|CvPage newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|CvPage query()
@@ -29,6 +30,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @method static \Illuminate\Database\Eloquent\Builder|CvPage whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|CvPage whereUpdatedAt($value)
  * @method static Builder|Page withContent()
+ *
  * @mixin \Eloquent
  */
 class CvPage extends Page

@@ -6,6 +6,7 @@
 .env
 .env.backup
 .phpunit.result.cache
+.phpunit.cache
 docker-compose.override.yml
 Homestead.json
 Homestead.yaml
@@ -15,3 +16,12 @@ yarn-error.log
 .gitattributes
 .idea/*
 coverage.xml
+
+# Playwright test artifacts
+tests/playwright/screenshots/*/
+tests/playwright/test-results/
+tests/playwright/playwright-report/
+tests/playwright/videos/
+tests/playwright/.cache/
+
+clover.xml

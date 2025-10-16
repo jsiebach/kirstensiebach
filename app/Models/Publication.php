@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Page|null $page
+ *
  * @method static \Database\Factories\PublicationFactory factory($count = null, $state = [])
  * @method static Builder|Publication newModelQuery()
  * @method static Builder|Publication newQuery()
@@ -38,11 +39,14 @@ use Illuminate\Database\Eloquent\Model;
  * @method static Builder|Publication wherePublished($value)
  * @method static Builder|Publication whereTitle($value)
  * @method static Builder|Publication whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class Publication extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
 
     public $casts = [
         'date_published' => 'date',

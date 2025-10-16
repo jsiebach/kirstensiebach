@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, TeamMember> $teamMembers
  * @property-read int|null $team_members_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|LabPage newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|LabPage newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|LabPage query()
@@ -32,6 +33,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @method static \Illuminate\Database\Eloquent\Builder|LabPage whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|LabPage whereUpdatedAt($value)
  * @method static Builder|Page withContent()
+ *
  * @mixin \Eloquent
  */
 class LabPage extends Page

@@ -17,20 +17,54 @@ class ScienceAbstractFactory extends Factory
 
     /**
      * Define the model's default state.
-     *
-     * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
-            'page_id' => Page::whereSlug('publications')->first()->id,
-            'title' => $this->faker->sentence,
-            'link' => $this->faker->randomElement([$this->faker->url, null]),
-            'authors' => $this->faker->sentence,
-            'location' => $this->faker->name,
-            'city_state' => $this->faker->city.', '.$this->faker->state,
-            'date' => $this->faker->date,
-            'details' => $this->faker->paragraph,
+            'page_id' => Page::whereSlug('publications')->first()?->id ?? Page::factory()->create(['slug' => 'publications'])->id,
+            'title' => $this->faker->sentence(8),
+            'link' => $this->faker->url,
+            'authors' => implode(', ', $this->faker->words(4, false)),
+            'location' => $this->faker->company.' Conference',
+            'city_state' => $this->faker->city.', '.$this->faker->stateAbbr,
+            'date' => $this->faker->dateTimeBetween('-3 years', 'now')->format('Y-m-d'),
+            'details' => $this->faker->paragraphs(2, true),
         ];
+    }
+
+    /**
+     * Indicate that the science abstract does not have a link.
+     */
+    public function withoutLink(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'link' => null,
+            ];
+        });
+    }
+
+    /**
+     * Indicate that the science abstract is recent (within the last year).
+     */
+    public function recent(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'date' => $this->faker->dateTimeBetween('-1 year', 'now')->format('Y-m-d'),
+            ];
+        });
+    }
+
+    /**
+     * Indicate that the science abstract is featured.
+     */
+    public function featured(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'date' => $this->faker->dateTimeBetween('-6 months', 'now')->format('Y-m-d'),
+            ];
+        });
     }
 }

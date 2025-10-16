@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, Research> $research
  * @property-read int|null $research_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|ResearchPage newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ResearchPage newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ResearchPage query()
@@ -32,6 +33,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @method static \Illuminate\Database\Eloquent\Builder|ResearchPage whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ResearchPage whereUpdatedAt($value)
  * @method static Builder|Page withContent()
+ *
  * @mixin \Eloquent
  */
 class ResearchPage extends Page

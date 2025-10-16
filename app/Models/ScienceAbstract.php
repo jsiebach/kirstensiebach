@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Page|null $page
+ *
  * @method static \Database\Factories\ScienceAbstractFactory factory($count = null, $state = [])
  * @method static Builder|ScienceAbstract newModelQuery()
  * @method static Builder|ScienceAbstract newQuery()
@@ -36,6 +37,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static Builder|ScienceAbstract wherePageId($value)
  * @method static Builder|ScienceAbstract whereTitle($value)
  * @method static Builder|ScienceAbstract whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class ScienceAbstract extends Model

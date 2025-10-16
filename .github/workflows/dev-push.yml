@@ -12,11 +12,10 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.2
+          php-version: 8.4
+          extensions: intl, pdo_mysql, zip, exif, pcntl, gd
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-      - name: Setup Nova Credentials
-        run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_USERNAME }} ${{ secrets.NOVA_PASSWORD }}
       - name: Install Dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress
       - name: Generate key
@@ -27,8 +26,20 @@ jobs:
         run: |
           npm install
           npm run production
-      - name: Execute tests (Unit and Feature tests) via PHPUnit
-        run: vendor/bin/phpunit --debug
+      - name: Setup Node.js for Playwright
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - name: Install Playwright dependencies
+        run: |
+          npm ci
+          npx playwright install --with-deps
+      - name: Execute tests (Unit, Feature, and Browser tests) via Pest
+        env:
+          APP_URL: http://127.0.0.1:8000
+        run: |
+          php artisan serve > /dev/null 2>&1 &
+          php artisan test
 
   merge-dev-to-master:
     runs-on: ubuntu-latest
