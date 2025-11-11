@@ -76,10 +76,17 @@ git remote -v
 git remote set-url origin git@github.com:jsiebach/kirstensiebach.git
 ```
 
-### Step 6: Test Deployment
+### Step 6: Make Deploy Script Executable
 
 ```bash
-cd /path/to/kirstensiebach
+cd /var/www/kirstensiebach
+chmod +x deploy.sh
+```
+
+### Step 7: Test Deployment
+
+```bash
+cd /var/www/kirstensiebach
 ./deploy.sh
 ```
 
@@ -135,7 +142,9 @@ The workflow (`master-push.yml`) automatically:
 2. Builds Docker image
 3. Pushes to Docker Hub
 4. SSHs to production server
-5. Runs `deploy.sh`
+5. Runs `cd /var/www/kirstensiebach && ./deploy.sh`
+
+The deployment command is now stored in the workflow file (not a secret) since it just runs the deploy script.
 
 ## Troubleshooting
 
@@ -148,8 +157,9 @@ The workflow (`master-push.yml`) automatically:
 - Check internet connection on production server
 
 ### "fatal: Not a git repository"
-- SSH_DEPLOY_COMMAND is not running in the correct directory
-- Update the command to: `cd /path/to/app && ./deploy.sh`
+- deploy.sh is not running in the correct directory
+- The workflow expects the app to be at `/var/www/kirstensiebach`
+- Update the path in `.github/workflows/master-push.yml` if your app is elsewhere
 
 ### Docker containers not updating
 - Make sure you're pulling the latest image: `docker-compose pull`

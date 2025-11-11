@@ -96,10 +96,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-and-push-docker-image
     steps:
-      - name: Run deploy script via SSH
+      - name: Deploy to production server
         uses: garygrossgarten/github-action-ssh@release
         with:
-          command: ${{ secrets.SSH_DEPLOY_COMMAND }}
+          command: cd /var/www/kirstensiebach && ./deploy.sh
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
