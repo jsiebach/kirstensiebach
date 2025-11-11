@@ -2,13 +2,10 @@ FROM php:8.4-fpm
 
 ARG NODE_VERSION=22
 
-# Copy composer.lock
-COPY composer.lock /var/www/
-
 # Set working directory
 WORKDIR /var/www
 
-# Install dependencies
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
     libpng-dev \
@@ -21,37 +18,21 @@ RUN apt-get update && apt-get install -y \
     vim \
     unzip \
     git \
-    curl
+    curl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# Clear cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+# Install PHP extensions (cached layer - rarely changes)
+RUN docker-php-ext-install pdo_mysql zip exif pcntl intl sockets \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd
 
-# # Install Composer
-# RUN apt-get update \
-#     && apt-get install -y gnupg \ 
-#     && curl -sLS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer \
-#     && curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg \
-#     && echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_VERSION.x nodistro main" > /etc/apt/sources.list.d/nodesource.list \
-#     && apt-get update \
-#     && apt-get install -y nodejs \
-#     && npm install -g npm \
-#     && npm install -g pnpm \
-#     && npm install -g bun \
-#     && npx playwright install-deps
+# Add user for laravel application (cached layer - never changes)
+RUN groupadd -g 1000 www \
+    && useradd -u 1000 -ms /bin/bash -g www www
 
-# Install extensions
-RUN docker-php-ext-install pdo_mysql zip exif pcntl intl sockets
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg
-RUN docker-php-ext-install gd
-
-# Add user for laravel application
-RUN groupadd -g 1000 www
-RUN useradd -u 1000 -ms /bin/bash -g www www
-
-# Copy existing application directory contents
-COPY . /var/www
-
-# Copy existing application directory permissions
+# Copy application files with proper ownership
+# Note: vendor/ and public/build/ are copied from GitHub Actions (pre-built)
 COPY --chown=www:www . /var/www
 
 # Change current user to www
