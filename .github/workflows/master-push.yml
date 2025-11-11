@@ -3,8 +3,42 @@ on:
     branches: [ master ]
 
 jobs:
+  check-docker-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      should_build: ${{ steps.check.outputs.should_build }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Check if Docker build is needed
+        id: check
+        run: |
+          # Get list of changed files
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
+          echo "Changed files:"
+          echo "$CHANGED_FILES"
+
+          # Files that should trigger Docker rebuild
+          # - Dockerfile itself
+          # - PHP source code (app/, bootstrap/, config/, database/, routes/)
+          # - Composer dependencies (composer.json, composer.lock)
+          # - Assets (resources/, package.json, package-lock.json, vite.config.js)
+          # - Public files
+
+          if echo "$CHANGED_FILES" | grep -qE '^(Dockerfile|app/|bootstrap/|config/|database/|routes/|resources/|public/|composer\.(json|lock)|package(-lock)?\.json|vite\.config\.js)'; then
+            echo "should_build=true" >> $GITHUB_OUTPUT
+            echo "🔨 Docker build needed - application code changed"
+          else
+            echo "should_build=false" >> $GITHUB_OUTPUT
+            echo "⚡ Skipping Docker build - no relevant changes detected"
+          fi
+
   build-and-push-docker-image:
     runs-on: ubuntu-latest
+    needs: check-docker-changes
+    if: needs.check-docker-changes.outputs.should_build == 'true'
     steps:
       - uses: actions/checkout@v4
       - name: Setup PHP
@@ -36,12 +70,19 @@ jobs:
           context: .
           push: true
           tags: jsiebach/kirstensiebach:latest
+          cache-from: type=registry,ref=jsiebach/kirstensiebach:buildcache
+          cache-to: type=registry,ref=jsiebach/kirstensiebach:buildcache,mode=max
+
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build-and-push-docker-image
+    needs: [check-docker-changes, build-and-push-docker-image]
+    if: |
+      always() &&
+      needs.check-docker-changes.result == 'success' &&
+      (needs.build-and-push-docker-image.result == 'success' || needs.build-and-push-docker-image.result == 'skipped')
     steps:
       - name: Deploy to production server
         uses: garygrossgarten/github-action-ssh@release
