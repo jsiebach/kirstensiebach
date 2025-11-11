@@ -29,11 +29,14 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./:/var/www
       - ./nginx/prod/conf.d/:/etc/nginx/conf.d/
       - storage:/var/www/storage
       - ./certbot/www/:/var/www/certbot/:ro
       - ./certbot/conf/:/etc/letsencrypt/:ro
+    volumes_from:
+      - app:ro
+    depends_on:
+      - app
     networks:
       - app-network
 
