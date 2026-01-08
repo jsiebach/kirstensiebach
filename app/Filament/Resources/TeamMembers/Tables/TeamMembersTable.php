@@ -15,13 +15,6 @@ class TeamMembersTable
     {
         return $table
             ->columns([
-                TextColumn::make('page.title')
-                    ->label('Lab Page')
-                    ->sortable()
-                    ->searchable(),
-                TextColumn::make('sort_order')
-                    ->label('Order')
-                    ->sortable(),
                 TextColumn::make('name')
                     ->searchable()
                     ->sortable(),

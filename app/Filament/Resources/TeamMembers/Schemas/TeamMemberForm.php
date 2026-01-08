@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\TeamMembers\Schemas;
 
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -15,12 +14,6 @@ class TeamMemberForm
     {
         return $schema
             ->components([
-                Select::make('page_id')
-                    ->relationship('page', 'title')
-                    ->required()
-                    ->searchable()
-                    ->preload()
-                    ->label('Lab Page'),
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255),

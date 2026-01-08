@@ -15,13 +15,6 @@ class ResearchTable
     {
         return $table
             ->columns([
-                TextColumn::make('page.title')
-                    ->label('Research Page')
-                    ->sortable()
-                    ->searchable(),
-                TextColumn::make('sort_order')
-                    ->label('Order')
-                    ->sortable(),
                 TextColumn::make('project_name')
                     ->searchable()
                     ->sortable(),
