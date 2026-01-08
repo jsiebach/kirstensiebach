@@ -51,4 +51,11 @@ class LabPageResource extends Resource
             'edit' => EditLabPage::route('/{record}/edit'),
         ];
     }
+
+    public static function getNavigationUrl(): string
+    {
+        $record = LabPage::where('slug', LabPage::$slug)->first();
+
+        return $record ? static::getUrl('edit', ['record' => $record]) : static::getUrl('index');
+    }
 }

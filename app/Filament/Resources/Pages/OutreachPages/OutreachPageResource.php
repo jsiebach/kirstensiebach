@@ -51,4 +51,11 @@ class OutreachPageResource extends Resource
             'edit' => EditOutreachPage::route('/{record}/edit'),
         ];
     }
+
+    public static function getNavigationUrl(): string
+    {
+        $record = OutreachPage::where('slug', OutreachPage::$slug)->first();
+
+        return $record ? static::getUrl('edit', ['record' => $record]) : static::getUrl('index');
+    }
 }

@@ -51,4 +51,11 @@ class CvPageResource extends Resource
             'edit' => EditCvPage::route('/{record}/edit'),
         ];
     }
+
+    public static function getNavigationUrl(): string
+    {
+        $record = CvPage::where('slug', CvPage::$slug)->first();
+
+        return $record ? static::getUrl('edit', ['record' => $record]) : static::getUrl('index');
+    }
 }

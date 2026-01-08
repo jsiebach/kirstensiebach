@@ -51,4 +51,11 @@ class ResearchPageResource extends Resource
             'edit' => EditResearchPage::route('/{record}/edit'),
         ];
     }
+
+    public static function getNavigationUrl(): string
+    {
+        $record = ResearchPage::where('slug', ResearchPage::$slug)->first();
+
+        return $record ? static::getUrl('edit', ['record' => $record]) : static::getUrl('index');
+    }
 }
