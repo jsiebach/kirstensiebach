@@ -46,7 +46,17 @@ class Publication extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'page_id',
+        'title',
+        'publication_name',
+        'authors',
+        'published',
+        'date_published',
+        'abstract',
+        'link',
+        'doi',
+    ];
 
     public $casts = [
         'date_published' => 'date',
@@ -57,10 +67,16 @@ class Publication extends Model
         return $this->belongsTo(Page::class);
     }
 
-    protected static function booted()
+    protected static function booted(): void
     {
         static::addGlobalScope('byDatePublished', function (Builder $builder) {
             $builder->orderBy('date_published', 'desc');
+        });
+
+        static::creating(function (Publication $publication) {
+            if (! $publication->page_id) {
+                $publication->page_id = Page::where('slug', 'publications')->value('id');
+            }
         });
     }
 }

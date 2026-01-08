@@ -52,4 +52,13 @@ class Research extends Model implements Sortable
     {
         return $this->belongsTo(Page::class);
     }
+
+    protected static function booted(): void
+    {
+        static::creating(function (Research $research) {
+            if (! $research->page_id) {
+                $research->page_id = Page::where('slug', 'research')->value('id');
+            }
+        });
+    }
 }

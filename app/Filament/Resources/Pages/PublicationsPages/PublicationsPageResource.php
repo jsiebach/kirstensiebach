@@ -51,4 +51,11 @@ class PublicationsPageResource extends Resource
             'edit' => EditPublicationsPage::route('/{record}/edit'),
         ];
     }
+
+    public static function getNavigationUrl(): string
+    {
+        $record = PublicationsPage::where('slug', PublicationsPage::$slug)->first();
+
+        return $record ? static::getUrl('edit', ['record' => $record]) : static::getUrl('index');
+    }
 }

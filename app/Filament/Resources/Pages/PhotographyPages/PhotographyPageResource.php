@@ -51,4 +51,11 @@ class PhotographyPageResource extends Resource
             'edit' => EditPhotographyPage::route('/{record}/edit'),
         ];
     }
+
+    public static function getNavigationUrl(): string
+    {
+        $record = PhotographyPage::where('slug', PhotographyPage::$slug)->first();
+
+        return $record ? static::getUrl('edit', ['record' => $record]) : static::getUrl('index');
+    }
 }

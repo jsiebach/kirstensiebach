@@ -51,4 +51,11 @@ class HomePageResource extends Resource
             'edit' => EditHomePage::route('/{record}/edit'),
         ];
     }
+
+    public static function getNavigationUrl(): string
+    {
+        $record = HomePage::where('slug', HomePage::$slug)->first();
+
+        return $record ? static::getUrl('edit', ['record' => $record]) : static::getUrl('index');
+    }
 }
