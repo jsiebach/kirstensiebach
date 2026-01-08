@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\Research\Schemas;
 
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
@@ -14,12 +13,6 @@ class ResearchForm
     {
         return $schema
             ->components([
-                Select::make('page_id')
-                    ->relationship('page', 'title')
-                    ->required()
-                    ->searchable()
-                    ->preload()
-                    ->label('Research Page'),
                 TextInput::make('project_name')
                     ->required()
                     ->maxLength(255)

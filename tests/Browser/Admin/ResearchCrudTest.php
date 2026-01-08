@@ -46,8 +46,7 @@ test('admin can access research create page', function (): void {
         ->click('New research')
         ->waitForEvent('networkidle')
         ->assertPathIs('/admin/research/create')
-        ->assertSee('Create Research')
-        ->assertSee('Research Page');
+        ->assertSee('Create Research');
 });
 
 test('admin can access research edit page', function (): void {
@@ -111,6 +110,6 @@ test('research create form shows required fields', function (): void {
         ->waitForEvent('networkidle')
         ->click('New research')
         ->waitForEvent('networkidle')
-        ->assertSee('Research Page*')
-        ->assertSee('Project Name*');
+        ->assertSee('Project Name*')
+        ->assertSee('Description*');
 });

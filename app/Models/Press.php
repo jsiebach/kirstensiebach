@@ -38,6 +38,13 @@ class Press extends Model
 
     public $table = 'press';
 
+    protected $fillable = [
+        'page_id',
+        'title',
+        'link',
+        'date',
+    ];
+
     public $casts = [
         'date' => 'date',
     ];
@@ -47,10 +54,16 @@ class Press extends Model
         return $this->belongsTo(Page::class);
     }
 
-    protected static function booted()
+    protected static function booted(): void
     {
         static::addGlobalScope('byDate', function (Builder $builder) {
             $builder->orderBy('date', 'desc');
+        });
+
+        static::creating(function (Press $press) {
+            if (! $press->page_id) {
+                $press->page_id = Page::where('slug', 'outreach')->value('id');
+            }
         });
     }
 }

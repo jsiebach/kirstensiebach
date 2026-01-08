@@ -49,8 +49,7 @@ test('admin can access press create page', function (): void {
         ->click('New press')
         ->waitForEvent('networkidle')
         ->assertPathIs('/admin/presses/create')
-        ->assertSee('Create Press')
-        ->assertSee('Outreach Page');
+        ->assertSee('Create Press');
 });
 
 test('admin can access press edit page', function (): void {
@@ -119,8 +118,7 @@ test('press create form shows required fields', function (): void {
         ->waitForEvent('networkidle')
         ->click('New press')
         ->waitForEvent('networkidle')
-        ->assertSee('Outreach Page*')
-        ->assertSee('Title*')
-        ->assertSee('Link*')
+        ->assertSee('Press Title*')
+        ->assertSee('Press Link*')
         ->assertSee('Date*');
 });

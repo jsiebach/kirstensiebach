@@ -15,10 +15,6 @@ class PublicationsTable
     {
         return $table
             ->columns([
-                TextColumn::make('page.title')
-                    ->label('Page')
-                    ->sortable()
-                    ->searchable(),
                 TextColumn::make('title')
                     ->searchable()
                     ->sortable()

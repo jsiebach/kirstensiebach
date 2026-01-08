@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\Publications\Schemas;
 
 use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -15,12 +14,6 @@ class PublicationForm
     {
         return $schema
             ->components([
-                Select::make('page_id')
-                    ->relationship('page', 'title')
-                    ->required()
-                    ->searchable()
-                    ->preload()
-                    ->label('Publications Page'),
                 TextInput::make('title')
                     ->required()
                     ->maxLength(255)

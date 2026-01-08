@@ -40,8 +40,8 @@ test('research form shows required field indicators', function (): void {
         ->click('New research')
         ->waitForEvent('networkidle')
         ->assertPathIs('/admin/research/create')
-        ->assertSee('Research Page*')
-        ->assertSee('Project Name*');
+        ->assertSee('Project Name*')
+        ->assertSee('Description*');
 });
 
 test('publication form shows all required fields', function (): void {
@@ -52,7 +52,6 @@ test('publication form shows all required fields', function (): void {
         ->click('New publication')
         ->waitForEvent('networkidle')
         ->assertPathIs('/admin/publications/create')
-        ->assertSee('Publications Page*')
         ->assertSee('Publication Title*')
         ->assertSee('Journal/Conference Name*')
         ->assertSee('Authors*')
@@ -67,8 +66,7 @@ test('press form shows required field indicators', function (): void {
         ->click('New press')
         ->waitForEvent('networkidle')
         ->assertPathIs('/admin/presses/create')
-        ->assertSee('Outreach Page*')
-        ->assertSee('Title*')
-        ->assertSee('Link*')
+        ->assertSee('Press Title*')
+        ->assertSee('Press Link*')
         ->assertSee('Date*');
 });

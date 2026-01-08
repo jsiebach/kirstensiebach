@@ -44,6 +44,17 @@ class ScienceAbstract extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'page_id',
+        'title',
+        'link',
+        'authors',
+        'location',
+        'city_state',
+        'date',
+        'details',
+    ];
+
     public $casts = [
         'date' => 'date',
     ];
@@ -53,10 +64,16 @@ class ScienceAbstract extends Model
         return $this->belongsTo(Page::class);
     }
 
-    protected static function booted()
+    protected static function booted(): void
     {
         static::addGlobalScope('byDatePublished', function (Builder $builder) {
             $builder->orderBy('date', 'desc');
+        });
+
+        static::creating(function (ScienceAbstract $scienceAbstract) {
+            if (! $scienceAbstract->page_id) {
+                $scienceAbstract->page_id = Page::where('slug', 'publications')->value('id');
+            }
         });
     }
 }
