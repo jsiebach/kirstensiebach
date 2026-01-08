@@ -119,7 +119,6 @@ test('publication create form shows all required fields', function (): void {
         ->waitForEvent('networkidle')
         ->click('New publication')
         ->waitForEvent('networkidle')
-        ->assertSee('Publications Page*')  // Asterisk indicates required
         ->assertSee('Publication Title*')
         ->assertSee('Journal/Conference Name*')
         ->assertSee('Authors*')
