@@ -31,6 +31,7 @@ class TeamMemberForm
                     ->rows(5),
                 FileUpload::make('profile_picture')
                     ->image()
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/jpg', 'image/pjpeg'])
                     ->disk('public')
                     ->directory('team')
                     ->label('Profile Picture')
