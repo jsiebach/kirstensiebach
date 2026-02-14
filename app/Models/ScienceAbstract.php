@@ -45,7 +45,6 @@ class ScienceAbstract extends Model
     use HasFactory;
 
     protected $fillable = [
-        'page_id',
         'title',
         'link',
         'authors',
@@ -59,21 +58,10 @@ class ScienceAbstract extends Model
         'date' => 'date',
     ];
 
-    public function page()
-    {
-        return $this->belongsTo(Page::class);
-    }
-
     protected static function booted(): void
     {
         static::addGlobalScope('byDatePublished', function (Builder $builder) {
             $builder->orderBy('date', 'desc');
-        });
-
-        static::creating(function (ScienceAbstract $scienceAbstract) {
-            if (! $scienceAbstract->page_id) {
-                $scienceAbstract->page_id = Page::where('slug', 'publications')->value('id');
-            }
         });
     }
 }

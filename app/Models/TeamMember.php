@@ -47,7 +47,6 @@ class TeamMember extends Model implements Sortable
     use HasFactory, SortableTrait;
 
     protected $fillable = [
-        'page_id',
         'sort_order',
         'name',
         'title',
@@ -62,18 +61,4 @@ class TeamMember extends Model implements Sortable
         'sort_when_creating' => true,
         'sort_on_has_many' => true,
     ];
-
-    public function page()
-    {
-        return $this->belongsTo(Page::class);
-    }
-
-    protected static function booted(): void
-    {
-        static::creating(function (TeamMember $teamMember) {
-            if (! $teamMember->page_id) {
-                $teamMember->page_id = Page::where('slug', 'lab')->value('id');
-            }
-        });
-    }
 }

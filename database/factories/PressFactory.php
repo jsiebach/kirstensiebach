@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Page;
 use App\Models\Press;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -21,7 +20,6 @@ class PressFactory extends Factory
     public function definition(): array
     {
         return [
-            'page_id' => Page::whereSlug('home')->first()?->id ?? Page::factory()->create(['slug' => 'home'])->id,
             'title' => $this->faker->sentence(6),
             'link' => $this->faker->url,
             'date' => $this->faker->dateTimeBetween('-2 years', 'now')->format('Y-m-d'),

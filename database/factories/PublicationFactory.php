@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Page;
 use App\Models\Publication;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -21,7 +20,6 @@ class PublicationFactory extends Factory
     public function definition(): array
     {
         return [
-            'page_id' => Page::whereSlug('publications')->first()?->id ?? Page::factory()->create(['slug' => 'publications'])->id,
             'title' => $this->faker->sentence(8),
             'authors' => implode(', ', $this->faker->words(4, false)),
             'publication_name' => $this->faker->words(3, true),
