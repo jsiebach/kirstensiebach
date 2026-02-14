@@ -62,7 +62,7 @@ class Press extends Model
 
         static::creating(function (Press $press) {
             if (! $press->page_id) {
-                $press->page_id = Page::where('slug', 'outreach')->value('id');
+                $press->page_id = Page::where('slug', 'home')->value('id');
             }
         });
     }

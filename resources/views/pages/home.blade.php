@@ -19,7 +19,7 @@
             <div>
                 <h3>Press</h3>
                 <ul class="list-group">
-                    @foreach(json_decode($page->press) as $press)
+                    @foreach($page->press as $press)
                         <li class="list-group-item">
                             <a href="{!! $press->link !!}" target="_blank">{!! $press->title !!}</a>
                         </li>
