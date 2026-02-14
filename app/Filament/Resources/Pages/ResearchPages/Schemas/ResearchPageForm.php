@@ -44,6 +44,7 @@ class ResearchPageForm
                     ->schema([
                         FileUpload::make('content.banner')
                             ->image()
+                            ->acceptedFileTypes(['image/*'])
                             ->disk('public')
                             ->directory('pages')
                             ->label('Banner Image'),
