@@ -50,11 +50,13 @@ class HomePageForm
                             ->label('Tagline'),
                         FileUpload::make('content.banner')
                             ->image()
+                            ->acceptedFileTypes(['image/*'])
                             ->disk('public')
                             ->directory('pages')
                             ->label('Banner Image'),
                         FileUpload::make('content.profile_picture')
                             ->image()
+                            ->acceptedFileTypes(['image/*'])
                             ->disk('public')
                             ->directory('pages')
                             ->label('Profile Picture'),

@@ -22,6 +22,7 @@ class ResearchForm
                     ->rows(5),
                 FileUpload::make('image')
                     ->image()
+                    ->acceptedFileTypes(['image/*'])
                     ->disk('public')
                     ->directory('research')
                     ->label('Project Image'),

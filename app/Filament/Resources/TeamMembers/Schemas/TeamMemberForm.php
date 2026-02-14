@@ -30,6 +30,8 @@ class TeamMemberForm
                     ->required()
                     ->rows(5),
                 FileUpload::make('profile_picture')
+                    ->image()
+                    ->acceptedFileTypes(['image/*'])
                     ->disk('public')
                     ->directory('team')
                     ->label('Profile Picture')
