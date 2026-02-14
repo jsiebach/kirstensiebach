@@ -1,33 +1,72 @@
-bootstrap/cache/services.php
+# Git
+.git
+.gitignore
+.gitattributes
+.github
 
+# IDE/Editor
+.idea
+.vscode
+.phpstorm.meta.php
+_ide_helper.php
+*.swp
+*.swo
+
+# Claude/AI
+.claude
+CLAUDE.md
+agent-os
+
+# Node (build locally, copy compiled assets)
+node_modules
+package.json
+package-lock.json
+vite.config.js
+webpack.mix.js
+
+# Tests
+tests
+phpunit.xml
+.phpunit.cache
+.phpunit.result.cache
+clover.xml
+coverage.xml
+
+# Docker (avoid recursion)
+Dockerfile
+docker-compose*.yml
+nginx
+mysql
+php
+varnish
+
+# Development files
+.env
+.env.*
+!.env.example
+.php_cs.dist
+.php-cs-fixer.dist.php
+.editorconfig
+.mcp.json
+boost.json
+auth.json
+README.md
+deploy.sh
+renew.sh
+
+# Storage (should be mounted as volumes)
 storage/app/*
 storage/framework/cache/*
 storage/framework/sessions/*
 storage/framework/views/*
 storage/logs/*
-resources/*
-!resources/views
+!storage/app/.gitignore
+!storage/framework/.gitignore
 
-node_modules
+# Bootstrap cache
+bootstrap/cache/*
+!bootstrap/cache/.gitignore
 
-**.git
-.github
-.php_cs.dist
-.idea
-**.gitignore
-**.gitattributes
-*.env*
-
-package.json
-phpunit.xml
-README.md
-docker-compose.*
-webpack.mix.js
-
-nginx
-mysql
-php
-
-Dockerfile
-!.env
-!vendor/*
+# Public storage link
+public/storage
+public/hot
