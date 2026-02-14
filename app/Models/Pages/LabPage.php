@@ -3,7 +3,6 @@
 namespace App\Models\Pages;
 
 use App\Models\Page;
-use App\Models\TeamMember;
 use App\Traits\HasSlug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -49,9 +48,4 @@ class LabPage extends Page
         'intro',
         'lower_content',
     ];
-
-    public function teamMembers()
-    {
-        return $this->hasMany(TeamMember::class, 'page_id');
-    }
 }

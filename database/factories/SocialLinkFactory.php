@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Page;
 use App\Models\SocialLink;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -30,7 +29,6 @@ class SocialLinkFactory extends Factory
         ];
 
         return [
-            'page_id' => Page::whereSlug('home')->first()?->id ?? Page::factory()->create(['slug' => 'home'])->id,
             'sort_order' => $this->faker->numberBetween(1, 100),
             'title' => $this->faker->words(2, true),
             'link' => $this->faker->url,

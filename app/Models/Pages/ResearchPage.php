@@ -3,7 +3,6 @@
 namespace App\Models\Pages;
 
 use App\Models\Page;
-use App\Models\Research;
 use App\Traits\HasSlug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -48,9 +47,4 @@ class ResearchPage extends Page
         'banner',
         'intro',
     ];
-
-    public function research()
-    {
-        return $this->hasMany(Research::class, 'page_id');
-    }
 }

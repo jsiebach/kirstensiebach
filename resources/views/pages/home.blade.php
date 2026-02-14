@@ -19,7 +19,7 @@
             <div>
                 <h3>Press</h3>
                 <ul class="list-group">
-                    @foreach($page->press as $press)
+                    @foreach(\App\Models\Press::all() as $press)
                         <li class="list-group-item">
                             <a href="{!! $press->link !!}" target="_blank">{!! $press->title !!}</a>
                         </li>
@@ -38,7 +38,7 @@
                     </p>
                 </div>
                 <table class="table table-condensed text-left">
-                    @foreach($page->socialLinks as $link)
+                    @foreach(\App\Models\SocialLink::all() as $link)
                         <tr>
                             <td style="padding-left: 30px;">
                                 <i class="fa {!! $link->icon !!}"></i>

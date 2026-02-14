@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Page;
 use App\Models\TeamMember;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -21,7 +20,6 @@ class TeamMemberFactory extends Factory
     public function definition(): array
     {
         return [
-            'page_id' => Page::whereSlug('lab')->first()?->id ?? Page::factory()->create(['slug' => 'lab'])->id,
             'sort_order' => $this->faker->numberBetween(1, 100),
             'name' => $this->faker->name,
             'email' => $this->faker->safeEmail,

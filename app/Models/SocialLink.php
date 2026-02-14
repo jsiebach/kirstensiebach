@@ -40,14 +40,16 @@ class SocialLink extends Model implements Sortable
 {
     use HasFactory, SortableTrait;
 
+    protected $fillable = [
+        'title',
+        'link',
+        'icon',
+        'sort_order',
+    ];
+
     public $sortable = [
         'order_column_name' => 'sort_order',
         'sort_when_creating' => true,
         'sort_on_has_many' => true,
     ];
-
-    public function page()
-    {
-        return $this->belongsTo(Page::class);
-    }
 }
