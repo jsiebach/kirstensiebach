@@ -26,6 +26,13 @@ docker compose -f docker-compose.prod.yml exec -T app php artisan permission:cac
 # Cache the config
 docker compose -f docker-compose.prod.yml exec -T app php artisan config:cache
 
+# Wait for MySQL to accept connections (it may be running a version upgrade)
+echo "⏳ Waiting for database..."
+for i in $(seq 1 60); do
+    docker compose -f docker-compose.prod.yml exec -T db mysqladmin ping -h 127.0.0.1 --silent && break
+    sleep 2
+done
+
 # Migrate the database
 docker compose -f docker-compose.prod.yml exec -T app php artisan migrate --force
 
