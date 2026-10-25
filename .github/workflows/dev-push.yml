@@ -2,16 +2,27 @@ on:
   push:
     branches: [ dev ]
 
+permissions:
+  contents: write
+
 jobs:
   merge-dev-to-master:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Merge dev -> master
-        uses: devmasx/merge-branch@v1.3.1
-        with:
-          type: now
-          from_branch: dev
-          target_branch: master
-          github_token: ${{ secrets.GIT_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout master
+          git merge --no-ff origin/dev -m "Merge dev into master"
+          git push origin master
+
+  # Pushes made with GITHUB_TOKEN don't trigger other workflows, so call the deploy directly
+  deploy:
+    needs: merge-dev-to-master
+    uses: ./.github/workflows/master-push.yml
+    secrets: inherit

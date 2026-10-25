@@ -57,7 +57,7 @@
 @section('header-styles')
 <script type='application/ld+json'>
     {
-      "@context": "http://www.schema.org",
+      "@@context": "http://www.schema.org",
       "@type": "person",
       "name": "Kirsten Siebach",
       "url": "https://kirstensiebach.com",

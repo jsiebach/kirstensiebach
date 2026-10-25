@@ -1,6 +1,7 @@
 on:
   push:
     branches: [ master ]
+  workflow_call:
 
 jobs:
   check-docker-changes:
@@ -10,13 +11,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Check if Docker build is needed
         id: check
+        env:
+          BEFORE: ${{ github.event.before }}
         run: |
-          # Get list of changed files
-          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
+          # Get list of changed files across the whole push
+          if [ -n "$BEFORE" ] && git cat-file -e "$BEFORE" 2>/dev/null; then
+            CHANGED_FILES=$(git diff --name-only "$BEFORE" HEAD)
+          else
+            CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
+          fi
           echo "Changed files:"
           echo "$CHANGED_FILES"
 
@@ -27,7 +34,7 @@ jobs:
           # - Assets (resources/, package.json, package-lock.json, vite.config.js)
           # - Public files
 
-          if echo "$CHANGED_FILES" | grep -qE '^(Dockerfile|app/|bootstrap/|config/|database/|routes/|resources/|public/|composer\.(json|lock)|package(-lock)?\.json|vite\.config\.js)'; then
+          if echo "$CHANGED_FILES" | grep -qE '^(Dockerfile|\.dockerignore|app/|bootstrap/|config/|database/|routes/|resources/|public/|composer\.(json|lock)|package(-lock)?\.json|vite\.config\.js)'; then
             echo "should_build=true" >> $GITHUB_OUTPUT
             echo "🔨 Docker build needed - application code changed"
           else
@@ -44,7 +51,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.4
+          php-version: 8.5
           extensions: intl, pdo_mysql, zip, exif, pcntl, gd
       - name: Install Dependencies
         run: composer install --no-interaction
