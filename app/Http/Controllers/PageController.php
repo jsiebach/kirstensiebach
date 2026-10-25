@@ -9,6 +9,7 @@ use App\Models\Pages\OutreachPage;
 use App\Models\Pages\PhotographyPage;
 use App\Models\Pages\PublicationsPage;
 use App\Models\Pages\ResearchPage;
+use App\Models\Pages\ResourcesPage;
 
 class PageController extends Controller
 {
@@ -19,6 +20,7 @@ class PageController extends Controller
         'cv' => CvPage::class,
         'outreach' => OutreachPage::class,
         'photography' => PhotographyPage::class,
+        'resources' => ResourcesPage::class,
     ];
 
     public function home()

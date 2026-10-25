@@ -19,6 +19,9 @@
                         <li><a class="" href="/cv"><i class="fa fa-file-text"></i> CV</a></li>
                         <li><a class="" href="/outreach"><i class="fa fa-bullhorn"></i> Speaking</a></li>
                         <li><a class="" href="/photography"><i class="fa fa-camera"></i> Photography</a></li>
+                        @if ($showResourcesInMenu)
+                            <li><a class="" href="/resources"><i class="fa fa-folder-open"></i> Resources</a></li>
+                        @endif
                     </ul>
                 </ul>
             </div>

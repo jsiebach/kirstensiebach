@@ -5,6 +5,8 @@ namespace App\Models\Pages;
 use App\Models\Page;
 use App\Traits\HasSlug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Carbon;
+use Spatie\SchemalessAttributes\SchemalessAttributes;
 
 /**
  * App\Models\Pages\OutreachPage
@@ -14,9 +16,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property string $slug
  * @property string $meta_title
  * @property string|null $meta_description
- * @property \Spatie\SchemalessAttributes\SchemalessAttributes|null $content
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property SchemalessAttributes|null $content
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  *
  * @method static \Illuminate\Database\Eloquent\Builder|OutreachPage newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|OutreachPage newQuery()
@@ -41,5 +43,12 @@ class OutreachPage extends Page
 
     public static $slug = 'outreach';
 
-    public $contentAttributes = [];
+    public $contentAttributes = [
+        'intro',
+        'contact_callout',
+        'intro_image',
+        'videos',
+        'photos',
+        'sections',
+    ];
 }

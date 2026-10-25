@@ -77,7 +77,30 @@ class PageSeeder extends Seeder
                 'slug' => 'outreach',
                 'meta_title' => 'Speaking & Outreach | Kirsten Siebach',
                 'meta_description' => '',
-                'content' => [],
+                'content' => [
+                    'intro' => $faker->paragraph,
+                    'contact_callout' => 'Please contact me at [outreach@kirstensiebach.com](mailto:outreach@kirstensiebach.com) if your group would like me to speak!',
+                    'videos' => [
+                        ['title' => 'The Story of Gale Crater on Mars', 'youtube_url' => 'https://www.youtube.com/watch?v=iMt7azVQsCs', 'description' => $faker->sentence],
+                        ['title' => 'Houston Geological Society', 'youtube_url' => 'https://youtu.be/NfpzGW2t_KU', 'description' => null],
+                    ],
+                    'photos' => [],
+                    'sections' => [
+                        [
+                            'heading' => 'Recent Keynote Talks',
+                            'entries' => [
+                                ['date' => '4/11/2019', 'description' => $faker->sentence, 'link' => null],
+                                ['date' => '3/21/2019', 'description' => $faker->sentence, 'link' => $faker->url],
+                            ],
+                        ],
+                        [
+                            'heading' => 'Teaching Experience',
+                            'entries' => [
+                                ['date' => null, 'description' => $faker->sentence, 'link' => null],
+                            ],
+                        ],
+                    ],
+                ],
             ],
             [
                 'title' => 'Photography',
@@ -86,6 +109,16 @@ class PageSeeder extends Seeder
                 'meta_description' => '',
                 'content' => [],
             ],
+            [
+                'title' => 'Resources',
+                'slug' => 'resources',
+                'meta_title' => 'Resources | Kirsten Siebach',
+                'meta_description' => '',
+                'content' => [
+                    'intro' => $faker->paragraph,
+                    'show_in_menu' => false,
+                ],
+            ],
         ];
 
         collect($pages)->each(function ($page) {
@@ -93,7 +126,8 @@ class PageSeeder extends Seeder
             //            $page['content'] = Storage::exists($path)
             //                ? json_decode(Storage::get($path), true)
             //                : new \stdClass;
-            Page::create($page);
+            // The resources page row is created by its migration, so update rather than duplicate it
+            Page::updateOrCreate(['slug' => $page['slug']], $page);
         });
     }
 }

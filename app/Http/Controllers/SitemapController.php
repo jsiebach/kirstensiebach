@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pages\HomePage;
+use App\Models\Pages\ResourcesPage;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,7 +19,13 @@ class SitemapController extends Controller
         }
 
         foreach (PageController::PAGE_MAP as $slug => $pageClass) {
-            if ($page = $pageClass::first()) {
+            $page = $pageClass::first();
+
+            if ($page instanceof ResourcesPage && ! $page->isListed()) {
+                continue;
+            }
+
+            if ($page) {
                 $sitemap->add(Url::create(route('page.show', $slug))->setLastModificationDate($page->updated_at));
             }
         }

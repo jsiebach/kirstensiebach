@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\ResourceType;
 use App\Models\Pages\CvPage;
 use App\Models\Pages\HomePage;
 use App\Models\Pages\LabPage;
@@ -7,9 +8,12 @@ use App\Models\Pages\OutreachPage;
 use App\Models\Pages\PhotographyPage;
 use App\Models\Pages\PublicationsPage;
 use App\Models\Pages\ResearchPage;
+use App\Models\Pages\ResourcesPage;
 use App\Models\Press;
 use App\Models\Publication;
 use App\Models\Research;
+use App\Models\ResourceItem;
+use App\Models\ResourceSection;
 use App\Models\ScienceAbstract;
 use App\Models\SocialLink;
 use App\Models\TeamMember;
@@ -273,4 +277,27 @@ test('photography page factory creates valid photography page', function () {
         'id' => $photographyPage->id,
         'slug' => 'photography',
     ]);
+});
+
+test('resources page factory creates an unlisted resources page', function () {
+    $resourcesPage = ResourcesPage::factory()->make();
+
+    expect($resourcesPage->slug)->toBe('resources')
+        ->and($resourcesPage->isListed())->toBeFalse();
+});
+
+test('resource item factory states create each kind of resource', function () {
+    expect(ResourceItem::factory()->create())
+        ->type->toBe(ResourceType::Link)
+        ->url->toStartWith('http');
+
+    expect(ResourceItem::factory()->document()->create())
+        ->type->toBe(ResourceType::Document)
+        ->file_path->toBe('resources/lesson-plan.pdf');
+
+    expect(ResourceItem::factory()->video()->create()->youtubeId())->toBe('iMt7azVQsCs');
+});
+
+test('resource section factory creates a named section', function () {
+    expect(ResourceSection::factory()->create()->name)->not->toBeEmpty();
 });
