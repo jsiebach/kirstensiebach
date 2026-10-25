@@ -26,7 +26,7 @@ beforeEach(function (): void {
 test('admin can view publications list page', function (): void {
     Publication::factory()
         ->count(3)
-        ->create(['page_id' => $this->publicationsPage->id]);
+        ->create();
 
     $this->visit('/admin/login')
         ->waitForText('Sign in')
@@ -57,7 +57,6 @@ test('admin can access publication create page', function (): void {
 
 test('admin can access publication edit page', function (): void {
     $publication = Publication::factory()->create([
-        'page_id' => $this->publicationsPage->id,
         'title' => 'Original Publication Title',
         'publication_name' => 'Original Journal',
         'authors' => 'Original Authors',
@@ -79,7 +78,6 @@ test('admin can access publication edit page', function (): void {
 
 test('admin can see publication in list', function (): void {
     $publication = Publication::factory()->create([
-        'page_id' => $this->publicationsPage->id,
         'title' => 'Test Publication Item',
         'publication_name' => 'Test Journal',
         'authors' => 'Test Author',
@@ -97,7 +95,6 @@ test('admin can see publication in list', function (): void {
 
 test('publications table displays all key fields', function (): void {
     Publication::factory()->create([
-        'page_id' => $this->publicationsPage->id,
         'title' => 'Comprehensive Study Title',
         'publication_name' => 'Science Journal',
         'authors' => 'Dr. Jane Smith, Prof. John Doe',

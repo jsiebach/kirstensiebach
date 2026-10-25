@@ -55,6 +55,7 @@ function loginAsAdmin($test, $admin)
         ->type('#form\\.email', $admin->email)
         ->type('#form\\.password', 'password')
         ->submit()
+        ->waitForText('Dashboard')
         ->waitForEvent('networkidle');
 }
 

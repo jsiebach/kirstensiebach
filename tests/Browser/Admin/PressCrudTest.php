@@ -26,7 +26,7 @@ beforeEach(function (): void {
 test('admin can view press list page', function (): void {
     Press::factory()
         ->count(3)
-        ->create(['page_id' => $this->outreachPage->id]);
+        ->create();
 
     $this->visit('/admin/login')
         ->waitForText('Sign in')
@@ -54,7 +54,6 @@ test('admin can access press create page', function (): void {
 
 test('admin can access press edit page', function (): void {
     $press = Press::factory()->create([
-        'page_id' => $this->outreachPage->id,
         'title' => 'Original Press Title',
         'link' => 'https://example.com/original',
         'date' => '2023-05-10',
@@ -74,7 +73,6 @@ test('admin can access press edit page', function (): void {
 
 test('admin can see press item in list', function (): void {
     $press = Press::factory()->create([
-        'page_id' => $this->outreachPage->id,
         'title' => 'Test Press Item',
         'link' => 'https://example.com/test',
         'date' => '2023-08-15',
@@ -90,14 +88,12 @@ test('admin can see press item in list', function (): void {
 
 test('press table displays multiple items', function (): void {
     Press::factory()->create([
-        'page_id' => $this->outreachPage->id,
         'title' => 'Newer Press Item',
         'link' => 'https://example.com/newer',
         'date' => '2024-06-01',
     ]);
 
     Press::factory()->create([
-        'page_id' => $this->outreachPage->id,
         'title' => 'Older Press Item',
         'link' => 'https://example.com/older',
         'date' => '2023-06-01',

@@ -2,16 +2,11 @@
 
 declare(strict_types=1);
 
-use App\Models\Pages\PublicationsPage;
 use App\Models\Publication;
+use Illuminate\Support\Carbon;
 
 test('publication can be created with required fields', function (): void {
-    $publicationsPage = PublicationsPage::factory()->create([
-        'slug' => 'publications',
-    ]);
-
     $publication = Publication::factory()->create([
-        'page_id' => $publicationsPage->id,
         'title' => 'Mars Mineralogy Study',
         'authors' => 'Doe, J., Smith, A.',
         'publication_name' => 'Journal of Planetary Science',
@@ -27,18 +22,12 @@ test('publication can be created with required fields', function (): void {
 });
 
 test('publications are ordered by date published descending', function (): void {
-    $publicationsPage = PublicationsPage::factory()->create([
-        'slug' => 'publications',
-    ]);
-
     // Create publications with different dates
     $older = Publication::factory()->create([
-        'page_id' => $publicationsPage->id,
         'date_published' => '2022-01-01',
     ]);
 
     $newer = Publication::factory()->create([
-        'page_id' => $publicationsPage->id,
         'date_published' => '2024-01-01',
     ]);
 
@@ -50,15 +39,10 @@ test('publications are ordered by date published descending', function (): void 
 });
 
 test('publication date is cast to carbon instance', function (): void {
-    $publicationsPage = PublicationsPage::factory()->create([
-        'slug' => 'publications',
-    ]);
-
     $publication = Publication::factory()->create([
-        'page_id' => $publicationsPage->id,
         'date_published' => '2024-06-15',
     ]);
 
-    expect($publication->date_published)->toBeInstanceOf(\Illuminate\Support\Carbon::class);
+    expect($publication->date_published)->toBeInstanceOf(Carbon::class);
     expect($publication->date_published->format('Y-m-d'))->toBe('2024-06-15');
 });

@@ -24,7 +24,6 @@ test('research image uploaded in admin displays on frontend with correct src', f
     Storage::disk('public')->put($imagePath, 'fake-image-content');
 
     $research = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'Research With Image',
         'description' => 'This research has an image.',
         'image' => $imagePath,
@@ -58,7 +57,6 @@ test('research image path loads correctly on frontend after admin upload', funct
     Storage::disk('public')->put($imagePath, 'fake-mars-image');
 
     $research = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'Mars Research Project',
         'description' => 'Research about Mars.',
         'image' => $imagePath,
@@ -87,7 +85,6 @@ test('multiple research images display in correct locations on frontend', functi
 
     // Create multiple research projects with images
     $research1 = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'First Project With Image',
         'description' => 'First project description.',
         'image' => 'images/research-first.jpg',
@@ -95,7 +92,6 @@ test('multiple research images display in correct locations on frontend', functi
     Storage::disk('public')->put('images/research-first.jpg', 'fake-first-image');
 
     $research2 = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'Second Project With Image',
         'description' => 'Second project description.',
         'image' => 'images/research-second.jpg',
@@ -159,7 +155,6 @@ test('research without image does not break frontend display', function () {
 
     // Create research without image
     $research = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'Research Without Image',
         'description' => 'This research has no image.',
         'image' => null,
@@ -186,7 +181,6 @@ test('image alternates left and right placement on research page', function () {
 
     // Create even-indexed research (should be left-aligned)
     $research1 = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'First Project',
         'description' => 'First description.',
         'image' => 'images/research-1.jpg',
@@ -195,7 +189,6 @@ test('image alternates left and right placement on research page', function () {
 
     // Create odd-indexed research (should be right-aligned)
     $research2 = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'Second Project',
         'description' => 'Second description.',
         'image' => 'images/research-2.jpg',

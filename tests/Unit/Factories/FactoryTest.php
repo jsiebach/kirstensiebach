@@ -40,8 +40,7 @@ test('research factory creates valid research project', function () {
 
     expect($research)->toBeInstanceOf(Research::class)
         ->and($research->project_name)->not->toBeEmpty()
-        ->and($research->description)->not->toBeEmpty()
-        ->and($research->page_id)->not->toBeNull();
+        ->and($research->description)->not->toBeEmpty();
 
     $this->assertDatabaseHas('research', [
         'id' => $research->id,
@@ -69,8 +68,7 @@ test('publication factory creates valid publication', function () {
     expect($publication)->toBeInstanceOf(Publication::class)
         ->and($publication->title)->not->toBeEmpty()
         ->and($publication->authors)->not->toBeEmpty()
-        ->and($publication->doi)->toContain('10.')
-        ->and($publication->page_id)->not->toBeNull();
+        ->and($publication->doi)->toContain('10.');
 
     $this->assertDatabaseHas('publications', [
         'id' => $publication->id,
@@ -98,8 +96,7 @@ test('press factory creates valid press item', function () {
     expect($press)->toBeInstanceOf(Press::class)
         ->and($press->title)->not->toBeEmpty()
         ->and($press->link)->toStartWith('http')
-        ->and($press->date)->not->toBeNull()
-        ->and($press->page_id)->not->toBeNull();
+        ->and($press->date)->not->toBeNull();
 
     $this->assertDatabaseHas('press', [
         'id' => $press->id,
@@ -113,8 +110,7 @@ test('team member factory creates valid team member', function () {
     expect($teamMember)->toBeInstanceOf(TeamMember::class)
         ->and($teamMember->name)->not->toBeEmpty()
         ->and($teamMember->email)->toContain('@')
-        ->and($teamMember->bio)->not->toBeEmpty()
-        ->and($teamMember->page_id)->not->toBeNull();
+        ->and($teamMember->bio)->not->toBeEmpty();
 
     $this->assertDatabaseHas('team_members', [
         'id' => $teamMember->id,
@@ -147,8 +143,7 @@ test('science abstract factory creates valid science abstract', function () {
     expect($abstract)->toBeInstanceOf(ScienceAbstract::class)
         ->and($abstract->title)->not->toBeEmpty()
         ->and($abstract->authors)->not->toBeEmpty()
-        ->and($abstract->location)->not->toBeEmpty()
-        ->and($abstract->page_id)->not->toBeNull();
+        ->and($abstract->location)->not->toBeEmpty();
 
     $this->assertDatabaseHas('science_abstracts', [
         'id' => $abstract->id,
@@ -162,8 +157,7 @@ test('social link factory creates valid social link', function () {
     expect($socialLink)->toBeInstanceOf(SocialLink::class)
         ->and($socialLink->title)->not->toBeEmpty()
         ->and($socialLink->link)->toStartWith('http')
-        ->and($socialLink->icon)->not->toBeEmpty()
-        ->and($socialLink->page_id)->not->toBeNull();
+        ->and($socialLink->icon)->not->toBeEmpty();
 
     $this->assertDatabaseHas('social_links', [
         'id' => $socialLink->id,

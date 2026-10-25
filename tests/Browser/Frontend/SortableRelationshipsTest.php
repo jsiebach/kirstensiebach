@@ -20,21 +20,18 @@ test('research projects display in correct sort order on frontend', function () 
 
     // Create research projects with specific sort order
     $research1 = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'First Project',
         'description' => 'Should appear first.',
         'sort_order' => 1,
     ]);
 
     $research2 = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'Second Project',
         'description' => 'Should appear second.',
         'sort_order' => 2,
     ]);
 
     $research3 = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'Third Project',
         'description' => 'Should appear third.',
         'sort_order' => 3,
@@ -72,14 +69,12 @@ test('research projects maintain order after sort_order is updated in admin', fu
 
     // Create research projects
     $research1 = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'Project A',
         'description' => 'Originally first.',
         'sort_order' => 1,
     ]);
 
     $research2 = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'Project B',
         'description' => 'Originally second.',
         'sort_order' => 2,
@@ -114,7 +109,6 @@ test('publications display in date order on frontend', function () {
 
     // Create publications with different dates (newest should appear first due to global scope)
     $pub1 = Publication::factory()->create([
-        'page_id' => $publicationsPage->id,
         'title' => 'Oldest Publication',
         'authors' => 'Smith, J.',
         'publication_name' => 'Journal A',
@@ -123,7 +117,6 @@ test('publications display in date order on frontend', function () {
     ]);
 
     $pub2 = Publication::factory()->create([
-        'page_id' => $publicationsPage->id,
         'title' => 'Middle Publication',
         'authors' => 'Doe, A.',
         'publication_name' => 'Journal B',
@@ -132,7 +125,6 @@ test('publications display in date order on frontend', function () {
     ]);
 
     $pub3 = Publication::factory()->create([
-        'page_id' => $publicationsPage->id,
         'title' => 'Newest Publication',
         'authors' => 'Jones, K.',
         'publication_name' => 'Journal C',
@@ -171,14 +163,12 @@ test('changing research sort order reflects immediately on frontend after refres
     );
 
     $research1 = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'Priority Project',
         'description' => 'High priority research.',
         'sort_order' => 10,
     ]);
 
     $research2 = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'Standard Project',
         'description' => 'Standard research.',
         'sort_order' => 20,

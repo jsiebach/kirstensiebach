@@ -26,7 +26,6 @@ test('research created in admin appears on frontend research page', function () 
 
     // Create a research project
     $research = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'Test Research Project',
         'description' => 'This is a test research project description.',
     ]);
@@ -54,7 +53,6 @@ test('research edited in admin reflects changes on frontend', function () {
     );
 
     $research = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'Original Project Name',
         'description' => 'Original description.',
     ]);
@@ -90,7 +88,6 @@ test('publication created in admin appears on frontend publications page', funct
 
     // Create a publication
     $publication = Publication::factory()->create([
-        'page_id' => $publicationsPage->id,
         'title' => 'Test Publication Title',
         'authors' => 'Smith, J., Doe, A.',
         'publication_name' => 'Test Journal',
@@ -121,7 +118,6 @@ test('publication edited in admin reflects changes on frontend', function () {
     );
 
     $publication = Publication::factory()->create([
-        'page_id' => $publicationsPage->id,
         'title' => 'Original Publication Title',
         'authors' => 'Original Authors',
         'publication_name' => 'Original Journal',
@@ -195,7 +191,6 @@ test('deleted research project no longer appears on frontend', function () {
     );
 
     $research = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'Project To Be Deleted',
         'description' => 'This project will be deleted.',
     ]);
@@ -225,19 +220,16 @@ test('multiple research projects created in admin all appear on frontend in corr
     );
 
     $research1 = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'First Research Project',
         'description' => 'Description of first project.',
     ]);
 
     $research2 = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'Second Research Project',
         'description' => 'Description of second project.',
     ]);
 
     $research3 = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'Third Research Project',
         'description' => 'Description of third project.',
     ]);
