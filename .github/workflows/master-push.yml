@@ -15,15 +15,10 @@ jobs:
 
       - name: Check if Docker build is needed
         id: check
-        env:
-          BEFORE: ${{ github.event.before }}
         run: |
-          # Get list of changed files across the whole push
-          if [ -n "$BEFORE" ] && git cat-file -e "$BEFORE" 2>/dev/null; then
-            CHANGED_FILES=$(git diff --name-only "$BEFORE" HEAD)
-          else
-            CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
-          fi
+          # Diff the merge commit against the previously deployed master
+          git fetch -q origin master
+          CHANGED_FILES=$(git diff --name-only origin/master^1 origin/master)
           echo "Changed files:"
           echo "$CHANGED_FILES"
 
@@ -34,7 +29,7 @@ jobs:
           # - Assets (resources/, package.json, package-lock.json, vite.config.js)
           # - Public files
 
-          if echo "$CHANGED_FILES" | grep -qE '^(Dockerfile|\.dockerignore|app/|bootstrap/|config/|database/|routes/|resources/|public/|composer\.(json|lock)|package(-lock)?\.json|vite\.config\.js)'; then
+          if echo "$CHANGED_FILES" | grep -qE '^(Dockerfile|\.dockerignore|\.github/workflows/master-push\.yml|app/|bootstrap/|config/|database/|routes/|resources/|public/|composer\.(json|lock)|package(-lock)?\.json|vite\.config\.js)'; then
             echo "should_build=true" >> $GITHUB_OUTPUT
             echo "🔨 Docker build needed - application code changed"
           else
