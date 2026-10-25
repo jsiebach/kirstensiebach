@@ -53,6 +53,7 @@ auth.json
 README.md
 deploy.sh
 renew.sh
+backup.sh
 
 # Storage (should be mounted as volumes)
 storage/app/*

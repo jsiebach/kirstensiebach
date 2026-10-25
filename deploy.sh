@@ -36,4 +36,23 @@ done
 # Migrate the database
 docker compose -f docker-compose.prod.yml exec -T app php artisan migrate --force
 
+# Pick up any nginx config changes from the pull (the config is bind-mounted)
+docker compose -f docker-compose.prod.yml exec -T webserver nginx -s reload
+
+# Smoke test: the homepage and the stylesheet it references must load through nginx
+echo "🩺 Checking the site responds..."
+for i in $(seq 1 15); do
+    html=$(curl -fsS --resolve kirstensiebach.com:443:127.0.0.1 https://kirstensiebach.com/ 2>/dev/null) && break
+    sleep 2
+done
+if [ -z "$html" ]; then
+    echo "❌ Homepage did not respond after deploy"
+    exit 1
+fi
+css=$(echo "$html" | grep -oE '/build/assets/app-[A-Za-z0-9_-]+\.css' | head -1)
+if [ -z "$css" ] || ! curl -fsS -o /dev/null --resolve kirstensiebach.com:443:127.0.0.1 "https://kirstensiebach.com$css"; then
+    echo "❌ Homepage stylesheet ($css) did not load"
+    exit 1
+fi
+
 echo "✅ Deployment complete!"

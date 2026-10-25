@@ -25,3 +25,6 @@ tests/playwright/videos/
 tests/playwright/.cache/
 
 clover.xml
+
+# Composer credentials
+auth.json

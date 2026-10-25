@@ -5,6 +5,11 @@ on:
 permissions:
   contents: write
 
+# Queue pushes so deploys never overlap or land out of order
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
 jobs:
   tests:
     uses: ./.github/workflows/dev-pr.yml
