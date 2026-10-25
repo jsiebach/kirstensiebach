@@ -26,8 +26,7 @@ test('admin role can access all filament resources', function (): void {
 test('non-admin cannot access protected resources', function (): void {
     $user = User::factory()->create();
 
-    $this->visit('/admin/login')
-        ->waitForText('Sign in')
+    visitAdminLogin($this)
         ->type('#form\\.email', $user->email)
         ->type('#form\\.password', 'password')
         ->submit()

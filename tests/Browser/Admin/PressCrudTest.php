@@ -28,8 +28,7 @@ test('admin can view press list page', function (): void {
         ->count(3)
         ->create();
 
-    $this->visit('/admin/login')
-        ->waitForText('Sign in')
+    visitAdminLogin($this)
         ->type('#form\\.email', $this->admin->email)
         ->type('#form\\.password', 'password')
         ->submit()

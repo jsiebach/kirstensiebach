@@ -45,18 +45,43 @@ expect()->extend('toBeOne', function () {
 */
 
 /**
- * Login helper for browser tests
- * Returns the page after successful login to admin panel
+ * Open the admin login page once its form is interactive.
+ *
+ * Filament renders the form server-side, then Alpine initializes each field.
+ * Typing before that happens gets wiped, so wait for the password field's
+ * Alpine component instead of a fixed delay or network idle.
+ */
+function visitAdminLogin($test)
+{
+    $page = $test->visit('/admin/login')->waitForText('Sign in');
+
+    $deadline = microtime(true) + 10;
+    while (! $page->script("() => !!document.getElementById('form.password')?.closest('[x-data]')?._x_dataStack")) {
+        if (microtime(true) > $deadline) {
+            throw new RuntimeException('The admin login form never became interactive.');
+        }
+
+        usleep(50_000);
+    }
+
+    return $page;
+}
+
+/**
+ * Log in as the given admin and land on the dashboard.
+ *
+ * Navigates to /admin explicitly rather than trusting the post-login redirect,
+ * which can follow a stale "intended" URL left by the previous browser test.
  */
 function loginAsAdmin($test, $admin)
 {
-    return $test->visit('/admin/login')
-        ->waitForText('Sign in')
+    return visitAdminLogin($test)
         ->type('#form\\.email', $admin->email)
         ->type('#form\\.password', 'password')
         ->submit()
         ->waitForText('Dashboard')
-        ->waitForEvent('networkidle');
+        ->navigate('/admin')
+        ->waitForText('Dashboard');
 }
 
 /*

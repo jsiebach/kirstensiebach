@@ -16,8 +16,7 @@ test('admin user can log in and access admin panel', function (): void {
     $admin = User::factory()->create();
     $admin->assignRole('admin');
 
-    $this->visit('/admin/login')
-        ->waitForText('Sign in')
+    visitAdminLogin($this)
         ->assertSee('Siebach Lab')
         ->type('#form\\.email', $admin->email)
         ->type('#form\\.password', 'password')
@@ -31,14 +30,14 @@ test('guest user redirects to login when accessing admin panel', function (): vo
         ->waitForEvent('networkidle')
         ->assertPathIs('/admin/login')
         ->waitForText('Sign in')
+        ->waitForEvent('networkidle')
         ->assertSee('Siebach Lab');
 });
 
 test('non-admin user cannot access admin panel', function (): void {
     $user = User::factory()->create();
 
-    $this->visit('/admin/login')
-        ->waitForText('Sign in')
+    visitAdminLogin($this)
         ->type('#form\\.email', $user->email)
         ->type('#form\\.password', 'password')
         ->submit()
@@ -52,8 +51,7 @@ test('admin can log out successfully', function (): void {
     $admin->assignRole('admin');
 
     // Login
-    $this->visit('/admin/login')
-        ->waitForText('Sign in')
+    visitAdminLogin($this)
         ->type('#form\\.email', $admin->email)
         ->type('#form\\.password', 'password')
         ->submit()
