@@ -56,3 +56,23 @@
     border-color: transparent transparent transparent #fff;
   }
 }
+
+.outreach-contact {
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  a {
+    color: inherit;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
+
+.outreach-video {
+  margin-bottom: 20px;
+}
+
+.outreach-video__description {
+  margin-top: 10px;
+}
