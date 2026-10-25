@@ -2,8 +2,14 @@
     "agents": [
         "claude_code"
     ],
+    "cloud": false,
     "editors": [
         "claude_code"
     ],
-    "guidelines": []
+    "guidelines": true,
+    "skills": [
+        "infer-conventions",
+        "laravel-best-practices",
+        "testing-best-practices"
+    ]
 }
