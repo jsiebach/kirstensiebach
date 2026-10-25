@@ -18,9 +18,6 @@ class TeamMembersTable
                 TextColumn::make('name')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('title')
-                    ->label('Job Title')
-                    ->searchable(),
                 TextColumn::make('email')
                     ->searchable(),
                 IconColumn::make('alumni')
