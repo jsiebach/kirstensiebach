@@ -17,9 +17,6 @@ class TeamMemberForm
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                TextInput::make('title')
-                    ->maxLength(255)
-                    ->label('Job Title'),
                 TextInput::make('email')
                     ->email()
                     ->required()

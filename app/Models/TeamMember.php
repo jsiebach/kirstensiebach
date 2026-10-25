@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
 
@@ -14,14 +15,13 @@ use Spatie\EloquentSortable\SortableTrait;
  * @property int $page_id
  * @property int $sort_order
  * @property string $name
- * @property string|null $title
  * @property string $email
  * @property int|null $alumni
  * @property string $bio
  * @property string $profile_picture
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Page|null $page
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read Page|null $page
  *
  * @method static \Database\Factories\TeamMemberFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|TeamMember newModelQuery()
@@ -49,7 +49,6 @@ class TeamMember extends Model implements Sortable
     protected $fillable = [
         'sort_order',
         'name',
-        'title',
         'email',
         'alumni',
         'bio',
