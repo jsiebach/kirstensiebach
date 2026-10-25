@@ -16,6 +16,9 @@ docker compose -f docker-compose.prod.yml pull
 # Relaunch with new docker images
 docker compose -f docker-compose.prod.yml up -d
 
+# Remove the untagged images each deploy leaves behind (never touches volumes)
+docker image prune -f > /dev/null
+
 # Sym link the storage folder
 docker compose -f docker-compose.prod.yml exec -T app php artisan storage:link
 
