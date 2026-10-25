@@ -22,7 +22,6 @@ node_modules
 package.json
 package-lock.json
 vite.config.js
-webpack.mix.js
 
 # Tests
 tests
@@ -38,14 +37,11 @@ docker-compose*.yml
 nginx
 mysql
 php
-varnish
 
 # Development files
 .env
 .env.*
 !.env.example
-.php_cs.dist
-.php-cs-fixer.dist.php
 .editorconfig
 .mcp.json
 boost.json
