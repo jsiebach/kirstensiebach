@@ -1,7 +1,15 @@
+# Rotate container logs so they can't grow without bound
+x-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
 services:
 
   #PHP Service
   app:
+    logging: *default-logging
     image: jsiebach/kirstensiebach
     container_name: app
     restart: unless-stopped
@@ -21,6 +29,7 @@ services:
 
   #Nginx Service
   webserver:
+    logging: *default-logging
     image: nginx:alpine
     container_name: webserver
     restart: unless-stopped
@@ -39,6 +48,7 @@ services:
 
   # let us encrypt, shall we?
   certbot:
+    logging: *default-logging
     image: certbot/certbot:latest
     volumes:
       - ./certbot/www/:/var/www/certbot/:rw
@@ -46,6 +56,7 @@ services:
 
   #MySQL Service
   db:
+    logging: *default-logging
     image: mysql:8.4
     container_name: db
     restart: unless-stopped
