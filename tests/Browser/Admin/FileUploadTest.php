@@ -54,7 +54,6 @@ test('uploaded image is stored in correct directory', function (): void {
 
 test('uploaded image path is saved to database', function (): void {
     $research = Research::factory()->create([
-        'page_id' => $this->researchPage->id,
         'project_name' => 'Database Image Test',
         'description' => 'Testing database storage',
         'image' => 'research/test-image.jpg',
@@ -80,7 +79,6 @@ test('image field accepts valid image file types', function (): void {
 
 test('admin can access research edit form', function (): void {
     $research = Research::factory()->create([
-        'page_id' => $this->researchPage->id,
         'project_name' => 'Project With Image',
         'description' => 'Original description',
         'image' => 'research/original-image.jpg',
@@ -99,7 +97,6 @@ test('admin can access research edit form', function (): void {
 
 test('research without image can be created in database', function (): void {
     $research = Research::factory()->create([
-        'page_id' => $this->researchPage->id,
         'project_name' => 'Project Without Image',
         'description' => 'This project has no image.',
         'image' => null,
@@ -111,7 +108,6 @@ test('research without image can be created in database', function (): void {
 
 test('uploaded image path is stored correctly in database', function (): void {
     $research = Research::factory()->create([
-        'page_id' => $this->researchPage->id,
         'project_name' => 'Visible Image Project',
         'description' => 'Project with visible image',
         'image' => 'research/visible-image.jpg',

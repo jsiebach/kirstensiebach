@@ -20,7 +20,6 @@ test('markdown in research description renders as HTML on frontend', function ()
 
     // Create research with markdown content
     $research = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'Markdown Test Project',
         'description' => 'This is **bold text** and this is *italic text* in markdown.',
     ]);
@@ -55,7 +54,6 @@ test('markdown links in publication abstract render correctly on frontend', func
 
     // Create publication with markdown link in abstract
     $publication = Publication::factory()->create([
-        'page_id' => $publicationsPage->id,
         'title' => 'Publication With Link',
         'authors' => 'Smith, J.',
         'publication_name' => 'Test Journal',
@@ -101,7 +99,6 @@ The project focuses on ***both bold and italic*** formatting.
 MARKDOWN;
 
     $research = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'Complex Markdown Project',
         'description' => $markdown,
     ]);
@@ -137,7 +134,6 @@ test('markdown in publication authors field renders correctly on frontend', func
 
     // Create publication with markdown in authors field
     $publication = Publication::factory()->create([
-        'page_id' => $publicationsPage->id,
         'title' => 'Test Publication',
         'authors' => 'Smith, J., **Doe, A.** (corresponding author), Jones, K.',
         'publication_name' => 'Science Journal',

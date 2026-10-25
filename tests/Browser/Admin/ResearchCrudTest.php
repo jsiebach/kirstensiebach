@@ -28,7 +28,7 @@ beforeEach(function (): void {
 test('admin can view research list page', function (): void {
     Research::factory()
         ->count(3)
-        ->create(['page_id' => $this->researchPage->id]);
+        ->create();
 
     loginAsAdmin($this, $this->admin)
         ->assertPathIs('/admin')
@@ -51,7 +51,6 @@ test('admin can access research create page', function (): void {
 
 test('admin can access research edit page', function (): void {
     $research = Research::factory()->create([
-        'page_id' => $this->researchPage->id,
         'project_name' => 'Original Project Name',
         'description' => 'Original description',
     ]);
@@ -69,7 +68,6 @@ test('admin can access research edit page', function (): void {
 
 test('admin can see research project in list', function (): void {
     Research::factory()->create([
-        'page_id' => $this->researchPage->id,
         'project_name' => 'Visible Research Project',
         'description' => 'This should be visible in the table',
     ]);
@@ -84,13 +82,11 @@ test('admin can see research project in list', function (): void {
 
 test('research table displays multiple projects', function (): void {
     Research::factory()->create([
-        'page_id' => $this->researchPage->id,
         'project_name' => 'First Research Project',
         'description' => 'First description',
     ]);
 
     Research::factory()->create([
-        'page_id' => $this->researchPage->id,
         'project_name' => 'Second Research Project',
         'description' => 'Second description',
     ]);

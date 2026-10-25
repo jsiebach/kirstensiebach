@@ -1,3 +1,3 @@
-import * as Turbo from "@hotwired/turbo"
-window.$ = window.jQuery = require('jquery');
-require('bootstrap-sass')
+import './jquery-global';
+import 'bootstrap-sass';
+import * as Turbo from '@hotwired/turbo';

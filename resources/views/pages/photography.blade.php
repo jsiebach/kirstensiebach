@@ -11,6 +11,5 @@
         <div class="niceGallery" id="gallery" data-album="{{ $page->flickr_album ?? 72157645780469251 }}">
         </div>
     </div>
-    <script src="{{ mix('/js/photography.js') }}" defer></script>
-    <link rel="stylesheet" href="{{ mix('/css/plugins.css') }}">
+    @vite(['resources/js/photography.js', 'resources/css/plugins.css'])
 @endsection

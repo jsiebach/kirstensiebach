@@ -1,3 +1,3 @@
-$('.expand').click(function(){
-    $("#abstract-"+$(this).data('id')).toggle();
-})
+$(document).on('click', '.expand', function () {
+    $('#abstract-' + $(this).data('id')).toggle();
+});

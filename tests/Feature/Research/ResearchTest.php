@@ -2,18 +2,11 @@
 
 declare(strict_types=1);
 
-use App\Models\Pages\ResearchPage;
 use App\Models\Research;
 
 test('research project can be created with valid data', function (): void {
-    // Create ResearchPage first
-    $researchPage = ResearchPage::factory()->create([
-        'slug' => 'research',
-    ]);
-
     // Create research project using factory
     $research = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'project_name' => 'Mars Surface Analysis',
         'description' => 'Study of Martian surface composition',
     ]);
@@ -26,13 +19,8 @@ test('research project can be created with valid data', function (): void {
 });
 
 test('research project can have image uploaded', function (): void {
-    $researchPage = ResearchPage::factory()->create([
-        'slug' => 'research',
-    ]);
-
     // Create research project with image using factory state
     $research = Research::factory()->withImage()->create([
-        'page_id' => $researchPage->id,
     ]);
 
     // Assert image was set
@@ -41,19 +29,13 @@ test('research project can have image uploaded', function (): void {
 });
 
 test('research projects can be ordered by sort order', function (): void {
-    $researchPage = ResearchPage::factory()->create([
-        'slug' => 'research',
-    ]);
-
     // Create multiple research projects
     $first = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'sort_order' => 1,
         'project_name' => 'Project A',
     ]);
 
     $second = Research::factory()->create([
-        'page_id' => $researchPage->id,
         'sort_order' => 2,
         'project_name' => 'Project B',
     ]);

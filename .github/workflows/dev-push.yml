@@ -6,8 +6,12 @@ permissions:
   contents: write
 
 jobs:
+  tests:
+    uses: ./.github/workflows/dev-pr.yml
+
   merge-dev-to-master:
-    runs-on: ubuntu-latest
+    needs: tests
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
         with:
