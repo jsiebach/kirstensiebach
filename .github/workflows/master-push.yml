@@ -83,7 +83,7 @@ jobs:
       (needs.build-and-push-docker-image.result == 'success' || needs.build-and-push-docker-image.result == 'skipped')
     steps:
       - name: Deploy to production server
-        uses: garygrossgarten/github-action-ssh@release
+        uses: garygrossgarten/github-action-ssh@3d6a341d282a92d2253ba26640fcc44f1a38ce92 # 0.9.0
         with:
           command: cd /var/www/kirstensiebach && ./deploy.sh
           host: ${{ secrets.SSH_HOST }}
