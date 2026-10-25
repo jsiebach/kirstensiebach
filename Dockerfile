@@ -1,4 +1,4 @@
-FROM php:8.4-fpm
+FROM php:8.5.12-fpm
 
 ARG NODE_VERSION=22
 
