@@ -28,6 +28,9 @@ class TeamMemberForm
                     ->rows(5),
                 FileUpload::make('profile_picture')
                     ->image()
+                    ->automaticallyResizeImagesMode('contain')
+                    ->automaticallyResizeImagesToWidth('2000')
+                    ->automaticallyResizeImagesToHeight('2000')
                     ->acceptedFileTypes(['image/*'])
                     ->disk('public')
                     ->directory('team')
