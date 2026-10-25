@@ -22,6 +22,9 @@ class ResearchForm
                     ->rows(5),
                 FileUpload::make('image')
                     ->image()
+                    ->automaticallyResizeImagesMode('contain')
+                    ->automaticallyResizeImagesToWidth('2000')
+                    ->automaticallyResizeImagesToHeight('2000')
                     ->acceptedFileTypes(['image/*'])
                     ->disk('public')
                     ->directory('research')

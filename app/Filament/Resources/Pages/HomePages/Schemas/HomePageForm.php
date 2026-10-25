@@ -10,6 +10,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
+use Illuminate\Support\Str;
 
 class HomePageForm
 {
@@ -23,7 +24,7 @@ class HomePageForm
                             ->required()
                             ->maxLength(255)
                             ->reactive()
-                            ->afterStateUpdated(fn ($state, callable $set) => $set('slug', \Illuminate\Support\Str::slug($state))),
+                            ->afterStateUpdated(fn ($state, callable $set) => $set('slug', Str::slug($state))),
                         TextInput::make('slug')
                             ->required()
                             ->maxLength(255)
@@ -50,12 +51,18 @@ class HomePageForm
                             ->label('Tagline'),
                         FileUpload::make('content.banner')
                             ->image()
+                            ->automaticallyResizeImagesMode('contain')
+                            ->automaticallyResizeImagesToWidth('2000')
+                            ->automaticallyResizeImagesToHeight('2000')
                             ->acceptedFileTypes(['image/*'])
                             ->disk('public')
                             ->directory('pages')
                             ->label('Banner Image'),
                         FileUpload::make('content.profile_picture')
                             ->image()
+                            ->automaticallyResizeImagesMode('contain')
+                            ->automaticallyResizeImagesToWidth('2000')
+                            ->automaticallyResizeImagesToHeight('2000')
                             ->acceptedFileTypes(['image/*'])
                             ->disk('public')
                             ->directory('pages')

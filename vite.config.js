@@ -15,8 +15,6 @@ export default defineConfig({
         }),
     ],
     css: {
-        // The vendored bxslider CSS still carries IE-only `*zoom` hacks; drop them instead of failing
-        lightningcss: { errorRecovery: true },
         preprocessorOptions: {
             scss: {
                 quietDeps: true,

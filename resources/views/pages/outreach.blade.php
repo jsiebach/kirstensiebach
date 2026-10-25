@@ -21,9 +21,7 @@
     <br>
     <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
         <h4>The Story of Gale Crater on Mars from the NASA Mars Curiosity Rover</h4>
-        <div class="videoWrapper">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/iMt7azVQsCs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+        @include('partials.youtube', ['id' => 'iMt7azVQsCs', 'title' => 'The Story of Gale Crater on Mars from the NASA Mars Curiosity Rover'])
         <br>
     </div>
     <div class="clearfix"></div>
@@ -188,10 +186,7 @@
     <div class="row">
         <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-offset-0 col-lg-4 text-center">
             <h4>SBU Postdoc Spotlight 2017</h4>
-            <div class="videoWrapper">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/nQeJ945O-_g" frameborder="0"
-                        allowfullscreen></iframe>
-            </div>
+            @include('partials.youtube', ['id' => 'nQeJ945O-_g', 'title' => 'SBU Postdoc Spotlight 2017'])
         </div>
         <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-offset-0 col-lg-4 text-center">
 {{--            <h4>Google Science Fair Hangout</h4>--}}
@@ -202,10 +197,7 @@
         </div>
         <div class="col-xs-12 col-lg-4 text-center  col-md-8 col-md-offset-2 col-lg-offset-0 ">
             <h4>Houston Geological Society</h4>
-            <div class="videoWrapper">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/NfpzGW2t_KU" frameborder="0"
-                        allowfullscreen></iframe>
-            </div>
+            @include('partials.youtube', ['id' => 'NfpzGW2t_KU', 'title' => 'Houston Geological Society'])
         </div>
     </div>
     <br><br><br>

@@ -7,6 +7,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
+use Illuminate\Support\Str;
 
 class ResearchPageForm
 {
@@ -20,7 +21,7 @@ class ResearchPageForm
                             ->required()
                             ->maxLength(255)
                             ->reactive()
-                            ->afterStateUpdated(fn ($state, callable $set) => $set('slug', \Illuminate\Support\Str::slug($state))),
+                            ->afterStateUpdated(fn ($state, callable $set) => $set('slug', Str::slug($state))),
                         TextInput::make('slug')
                             ->required()
                             ->maxLength(255)
@@ -44,6 +45,9 @@ class ResearchPageForm
                     ->schema([
                         FileUpload::make('content.banner')
                             ->image()
+                            ->automaticallyResizeImagesMode('contain')
+                            ->automaticallyResizeImagesToWidth('2000')
+                            ->automaticallyResizeImagesToHeight('2000')
                             ->acceptedFileTypes(['image/*'])
                             ->disk('public')
                             ->directory('pages')
