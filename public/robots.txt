@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://kirstensiebach.com/sitemap.xml
