@@ -1,29 +1,21 @@
 {
     "private": true,
     "scripts": {
-        "dev": "npm run development",
-        "development": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
-        "prod": "npm run production",
-        "production": "mix --production"
+        "dev": "vite",
+        "build": "vite build"
     },
     "devDependencies": {
-        "@playwright/test": "^1.56.0",
-        "axios": "^0.21",
-        "laravel-mix": "^6.0.6",
-        "lodash": "^4.17.19",
-        "playwright": "^1.56.0",
-        "postcss": "^8.1.14",
-        "resolve-url-loader": "^3.1.2",
-        "sass": "^1.32.8",
-        "sass-loader": "^11.0.1"
+        "@playwright/test": "^1.64.0",
+        "laravel-vite-plugin": "^3.2.0",
+        "playwright": "^1.64.0",
+        "sass": "^1.105.1",
+        "vite": "^8.3.4"
     },
     "dependencies": {
-        "@hotwired/turbo": "^7.0.0-beta.4",
+        "@hotwired/turbo": "^8.0.23",
         "bootstrap-sass": "^3.4.1",
         "font-awesome": "^4.7.0",
         "jquery": "^3.6.0"
-    }
+    },
+    "type": "module"
 }

@@ -5,7 +5,7 @@ on:
 
 jobs:
   check-docker-changes:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     outputs:
       should_build: ${{ steps.check.outputs.should_build }}
     steps:
@@ -38,7 +38,7 @@ jobs:
           fi
 
   build-and-push-docker-image:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: check-docker-changes
     if: needs.check-docker-changes.outputs.should_build == 'true'
     steps:
@@ -49,11 +49,7 @@ jobs:
           php-version: 8.5
           extensions: intl, pdo_mysql, zip, exif, pcntl, gd
       - name: Install Dependencies
-        run: composer install --no-interaction
-      - name: Compile assets
-        run: |
-          npm install
-          npm run production
+        run: composer install --no-interaction --no-dev --optimize-autoloader
       - name: Directory Permissions
         run: chmod -R 775 storage bootstrap/cache
       - name: Set up QEMU
@@ -79,7 +75,7 @@ jobs:
         run: echo ${{ steps.docker_build.outputs.digest }}
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: [check-docker-changes, build-and-push-docker-image]
     if: |
       always() &&

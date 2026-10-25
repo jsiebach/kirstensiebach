@@ -8,8 +8,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     @include('partials.favicon')
     @include('partials.analytics')
-    <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
-    <script src="{{ mix('/js/app.js') }}" defer></script>
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @yield('header-styles')
 </head>
 <body style="height: 100%">

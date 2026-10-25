@@ -1,0 +1,1 @@
+function e(e){e(),document.addEventListener(`turbo:load`,e)}export{e as t};

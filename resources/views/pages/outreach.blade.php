@@ -573,6 +573,5 @@
             </td>
         </tr>
     </table>
-    <script src="{{ mix('/js/outreach.js') }}" defer></script>
-    <link rel="stylesheet" href="{{ mix('/css/plugins.css') }}">
+    @vite(['resources/js/outreach.js', 'resources/css/plugins.css'])
 @endsection

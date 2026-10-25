@@ -65,6 +65,6 @@
         </tr>
         @endforeach
     </table>
-    <script src="{{ mix('/js/publications.js') }}" defer></script>
+    @vite('resources/js/publications.js')
 @endsection
 

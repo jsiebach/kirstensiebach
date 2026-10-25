@@ -1,0 +1,157 @@
+{
+  "_jquery-global-DNdP0Fsx.js": {
+    "file": "assets/jquery-global-DNdP0Fsx.js",
+    "name": "jquery-global"
+  },
+  "_page-init-CoKYWJS1.js": {
+    "file": "assets/page-init-CoKYWJS1.js",
+    "name": "page-init"
+  },
+  "node_modules/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.eot": {
+    "file": "assets/glyphicons-halflings-regular-BUJKDMgK.eot",
+    "src": "node_modules/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.eot"
+  },
+  "node_modules/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.svg": {
+    "file": "assets/glyphicons-halflings-regular-CSehLiBc.svg",
+    "src": "node_modules/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.svg"
+  },
+  "node_modules/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.ttf": {
+    "file": "assets/glyphicons-halflings-regular-DrwTMapi.ttf",
+    "src": "node_modules/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.ttf"
+  },
+  "node_modules/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.woff": {
+    "file": "assets/glyphicons-halflings-regular-BKjkU69z.woff",
+    "src": "node_modules/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.woff"
+  },
+  "node_modules/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.woff2": {
+    "file": "assets/glyphicons-halflings-regular-DzqM6ju8.woff2",
+    "src": "node_modules/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.woff2"
+  },
+  "node_modules/font-awesome/fonts/fontawesome-webfont.eot": {
+    "file": "assets/fontawesome-webfont-G5YE5S7X.eot",
+    "src": "node_modules/font-awesome/fonts/fontawesome-webfont.eot"
+  },
+  "node_modules/font-awesome/fonts/fontawesome-webfont.svg": {
+    "file": "assets/fontawesome-webfont-D13rzr4g.svg",
+    "src": "node_modules/font-awesome/fonts/fontawesome-webfont.svg"
+  },
+  "node_modules/font-awesome/fonts/fontawesome-webfont.ttf": {
+    "file": "assets/fontawesome-webfont-CQDK8MU3.ttf",
+    "src": "node_modules/font-awesome/fonts/fontawesome-webfont.ttf"
+  },
+  "node_modules/font-awesome/fonts/fontawesome-webfont.woff": {
+    "file": "assets/fontawesome-webfont-CDK5bt4p.woff",
+    "src": "node_modules/font-awesome/fonts/fontawesome-webfont.woff"
+  },
+  "node_modules/font-awesome/fonts/fontawesome-webfont.woff2": {
+    "file": "assets/fontawesome-webfont-B-jkhYfk.woff2",
+    "src": "node_modules/font-awesome/fonts/fontawesome-webfont.woff2"
+  },
+  "resources/css/plugins.css": {
+    "file": "assets/plugins-CLhbd3P2.css",
+    "name": "plugins",
+    "names": [
+      "plugins.css"
+    ],
+    "src": "resources/css/plugins.css",
+    "isEntry": true,
+    "assets": [
+      "assets/polygons-Cps0mOW0.png",
+      "assets/close-DzBD8uQ2.svg",
+      "assets/resize-CoBt-f8q.svg",
+      "assets/next-DXWUL4rc.svg",
+      "assets/prev-BF5t953e.svg",
+      "assets/oval-BZBPkaP8.svg",
+      "assets/bx_loader-tUZRlpHG.gif",
+      "assets/controls-CkqRXZQX.png"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-CNY2Ckbr.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "imports": [
+      "_jquery-global-DNdP0Fsx.js"
+    ]
+  },
+  "resources/js/flickr/img/close.svg": {
+    "file": "assets/close-DzBD8uQ2.svg",
+    "src": "resources/js/flickr/img/close.svg"
+  },
+  "resources/js/flickr/img/next.svg": {
+    "file": "assets/next-DXWUL4rc.svg",
+    "src": "resources/js/flickr/img/next.svg"
+  },
+  "resources/js/flickr/img/oval.svg": {
+    "file": "assets/oval-BZBPkaP8.svg",
+    "src": "resources/js/flickr/img/oval.svg"
+  },
+  "resources/js/flickr/img/polygons.png": {
+    "file": "assets/polygons-Cps0mOW0.png",
+    "src": "resources/js/flickr/img/polygons.png"
+  },
+  "resources/js/flickr/img/prev.svg": {
+    "file": "assets/prev-BF5t953e.svg",
+    "src": "resources/js/flickr/img/prev.svg"
+  },
+  "resources/js/flickr/img/resize.svg": {
+    "file": "assets/resize-CoBt-f8q.svg",
+    "src": "resources/js/flickr/img/resize.svg"
+  },
+  "resources/js/jquery.bxslider/images/bx_loader.gif": {
+    "file": "assets/bx_loader-tUZRlpHG.gif",
+    "src": "resources/js/jquery.bxslider/images/bx_loader.gif"
+  },
+  "resources/js/jquery.bxslider/images/controls.png": {
+    "file": "assets/controls-CkqRXZQX.png",
+    "src": "resources/js/jquery.bxslider/images/controls.png"
+  },
+  "resources/js/outreach.js": {
+    "file": "assets/outreach-BJQjlJGD.js",
+    "name": "outreach",
+    "src": "resources/js/outreach.js",
+    "isEntry": true,
+    "imports": [
+      "_jquery-global-DNdP0Fsx.js",
+      "_page-init-CoKYWJS1.js"
+    ]
+  },
+  "resources/js/photography.js": {
+    "file": "assets/photography-BL5QHgGD.js",
+    "name": "photography",
+    "src": "resources/js/photography.js",
+    "isEntry": true,
+    "imports": [
+      "_jquery-global-DNdP0Fsx.js",
+      "_page-init-CoKYWJS1.js"
+    ]
+  },
+  "resources/js/publications.js": {
+    "file": "assets/publications-DUjwYU2K.js",
+    "name": "publications",
+    "src": "resources/js/publications.js",
+    "isEntry": true
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-DGvVbApM.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "resources/sass/app.scss",
+    "isEntry": true,
+    "assets": [
+      "assets/glyphicons-halflings-regular-BUJKDMgK.eot",
+      "assets/glyphicons-halflings-regular-DzqM6ju8.woff2",
+      "assets/glyphicons-halflings-regular-BKjkU69z.woff",
+      "assets/glyphicons-halflings-regular-DrwTMapi.ttf",
+      "assets/glyphicons-halflings-regular-CSehLiBc.svg",
+      "assets/fontawesome-webfont-G5YE5S7X.eot",
+      "assets/fontawesome-webfont-B-jkhYfk.woff2",
+      "assets/fontawesome-webfont-CDK5bt4p.woff",
+      "assets/fontawesome-webfont-CQDK8MU3.ttf",
+      "assets/fontawesome-webfont-D13rzr4g.svg"
+    ]
+  }
+}
