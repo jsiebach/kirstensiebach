@@ -43,7 +43,7 @@
 
     @if (! empty($page->photos))
         <br><br>
-        <div style="width:74%;margin:0 13%">
+        <div class="outreach-slideshow" style="width:74%;margin:0 13%">
             <div class="slideshow">
                 <ul class="bxslider">
                     @foreach ($page->photos as $photo)

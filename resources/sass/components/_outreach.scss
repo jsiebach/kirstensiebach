@@ -76,3 +76,17 @@
 .outreach-video__description {
   margin-top: 10px;
 }
+
+// Every slide gets the same frame so the slider doesn't take the height of its tallest
+// photo; photos of any shape are fitted inside it without cropping
+.outreach-slideshow .bxslider li {
+  aspect-ratio: 3 / 2;
+  background: #111;
+
+  img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: contain;
+  }
+}
